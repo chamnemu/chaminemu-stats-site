@@ -4,211 +4,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101017">
 <title>ちゃみねむ | STREAMER PORTFOLIO</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <style>
 :root {
   --bg:#101017;
-  --panel:#1d1c2b;
+  --panel:#201e30;
   --line:#39344e;
   --text:#f7f4ff;
   --muted:#b8b3ca;
   --lav:#b99bff;
 }
 * {box-sizing:border-box}
-html {scroll-behavior:smooth}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
 body {
   margin:0;
+  background:radial-gradient(ellipse 85% 440px at 50% -140px,#25203b,transparent),var(--bg);
   color:var(--text);
   font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;
   line-height:1.7;
-  background:radial-gradient(ellipse 85% 440px at 50% -140px,#25203b 0%,transparent 75%),var(--bg);
 }
+body.menu-open {overflow:hidden}
 a {color:inherit}
-main {width:min(1120px,calc(100% - 40px));margin:auto;padding:68px 0}
-.eyebrow {font-size:12px;font-weight:800;letter-spacing:4px;color:var(--lav)}
-h1 {font-size:clamp(43px,7vw,72px);margin:8px 0 4px}
-h2 {font-size:clamp(21px,3vw,26px);margin:0}
-.hero {margin-bottom:66px}
-.hero p,.small,.status,.section-note {color:var(--muted)}
-.small,.status,.section-note {font-size:12px}
-.section {margin:54px 0}
-.section-heading {
-  display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;margin-bottom:20px;
+button {font:inherit}
+main {max-width:1120px;margin:auto;padding:60px 20px}
+h1 {font-size:clamp(42px,7vw,70px);margin:5px 0}
+h2 {font-size:24px;margin:0}
+h3 {margin:12px 0 6px}
+.hero {padding:20px 0 35px}
+.hero p,.small,.status,.note {color:var(--muted)}
+.small,.status,.note {font-size:13px}
+.eyebrow {font-size:12px;letter-spacing:4px;color:var(--lav);font-weight:800}
+.section {margin:55px 0}
+.section h2 {
+  border-left:5px solid var(--lav);
+  padding-left:14px;
+  margin-bottom:20px;
 }
-.section-heading h2 {display:flex;align-items:center;gap:13px}
-.section-heading h2:before {
-  content:"";width:5px;height:28px;border-radius:4px;
-  background:linear-gradient(var(--lav),#8151eb);
-}
-.sns-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-.sns-card,.card {
+.card,.sns-card {
   border:1px solid var(--line);
+  background:linear-gradient(145deg,#211e30,#1b1a28);
   border-radius:20px;
-  background:linear-gradient(145deg,#201e30,#1b1a28);
-  box-shadow:0 12px 34px rgba(0,0,0,.14);
+  padding:25px;
 }
-.sns-card {
-  min-height:244px;
-  padding:24px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  transition:transform .2s,border-color .2s;
+.grid3 {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid4 {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.grid2 {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sns-card {min-height:220px;display:flex;flex-direction:column}
+.sns-head {display:flex;align-items:center;gap:12px}
+.brand {
+  width:52px;height:52px;border-radius:14px;
+  display:grid;place-items:center;
+  font-size:25px;font-weight:900;
 }
-.sns-card:hover {transform:translateY(-4px);border-color:#79669d}
-.sns-card:after {
-  content:"";
-  position:absolute;
-  right:-60px;
-  bottom:-130px;
-  width:310px;
-  height:210px;
-  border-radius:50%;
-  background:var(--glow);
-  filter:blur(18px);
-  pointer-events:none;
-}
-.sns-card>* {position:relative;z-index:1}
-.twitch {--glow:rgba(147,91,255,.15)}
-.x {--glow:rgba(127,152,231,.12)}
-.youtube {--glow:rgba(255,77,110,.12)}
-.sns-head {display:flex;align-items:center;gap:13px}
-.brand-icon {
-  height:54px;
-  width:54px;
-  flex:none;
-  display:grid;
-  place-items:center;
-  border-radius:14px;
-  font-weight:900;
-  font-size:27px;
-}
-.twitch .brand-icon {background:linear-gradient(145deg,#a65cff,#6d36d8)}
-.x .brand-icon {background:#050509}
-.youtube .brand-icon {background:linear-gradient(145deg,#ff435d,#e90024)}
-.sns-name {font-size:18px;font-weight:800}
-.sns-sub {font-size:12px;color:var(--muted)}
+.twitch .brand {background:#9146ff}
+.x .brand {background:#050509}
+.youtube .brand {background:#e51d3a}
+.sns-name {font-weight:800;font-size:18px}
 .sns-number {
-  font-size:clamp(29px,3.8vw,46px);
-  font-weight:850;
-  letter-spacing:-.035em;
-  margin:25px 0 14px;
-  font-variant-numeric:tabular-nums;
+  font-size:clamp(27px,3.7vw,43px);
+  font-weight:850;margin:20px 0;
+  color:#d6c1ff;
   white-space:nowrap;
 }
-.twitch .sns-number {color:#d4c0ff}
-.x .sns-number {color:#e1e6ff}
-.youtube .sns-number {color:#ffb9c6}
-.sns-bottom {
-  margin-top:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-.sns-bottom a {
-  font-size:13px;
-  text-decoration:none;
-  font-weight:800;
-}
-.twitch .sns-bottom a {color:#b99bff}
-.x .sns-bottom a {color:#bbcaff}
-.youtube .sns-bottom a {color:#ff8094}
-.arrow {
-  height:30px;
-  width:30px;
-  border:1px solid #514761;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-}
-.manual {font-size:11px;color:var(--muted);margin:-6px 0 10px}
-.card {padding:26px}
-.hero-stat {
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:28px;
-  align-items:center;
-}
-.stat-caption,.metric-label {font-size:14px;color:var(--muted)}
-.big-number {
-  font-size:clamp(38px,5.5vw,62px);
-  font-weight:850;
-  color:#cbb3ff;
-  margin:16px 0;
-}
-.week-details {border-left:1px solid var(--line);padding-left:28px}
-.detail-title {font-weight:700;color:#d6c9f7;font-size:13px}
-.metric-grid {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
-}
-.metric-value {
-  font-size:clamp(23px,3vw,33px);
-  font-weight:800;
-  color:#dbc9ff;
-  margin-top:12px;
-  overflow-wrap:anywhere;
-}
-.chart-card {margin-top:18px}
-.chart-wrap {height:290px;position:relative;margin:20px 0}
-.youtube-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
+.sns-card a {margin-top:auto;text-decoration:none;color:var(--lav);font-weight:700;font-size:13px}
+.metric-label {color:var(--muted);font-size:13px}
+.metric-value {font-size:30px;font-weight:800;color:#d6c1ff;margin-top:12px}
+.big-number {font-size:clamp(36px,5vw,58px);font-weight:850;color:#cbb3ff}
+.chart-wrap {height:280px;margin-top:20px}
+.portfolio-tag {
+  display:inline-block;padding:4px 10px;border-radius:30px;
+  background:#352944;color:#d7c4ff;font-size:12px;
 }
 .links {display:flex;flex-wrap:wrap;gap:10px}
 .links a {
-  border:1px solid #594577;
-  background:#2b2240;
-  padding:10px 17px;
-  border-radius:11px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:13px;
+  text-decoration:none;padding:10px 17px;
+  border:1px solid #594577;background:#2b2240;
+  border-radius:11px;font-size:13px;
 }
-.links a:hover {background:#41305d}
-.footer {
-  border-top:1px solid var(--line);
-  padding-top:24px;
-  color:var(--muted);
-  font-size:12px;
-  margin-top:60px;
+footer {border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}
+
+/* 上部の固定バー */
+.topbar {
+  position:sticky;top:0;z-index:50;
+  background:rgba(16,16,23,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
 }
+.topbar-inner {
+  max-width:1120px;margin:auto;padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo {font-weight:850;font-size:19px;text-decoration:none}
+.logo span {color:var(--lav)}
+.menu-button {
+  width:46px;height:46px;
+  background:#30263f;border:1px solid #70578e;
+  color:white;border-radius:12px;
+  font-size:25px;cursor:pointer;
+}
+
+/* 左からニュッと出るメニュー */
+.menu-overlay {
+  position:fixed;inset:0;z-index:70;
+  background:rgba(0,0,0,.65);
+  opacity:0;visibility:hidden;
+  transition:opacity .3s,visibility .3s;
+}
+.menu-overlay.open {opacity:1;visibility:visible}
+.menu-panel {
+  position:fixed;top:0;bottom:0;left:0;z-index:80;
+  width:min(340px,86vw);
+  background:linear-gradient(160deg,#2c2342,#16141f);
+  border-right:1px solid #65517f;
+  box-shadow:15px 0 45px #0008;
+  padding:25px 16px;
+  overflow-y:auto;
+  transform:translateX(-105%);
+  visibility:hidden;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),visibility .35s;
+}
+.menu-panel.open {transform:translateX(0);visibility:visible}
+.menu-header {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 10px 20px;margin-bottom:15px;
+  border-bottom:1px solid #514064;
+  font-weight:800;color:#e4d4ff;
+}
+.menu-close {
+  background:#40334f;color:white;
+  border:1px solid #6c5785;
+  border-radius:10px;width:40px;height:40px;
+  font-size:24px;cursor:pointer;
+}
+.menu-panel a {
+  display:block;padding:13px 14px;
+  text-decoration:none;border-radius:11px;
+  font-size:14px;
+}
+.menu-panel a:hover {background:#403352}
 @media(max-width:850px) {
-  .sns-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .metric-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid3,.grid4 {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:560px) {
-  main {width:calc(100% - 28px);padding-top:42px}
-  .hero {margin-bottom:42px}
-  .section {margin:38px 0}
-  .sns-grid,.hero-stat,.youtube-grid {grid-template-columns:1fr}
-  .sns-card {min-height:218px}
-  .sns-number {font-size:39px}
-  .week-details {
-    border-left:0;
-    border-top:1px solid var(--line);
-    padding:18px 0 0;
-  }
-  .card {padding:20px}
+  .grid3,.grid2 {grid-template-columns:1fr}
+  .grid4 {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card,.sns-card {padding:19px}
+  .metric-value {font-size:24px}
   .chart-wrap {height:240px}
-  .metric-grid {gap:10px}
-  .metric-grid .card {padding:17px}
+  main {padding:35px 14px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .menu-panel,.menu-overlay {transition:none}
 }
 </style>
 </head>
 <body>
-<main>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="logo">ちゃみねむ <span>✦</span></a>
+    <button class="menu-button" id="menuButton" aria-label="メニューを開く" aria-expanded="false" aria-controls="menuPanel">☰</button>
+  </div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<nav class="menu-panel" id="menuPanel" aria-label="サイトメニュー" inert>
+  <div class="menu-header">
+    <span>ちゃみねむ ✦</span>
+    <button class="menu-close" id="menuClose" aria-label="閉じる">×</button>
+  </div>
+  <a href="#top">⌂ トップ</a>
+  <a href="#sns">♡ SNS フォロワー・登録者数</a>
+  <a href="#stream">▤ 配信データ</a>
+  <a href="#twitch-results">✦ Twitch 配信実績</a>
+  <a href="#youtube-results">▶ YouTube チャンネル実績</a>
+  <a href="#company-results">▣ 企業との実績</a>
+  <a href="#tournament-results">★ 大会参加実績</a>
+  <a href="#official-links">↗ 公式リンク</a>
+</nav>
+
+<main id="top">
 
 <header class="hero">
   <div class="eyebrow">STREAMER PORTFOLIO</div>
@@ -216,116 +193,80 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   <p>配信活動・実績・成長記録</p>
 </header>
 
-<section class="section">
-  <div class="section-heading">
-    <h2>SNS フォロワー・登録者数</h2>
-    <p class="section-note">
-      Twitch・YouTubeは自動更新 ／ Xは手動更新
-    </p>
-  </div>
+<section class="section" id="sns">
+  <h2>SNS フォロワー・登録者数</h2>
+  <div class="grid3">
 
-  <div class="sns-grid">
-
-    <!-- 1. Twitch -->
     <article class="sns-card twitch">
       <div class="sns-head">
-        <div class="brand-icon">♜</div>
+        <div class="brand">♜</div>
         <div>
           <div class="sns-name">Twitch</div>
-          <div class="sns-sub">フォロワー数</div>
+          <div class="small">フォロワー数</div>
         </div>
       </div>
       <div class="sns-number" id="twitchFollowers">読み込み中</div>
-      <div class="sns-bottom">
-        <a href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitchを見る →</a>
-        <span class="arrow">›</span>
-      </div>
+      <a href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitchを見る →</a>
     </article>
 
-    <!-- 2. X -->
     <article class="sns-card x">
       <div class="sns-head">
-        <div class="brand-icon">𝕏</div>
+        <div class="brand">𝕏</div>
         <div>
           <div class="sns-name">X</div>
-          <div class="sns-sub">フォロワー数</div>
+          <div class="small">フォロワー数</div>
         </div>
       </div>
       <div class="sns-number">13,221 人</div>
-      <div class="manual">※ 手動更新</div>
-      <div class="sns-bottom">
-        <a href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">Xを見る →</a>
-        <span class="arrow">›</span>
-      </div>
+      <div class="small">※ 手動更新</div>
+      <a href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">Xを見る →</a>
     </article>
 
-    <!-- 3. YouTube -->
     <article class="sns-card youtube">
       <div class="sns-head">
-        <div class="brand-icon">▶</div>
+        <div class="brand">▶</div>
         <div>
           <div class="sns-name">YouTube</div>
-          <div class="sns-sub">チャンネル登録者数</div>
+          <div class="small">チャンネル登録者数</div>
         </div>
       </div>
       <div class="sns-number" id="snsYoutubeSubscribers">読み込み中</div>
-      <div class="sns-bottom">
-        <a href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">YouTubeを見る →</a>
-        <span class="arrow">›</span>
-      </div>
+      <a href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">YouTubeを見る →</a>
     </article>
 
   </div>
-
-  <p class="status" id="snsStatus">
-    SNSデータを取得しています...
-  </p>
+  <p class="status" id="snsStatus">SNSデータを取得中...</p>
 </section>
 
-<section class="section">
-  <div class="section-heading"><h2>配信データ</h2></div>
+<section class="section" id="stream">
+  <h2>配信データ</h2>
 
-  <div class="card hero-stat">
-    <div>
-      <div class="stat-caption">Twitch 今週の平均同時視聴者数</div>
-      <div class="big-number" id="weeklyAverage">読み込み中...</div>
-      <div class="small" id="weeklyStatus">計測データを確認しています</div>
-    </div>
-    <div class="week-details">
-      <div class="detail-title">▦ 集計期間</div>
-      <p class="small" id="weeklyPeriod">日本時間・月曜日〜日曜日</p>
-      <div class="detail-title">◷ 計測時間</div>
-      <p class="small" id="weeklyMinutes">取得中...</p>
-    </div>
+  <div class="card">
+    <div class="metric-label">Twitch 今週の平均同時視聴者数</div>
+    <div class="big-number" id="weeklyAverage">読み込み中...</div>
+    <p class="small" id="weeklyStatus">計測中...</p>
+    <p class="small" id="weeklyPeriod">日本時間・月曜日〜日曜日</p>
+    <p class="small">計測時間：<span id="weeklyMinutes">取得中...</span></p>
   </div>
 
-  <div class="card chart-card">
-    <div class="stat-caption">記録期間の平均同時視聴者数</div>
+  <div class="card" style="margin-top:18px">
+    <div class="metric-label">記録期間の平均同時視聴者数</div>
     <div class="metric-value" id="averageViewers">読み込み中...</div>
     <p class="small" id="sampleInfo"></p>
-    <div class="chart-wrap">
-      <canvas id="viewerChart"></canvas>
-    </div>
-    <p class="status" id="chartStatus">グラフを読み込み中...</p>
+    <div class="chart-wrap"><canvas id="viewerChart"></canvas></div>
+    <p class="status" id="chartStatus"></p>
   </div>
 
-  <div class="card chart-card">
-    <div class="stat-caption">週間平均同時視聴者数の推移</div>
-    <div class="chart-wrap">
-      <canvas id="weeklyHistoryChart"></canvas>
-    </div>
-    <p class="status" id="weeklyHistoryStatus">
-      週間履歴を読み込み中...
-    </p>
-    <p class="small">
-      日本時間の月曜日〜日曜日で集計。今週は途中経過です。
-    </p>
+  <div class="card" style="margin-top:18px">
+    <div class="metric-label">週間平均同時視聴者数の推移</div>
+    <div class="chart-wrap"><canvas id="weeklyHistoryChart"></canvas></div>
+    <p class="status" id="weeklyHistoryStatus"></p>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-heading"><h2>Twitch 配信実績</h2></div>
-  <div class="metric-grid">
+<section class="section" id="twitch-results">
+  <h2>Twitch 配信実績</h2>
+  <div class="grid4">
     <div class="card">
       <div class="metric-label">最高同時視聴者数</div>
       <div class="metric-value" id="peakViewers">--</div>
@@ -346,11 +287,9 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   <p class="status" id="achievementStatus">配信実績を取得中...</p>
 </section>
 
-<section class="section">
-  <div class="section-heading">
-    <h2>YouTube チャンネル実績</h2>
-  </div>
-  <div class="youtube-grid">
+<section class="section" id="youtube-results">
+  <h2>YouTube チャンネル実績</h2>
+  <div class="grid3">
     <div class="card">
       <div class="metric-label">チャンネル登録者数</div>
       <div class="metric-value" id="youtubeSubscribers">--</div>
@@ -364,13 +303,53 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
       <div class="metric-value" id="youtubeVideos">--</div>
     </div>
   </div>
-  <p class="status" id="youtubeStatus">
-    YouTubeデータを取得中...
-  </p>
+  <p class="status" id="youtubeStatus"></p>
 </section>
 
-<section class="section">
-  <div class="section-heading"><h2>公式リンク</h2></div>
+<section class="section" id="company-results">
+  <h2>企業との実績・活動歴</h2>
+  <div class="grid2">
+
+    <article class="card">
+      <span class="portfolio-tag">2026年10月</span>
+      <h3>WALLHACK</h3>
+      <p class="small">製品提供・アフィリエイト</p>
+    </article>
+
+    <article class="card">
+      <span class="portfolio-tag">2026年9月</span>
+      <h3>Rabbit0様</h3>
+      <p class="small">製品提供・東京ゲームショウ（TGS）への招待</p>
+    </article>
+
+    <article class="card">
+      <span class="portfolio-tag">2026年7月</span>
+      <h3>Gamee</h3>
+      <p class="small">企業案件</p>
+    </article>
+
+    <article class="card">
+      <span class="portfolio-tag">2024年9月30日</span>
+      <h3>Twitchアフィリエイト開始</h3>
+      <p class="small">Twitchでアフィリエイト活動を開始</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="tournament-results">
+  <h2>大会参加実績</h2>
+  <div class="grid2">
+    <article class="card">
+      <span class="portfolio-tag">2026年8月</span>
+      <h3>PcuteCustom5</h3>
+      <p class="small">imi様主催 ／ リーダー枠で出場</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="official-links">
+  <h2>公式リンク</h2>
   <div class="links">
     <a href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitch ↗</a>
     <a href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">X ↗</a>
@@ -380,225 +359,156 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   </div>
 </section>
 
-<section class="section">
-  <div class="section-heading"><h2>活動実績</h2></div>
-  <div class="card">
-    <p class="small">
-      Twitchを中心とした配信活動の記録をまとめています。
-      視聴者数の推移、週間平均、配信実績、Twitchフォロワー数、
-      YouTubeチャンネル実績を自動更新しています。
-      Xのフォロワー数は手動更新です。
-    </p>
-  </div>
-</section>
-
-<footer class="footer">
-  © ちゃみねむ — STREAMER PORTFOLIO
-</footer>
-
+<footer>© ちゃみねむ — STREAMER PORTFOLIO</footer>
 </main>
 
 <script>
-const API_BASE = "https://chaminemu-stats-worker.chami2m2.workers.dev";
+// 左スライドメニュー
+const menuButton = document.getElementById("menuButton");
+const menuPanel = document.getElementById("menuPanel");
+const menuOverlay = document.getElementById("menuOverlay");
+const menuClose = document.getElementById("menuClose");
 
+function openMenu() {
+  menuPanel.inert = false;
+  menuPanel.classList.add("open");
+  menuOverlay.classList.add("open");
+  document.body.classList.add("menu-open");
+  menuButton.setAttribute("aria-expanded","true");
+  menuClose.focus();
+}
+
+function closeMenu() {
+  menuPanel.classList.remove("open");
+  menuOverlay.classList.remove("open");
+  document.body.classList.remove("menu-open");
+  menuPanel.inert = true;
+  menuButton.setAttribute("aria-expanded","false");
+  menuButton.focus();
+}
+
+menuButton.addEventListener("click",openMenu);
+menuClose.addEventListener("click",closeMenu);
+menuOverlay.addEventListener("click",closeMenu);
+menuPanel.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click",closeMenu);
+});
+document.addEventListener("keydown",e => {
+  if(e.key === "Escape" && menuPanel.classList.contains("open")) {
+    closeMenu();
+  }
+});
+
+// APIデータ
+const API = "https://chaminemu-stats-worker.chami2m2.workers.dev";
 let viewerChart = null;
-let weeklyHistoryChart = null;
+let weeklyChart = null;
 
-const formatter = new Intl.DateTimeFormat("ja-JP", {
-  timeZone: "Asia/Tokyo",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit"
+const timeFormat = new Intl.DateTimeFormat("ja-JP",{
+  timeZone:"Asia/Tokyo",
+  month:"2-digit",
+  day:"2-digit",
+  hour:"2-digit",
+  minute:"2-digit"
 });
 
 function fmt(n) {
-  return Number(n).toLocaleString("ja-JP", {
-    maximumFractionDigits: 1
-  });
+  return Number(n).toLocaleString("ja-JP",{maximumFractionDigits:1});
 }
-
 function valid(n) {
-  return n !== null &&
-         n !== undefined &&
-         n !== "" &&
-         Number.isFinite(Number(n));
+  return n !== null && n !== undefined &&
+         n !== "" && Number.isFinite(Number(n));
 }
-
-function set(id, value) {
+function put(id,value) {
   document.getElementById(id).textContent = value;
 }
-
-function date(d) {
-  return formatter.format(d);
+async function get(path) {
+  const r = await fetch(API + path,{cache:"no-store"});
+  if(!r.ok) throw Error("API error");
+  return r.json();
 }
 
-async function get(path) {
-  const response = await fetch(API_BASE + path, {
-    cache: "no-store"
-  });
-
-  if (!response.ok) {
-    throw Error("API error " + response.status);
+// SNS・YouTube
+async function loadSNS() {
+  try {
+    const d = await get("/api/twitch-followers");
+    put("twitchFollowers",valid(d.follower_count)
+      ? fmt(d.follower_count)+" 人":"データなし");
+  } catch(e) {
+    console.error(e);
+    put("twitchFollowers","取得失敗");
   }
 
-  return response.json();
+  try {
+    const d = await get("/api/youtube");
+    const sub = valid(d.subscriber_count)
+      ? fmt(d.subscriber_count)+" 人":"非公開";
+    put("snsYoutubeSubscribers",sub);
+    put("youtubeSubscribers",sub);
+    put("youtubeViews",valid(d.view_count)
+      ? fmt(d.view_count)+" 回":"データなし");
+    put("youtubeVideos",valid(d.video_count)
+      ? fmt(d.video_count)+" 本":"データなし");
+    put("youtubeStatus","YouTubeデータを自動取得しています。");
+  } catch(e) {
+    console.error(e);
+    ["snsYoutubeSubscribers","youtubeSubscribers",
+     "youtubeViews","youtubeVideos"].forEach(id=>put(id,"取得失敗"));
+  }
+  put("snsStatus","Twitch・YouTubeは60秒ごとに更新。Xは手動更新です。");
 }
 
-// SNS
-async function loadSNS() {
-  let ok = 0;
-
-  await Promise.all([
-    get("/api/twitch-followers")
-      .then(d => {
-        set(
-          "twitchFollowers",
-          valid(d.follower_count)
-            ? fmt(d.follower_count) + " 人"
-            : "データなし"
-        );
-        ok++;
-      })
-      .catch(e => {
-        console.error(e);
-        set("twitchFollowers", "取得失敗");
-      }),
-
-    get("/api/youtube")
-      .then(d => {
-        const subscribers = valid(d.subscriber_count)
-          ? fmt(d.subscriber_count) + " 人"
-          : "非公開";
-
-        set("snsYoutubeSubscribers", subscribers);
-        set("youtubeSubscribers", subscribers);
-
-        set(
-          "youtubeViews",
-          valid(d.view_count)
-            ? fmt(d.view_count) + " 回"
-            : "データなし"
-        );
-
-        set(
-          "youtubeVideos",
-          valid(d.video_count)
-            ? fmt(d.video_count) + " 本"
-            : "データなし"
-        );
-
-        set(
-          "youtubeStatus",
-          "YouTube Data APIから自動取得しています。"
-        );
-
-        ok++;
-      })
-      .catch(e => {
-        console.error(e);
-
-        [
-          "snsYoutubeSubscribers",
-          "youtubeSubscribers",
-          "youtubeViews",
-          "youtubeVideos"
-        ].forEach(id => set(id, "取得失敗"));
-      })
-  ]);
-
-  set(
-    "snsStatus",
-    ok === 2
-      ? "Twitch・YouTubeは60秒ごとに更新を確認します。Xは手動更新です。"
-      : "一部のSNSデータを取得できませんでした。"
-  );
-}
-
-// 週間平均
+// 今週の平均
 async function loadWeekly() {
   try {
     const d = await get("/api/weekly");
-
-    set(
-      "weeklyAverage",
-      valid(d.average_viewers)
-        ? fmt(d.average_viewers) + " 人"
-        : "計測データなし"
-    );
-
-    if (d.week_start) {
-      set(
-        "weeklyPeriod",
-        "週開始: " + date(new Date(d.week_start)) + "（日本時間）"
-      );
+    put("weeklyAverage",valid(d.average_viewers)
+      ? fmt(d.average_viewers)+" 人":"データなし");
+    put("weeklyMinutes",valid(d.measured_minutes)
+      ? fmt(d.measured_minutes)+" 分":"データなし");
+    if(d.week_start) {
+      put("weeklyPeriod","週開始："+timeFormat.format(new Date(d.week_start)));
     }
-
-    set(
-      "weeklyMinutes",
-      valid(d.measured_minutes)
-        ? fmt(d.measured_minutes) + " 分"
-        : "データなし"
-    );
-
-    set(
-      "weeklyStatus",
-      d.provisional
-        ? "※ 今週の途中経過です"
-        : "週間集計データ"
-    );
-  } catch (e) {
+    put("weeklyStatus",d.provisional
+      ? "※ 今週の途中経過です":"週間集計データ");
+  } catch(e) {
     console.error(e);
-    set("weeklyAverage", "取得失敗");
+    put("weeklyAverage","取得失敗");
   }
 }
 
-// グラフ共通設定
-function makeChart(id, labels, values, label) {
-  return new Chart(document.getElementById(id), {
-    type: "line",
-    data: {
+// グラフ
+function createChart(id,labels,values,title) {
+  return new Chart(document.getElementById(id),{
+    type:"line",
+    data:{
       labels,
-      datasets: [{
-        label,
-        data: values,
-        borderColor: "#b99bff",
-        backgroundColor: "rgba(185,155,255,.14)",
-        fill: true,
-        tension: .3,
-        pointRadius: values.length > 100 ? 0 : 3,
-        pointHoverRadius: 5,
-        borderWidth: 2
+      datasets:[{
+        label:title,
+        data:values,
+        borderColor:"#b99bff",
+        backgroundColor:"rgba(185,155,255,.14)",
+        fill:true,
+        tension:.3,
+        pointRadius:values.length>100?0:3,
+        borderWidth:2
       }]
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        intersect: false,
-        mode: "index"
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{labels:{color:"#e6dcff"}}
       },
-      plugins: {
-        legend: {
-          labels: { color: "#e6dcff" }
-        }
-      },
-      scales: {
-        x: {
-          ticks: {
-            color: "#b8b3ca",
-            maxTicksLimit: 6
-          },
-          grid: { color: "#39344e" }
+      scales:{
+        x:{
+          ticks:{color:"#b8b3ca",maxTicksLimit:6},
+          grid:{color:"#39344e"}
         },
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: "#b8b3ca",
-            precision: 0
-          },
-          grid: { color: "#39344e" }
+        y:{
+          beginAtZero:true,
+          ticks:{color:"#b8b3ca",precision:0},
+          grid:{color:"#39344e"}
         }
       }
     }
@@ -608,177 +518,91 @@ function makeChart(id, labels, values, label) {
 // 視聴者数
 async function loadViewers() {
   try {
-    const d = await get("/api/viewers");
-
-    if (!Array.isArray(d)) {
-      throw Error("Invalid data");
-    }
-
-    const rows = d
-      .filter(x => x.sampled_at && valid(x.viewer_count))
-      .map(x => ({
-        time: new Date(x.sampled_at),
-        count: Number(x.viewer_count)
+    const data = await get("/api/viewers");
+    if(!Array.isArray(data)) throw Error("Invalid data");
+    const rows = data
+      .filter(x=>x.sampled_at && valid(x.viewer_count))
+      .map(x=>({
+        time:new Date(x.sampled_at),
+        count:Number(x.viewer_count)
       }))
-      .filter(x => !isNaN(x.time.getTime()))
-      .sort((a, b) => a.time - b.time);
+      .filter(x=>!isNaN(x.time.getTime()))
+      .sort((a,b)=>a.time-b.time);
 
-    if (!rows.length) {
-      set("averageViewers", "計測データなし");
-      set("chartStatus", "表示できるデータがありません");
+    if(!rows.length) {
+      put("averageViewers","データなし");
       return;
     }
+    const avg = rows.reduce((a,x)=>a+x.count,0)/rows.length;
+    put("averageViewers",fmt(avg)+" 人");
+    put("sampleInfo","最新記録："+timeFormat.format(rows[rows.length-1].time));
 
-    const avg =
-      rows.reduce((a, x) => a + x.count, 0) /
-      rows.length;
-
-    set("averageViewers", fmt(avg) + " 人");
-
-    set(
-      "sampleInfo",
-      "最新記録: " +
-      date(rows[rows.length - 1].time)
-    );
-
-    if (viewerChart) {
-      viewerChart.destroy();
-    }
-
-    viewerChart = makeChart(
+    if(viewerChart) viewerChart.destroy();
+    viewerChart = createChart(
       "viewerChart",
-      rows.map(x => date(x.time)),
-      rows.map(x => x.count),
+      rows.map(x=>timeFormat.format(x.time)),
+      rows.map(x=>x.count),
       "同時視聴者数"
     );
-
-    set(
-      "chartStatus",
-      "60秒ごとに更新します"
-    );
-  } catch (e) {
+    put("chartStatus","60秒ごとに更新します");
+  } catch(e) {
     console.error(e);
-    set("averageViewers", "取得失敗");
-    set(
-      "chartStatus",
-      "グラフデータを取得できませんでした"
-    );
+    put("chartStatus","グラフデータ取得失敗");
   }
 }
 
 // 週間履歴
 async function loadHistory() {
   try {
-    const d = await get("/api/weekly-history");
-
-    if (!Array.isArray(d)) {
-      throw Error("Invalid data");
-    }
-
-    const rows = d
-      .filter(x =>
-        x.week_start &&
-        valid(x.average_viewers)
-      )
-      .map(x => ({
-        time: new Date(x.week_start),
-        value: Number(x.average_viewers),
-        provisional: !!x.provisional
+    const data = await get("/api/weekly-history");
+    if(!Array.isArray(data)) throw Error("Invalid data");
+    const rows = data
+      .filter(x=>x.week_start && valid(x.average_viewers))
+      .map(x=>({
+        time:new Date(x.week_start),
+        value:Number(x.average_viewers),
+        provisional:!!x.provisional
       }))
-      .filter(x => !isNaN(x.time.getTime()))
-      .sort((a, b) => a.time - b.time);
+      .filter(x=>!isNaN(x.time.getTime()))
+      .sort((a,b)=>a.time-b.time);
 
-    if (!rows.length) {
-      set(
-        "weeklyHistoryStatus",
-        "週間データの蓄積を待っています"
-      );
+    if(!rows.length) {
+      put("weeklyHistoryStatus","週間データの蓄積を待っています");
       return;
     }
-
-    const f = new Intl.DateTimeFormat("ja-JP", {
-      timeZone: "Asia/Tokyo",
-      month: "2-digit",
-      day: "2-digit"
-    });
-
-    if (weeklyHistoryChart) {
-      weeklyHistoryChart.destroy();
-    }
-
-    weeklyHistoryChart = makeChart(
+    if(weeklyChart) weeklyChart.destroy();
+    weeklyChart = createChart(
       "weeklyHistoryChart",
-      rows.map(x =>
-        f.format(x.time) +
-        (x.provisional ? " (途中)" : "")
-      ),
-      rows.map(x => x.value),
+      rows.map(x=>timeFormat.format(x.time)+(x.provisional?" (途中)":"")),
+      rows.map(x=>x.value),
       "週間平均同時視聴者数"
     );
-
-    set(
-      "weeklyHistoryStatus",
-      "週間データを表示中"
-    );
-  } catch (e) {
+    put("weeklyHistoryStatus","週間データを表示中");
+  } catch(e) {
     console.error(e);
-    set(
-      "weeklyHistoryStatus",
-      "週間履歴を取得できませんでした"
-    );
+    put("weeklyHistoryStatus","週間履歴取得失敗");
   }
 }
 
-// 配信実績
+// Twitch配信実績
 async function loadAchievements() {
   try {
     const d = await get("/api/achievements");
-
-    set(
-      "peakViewers",
-      valid(d.peak_viewers)
-        ? fmt(d.peak_viewers) + " 人"
-        : "データなし"
-    );
-
-    set(
-      "weeklyPeakViewers",
-      valid(d.weekly_peak_viewers)
-        ? fmt(d.weekly_peak_viewers) + " 人"
-        : "データなし"
-    );
-
-    set(
-      "streamCount",
-      valid(d.stream_count)
-        ? fmt(d.stream_count) + " 回"
-        : "データなし"
-    );
-
-    set(
-      "measuredHours",
-      valid(d.measured_hours)
-        ? fmt(d.measured_hours) + " 時間"
-        : "データなし"
-    );
-
-    set(
-      "achievementStatus",
-      "※ 記録開始以降のデータです。配信時間は計測できた時間です。"
-    );
-  } catch (e) {
+    put("peakViewers",valid(d.peak_viewers)
+      ? fmt(d.peak_viewers)+" 人":"データなし");
+    put("weeklyPeakViewers",valid(d.weekly_peak_viewers)
+      ? fmt(d.weekly_peak_viewers)+" 人":"データなし");
+    put("streamCount",valid(d.stream_count)
+      ? fmt(d.stream_count)+" 回":"データなし");
+    put("measuredHours",valid(d.measured_hours)
+      ? fmt(d.measured_hours)+" 時間":"データなし");
+    put("achievementStatus","※ 記録開始以降の計測データです。");
+  } catch(e) {
     console.error(e);
-
-    [
-      "peakViewers",
-      "weeklyPeakViewers",
-      "streamCount",
-      "measuredHours"
-    ].forEach(id => set(id, "取得失敗"));
+    put("achievementStatus","配信実績取得失敗");
   }
 }
 
-// 全データ更新
 function updateAll() {
   loadSNS();
   loadWeekly();
@@ -786,9 +610,8 @@ function updateAll() {
   loadHistory();
   loadAchievements();
 }
-
 updateAll();
-setInterval(updateAll, 60000);
+setInterval(updateAll,60000);
 </script>
 </body>
 </html>
