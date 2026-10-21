@@ -4,31 +4,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111318">
-  <meta name="description" content="VALORANT配信者ちゃみねむの公式ポートフォリオ。長期スポンサー、ブランドアンバサダー、PR配信、企業コラボレーションのご相談を受け付けています。">
-  <title>ちゃみねむ | Streamer & Brand Partnership</title>
+
+  <meta name="theme-color" content="#141C2B">
+
+  <meta
+    name="description"
+    content="VALORANT配信者ちゃみねむの公式ポートフォリオ。長期スポンサー、ブランドアンバサダー、企業案件、PR配信、コラボレーションのご相談を受け付けています。"
+  >
+
+  <title>
+    ちゃみねむ | Streamer Portfolio
+  </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"
+    defer
+  ></script>
 
   <style>
+    /* ========================================
+       CHAMINEMU PORTFOLIO
+       MIDNIGHT LAVENDER THEME
+    ======================================== */
+
     :root {
-      --bg: #111318;
-      --bg-soft: #171A20;
-      --surface: #1D2027;
-      --surface-2: #282C35;
-      --surface-3: #343944;
-      --accent: #8BC5C3;
-      --accent-light: #C7E8E6;
-      --accent-dark: #5C9D9A;
-      --text: #F3F4F6;
-      --muted: #BFC3CC;
-      --subtle: #9399A5;
-      --border: rgba(139,197,195,.19);
-      --border-strong: rgba(139,197,195,.4);
+      --bg: #141C2B;
+      --bg-deep: #101725;
+      --bg-soft: #20283B;
+
+      --surface: #30324C;
+      --surface-2: #393C59;
+      --surface-3: #454968;
+
+      --accent: #A6A0D5;
+      --accent-light: #C6C3E5;
+      --accent-dark: #8079B8;
+
+      --text: #F5F3FA;
+      --muted: #D2D3E1;
+      --subtle: #A6ACC0;
+
+      --border: rgba(166,160,213,.23);
+      --border-strong: rgba(166,160,213,.48);
+
       --max: 1160px;
     }
 
@@ -43,17 +69,26 @@
 
     body {
       margin: 0;
+
       background:
         radial-gradient(
-          ellipse 65% 30% at 95% 3%,
-          rgba(139,197,195,.10),
+          ellipse 65% 30% at 95% 2%,
+          rgba(166,160,213,.12),
           transparent 75%
         ),
         var(--bg);
+
       color: var(--text);
-      font-family: "DM Sans", "Noto Sans JP", sans-serif;
+
+      font-family:
+        "DM Sans",
+        "Noto Sans JP",
+        sans-serif;
+
       line-height: 1.85;
+
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
 
     body.menu-open {
@@ -76,24 +111,34 @@
     }
 
     .container {
-      width: min(calc(100% - 40px), var(--max));
+      width: min(
+        calc(100% - 40px),
+        var(--max)
+      );
+
       margin-inline: auto;
     }
 
-    /* HEADER */
+    /* ========================================
+       HEADER
+    ======================================== */
 
     .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(17,19,24,.91);
+
+      background: rgba(20,28,43,.92);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
+
       border-bottom: 1px solid var(--border);
     }
 
     .topbar-inner {
       min-height: 74px;
+
       display: flex;
       align-items: center;
       gap: 18px;
@@ -102,12 +147,16 @@
     .menu-button {
       width: 44px;
       height: 44px;
+
       display: grid;
       place-items: center;
+
       border: 1px solid var(--border-strong);
       border-radius: 13px;
+
       background: var(--surface);
       color: var(--accent-light);
+
       font-size: 23px;
       cursor: pointer;
     }
@@ -122,28 +171,33 @@
       letter-spacing: .04em;
     }
 
-    .site-logo span {
-      color: var(--accent);
-    }
-
     .topbar-note {
       margin-left: auto;
+
+      color: var(--muted);
+
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .17em;
-      color: var(--muted);
     }
 
-    /* LEFT MENU */
+    /* ========================================
+       LEFT SLIDE MENU
+    ======================================== */
 
     .menu-overlay {
       position: fixed;
       inset: 0;
       z-index: 190;
-      background: rgba(0,0,0,.72);
+
+      background: rgba(5,8,16,.78);
+
       opacity: 0;
       visibility: hidden;
-      transition: opacity .25s, visibility .25s;
+
+      transition:
+        opacity .25s,
+        visibility .25s;
     }
 
     .menu-overlay.is-open {
@@ -154,16 +208,28 @@
     .menu-panel {
       position: fixed;
       z-index: 200;
+
       inset: 0 auto 0 0;
+
       width: min(345px,87vw);
       padding: 26px 22px;
+
       overflow-y: auto;
-      background: #1B1E25;
-      border-right: 1px solid var(--border-strong);
-      box-shadow: 20px 0 65px rgba(0,0,0,.4);
+
+      background: #252A42;
+
+      border-right:
+        1px solid var(--border-strong);
+
+      box-shadow:
+        20px 0 65px rgba(0,0,0,.45);
+
       transform: translateX(-105%);
       visibility: hidden;
-      transition: transform .3s, visibility .3s;
+
+      transition:
+        transform .3s,
+        visibility .3s;
     }
 
     .menu-panel.is-open {
@@ -175,18 +241,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding-bottom: 20px;
       margin-bottom: 16px;
+
       border-bottom: 1px solid var(--border);
     }
 
     .menu-close {
       width: 40px;
       height: 40px;
-      background: var(--surface-2);
+
       border: 1px solid var(--border);
       border-radius: 12px;
+
+      background: var(--surface);
       color: var(--text);
+
       font-size: 23px;
       cursor: pointer;
     }
@@ -199,30 +270,39 @@
 
     .menu-links a {
       padding: 12px 13px;
+
       border-radius: 11px;
+
+      color: var(--muted);
+
       font-size: 13px;
       font-weight: 600;
-      color: var(--muted);
     }
 
     .menu-links a:hover {
-      background: var(--surface-3);
+      background: var(--surface);
       color: var(--accent-light);
     }
 
     .menu-footer {
       margin-top: 28px;
       padding-top: 18px;
+
       border-top: 1px solid var(--border);
+
       color: var(--subtle);
       font-size: 11px;
     }
 
-    /* COMMON */
+    /* ========================================
+       COMMON COMPONENTS
+    ======================================== */
 
     .section {
-      padding: 74px 0;
-      border-top: 1px solid rgba(139,197,195,.08);
+      padding: 78px 0;
+
+      border-top:
+        1px solid rgba(166,160,213,.10);
     }
 
     .section-heading {
@@ -232,15 +312,23 @@
     .section-kicker,
     .eyebrow {
       display: block;
-      color: var(--accent);
+
+      color: var(--accent-light);
+
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: .2em;
+      letter-spacing: .20em;
     }
 
     .section-heading h2 {
       margin: 9px 0 0;
-      font-size: clamp(25px,4vw,36px);
+
+      font-size: clamp(
+        25px,
+        4vw,
+        36px
+      );
+
       line-height: 1.4;
       letter-spacing: -.035em;
     }
@@ -248,17 +336,21 @@
     .section-heading p {
       max-width: 760px;
       margin: 10px 0 0;
+
       color: var(--muted);
       font-size: 13px;
     }
 
     .card {
       padding: 26px;
-      background: linear-gradient(
-        150deg,
-        #242831,
-        #1B1E25
-      );
+
+      background:
+        linear-gradient(
+          150deg,
+          #353752,
+          #282D44
+        );
+
       border: 1px solid var(--border);
       border-radius: 22px;
     }
@@ -267,14 +359,20 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       min-height: 48px;
       padding: 12px 22px;
+
       border: 1px solid transparent;
       border-radius: 12px;
+
       font-size: 13px;
       font-weight: 800;
       text-align: center;
-      transition: transform .2s, background .2s;
+
+      transition:
+        transform .2s,
+        background .2s;
     }
 
     .button:hover {
@@ -283,7 +381,7 @@
 
     .button-primary {
       background: var(--accent);
-      color: #111318;
+      color: var(--bg-deep);
     }
 
     .button-primary:hover {
@@ -292,77 +390,94 @@
 
     .button-outline {
       color: var(--accent-light);
+
       border-color: var(--border-strong);
-      background: rgba(139,197,195,.05);
+
+      background:
+        rgba(166,160,213,.07);
     }
 
     .button-outline:hover {
-      background: var(--surface-3);
+      background: var(--surface);
     }
 
-    /* HERO - LARGE ILLUSTRATION */
+    /* ========================================
+       HERO
+       LARGE CHARACTER ILLUSTRATION
+    ======================================== */
 
     .hero {
       position: relative;
-      padding: 55px 0 35px;
-      overflow: hidden;
-    }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -100px;
-      right: -140px;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(139,197,195,.13),
-        transparent 72%
-      );
-      pointer-events: none;
+      padding: 36px 0 20px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          ellipse at 90% 50%,
+          rgba(166,160,213,.14),
+          transparent 58%
+        );
     }
 
     .hero-grid {
       position: relative;
+
       display: grid;
+
       grid-template-columns:
-        minmax(0,1fr)
-        minmax(0,1.15fr);
-      gap: 15px;
+        minmax(0, 48%)
+        minmax(0, 52%);
+
+      gap: 0;
       align-items: center;
+
+      min-height: 700px;
     }
 
     .hero-copy {
       position: relative;
       z-index: 3;
+
+      padding: 35px 0;
     }
 
     .hero h1 {
-      margin: 16px 0 24px;
-      font-size: clamp(52px,7.2vw,86px);
+      margin: 16px 0 25px;
+
+      font-size: clamp(
+        54px,
+        6.8vw,
+        86px
+      );
+
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -.065em;
-      white-space: nowrap;
-    }
 
-    .hero h1 span {
-      color: var(--accent);
+      white-space: nowrap;
     }
 
     .hero-catch {
       margin: 0 0 20px;
-      font-size: clamp(18px,2.4vw,26px);
+
+      font-size: clamp(
+        18px,
+        2.4vw,
+        26px
+      );
+
       font-weight: 700;
       line-height: 1.7;
     }
 
     .hero-desc {
-      max-width: 590px;
+      max-width: 550px;
       margin: 0;
+
       color: var(--muted);
+
       font-size: 14px;
       line-height: 2.05;
     }
@@ -371,94 +486,140 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+
       margin-top: 32px;
     }
 
-    /* TRANSPARENT CHARACTER PNG */
+    /* Illustration area */
 
     .hero-art {
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 630px;
+
       width: 100%;
+      min-height: 700px;
+
       isolation: isolate;
     }
 
+    /* Lavender glow behind the image */
+
     .hero-art::before {
       content: "";
+
       position: absolute;
       z-index: -2;
-      top: 4%;
-      left: 50%;
-      width: 115%;
-      max-width: 650px;
+
+      top: 5%;
+      left: 55%;
+
+      width: 145%;
+      max-width: 850px;
+
       aspect-ratio: 1;
+
       border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(139,197,195,.25) 0%,
-        rgba(139,197,195,.12) 38%,
-        transparent 72%
-      );
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(166,160,213,.28) 0%,
+          rgba(128,121,184,.14) 40%,
+          transparent 73%
+        );
+
       transform: translateX(-50%);
       pointer-events: none;
     }
 
+    /* Decorative outline */
+
     .hero-art::after {
       content: "";
+
       position: absolute;
       z-index: -1;
-      width: 78%;
-      height: 55%;
+
+      width: 90%;
+      height: 65%;
+
       left: 10%;
-      bottom: 8%;
-      border: 1px solid rgba(139,197,195,.18);
+      bottom: 7%;
+
+      border:
+        1px solid rgba(166,160,213,.18);
+
       border-radius: 50%;
+
       transform: rotate(-15deg);
+
       pointer-events: none;
     }
 
+    /* Main PNG - intentionally oversized */
+
     .hero-illustration {
-      display: block;
       position: relative;
       z-index: 1;
-      width: 115%;
+
+      display: block;
+
+      width: 155%;
       max-width: none;
-      max-height: 680px;
+      max-height: none;
+
       height: auto;
+
       object-fit: contain;
       object-position: center;
-      transform: translate(10px,-20px);
-      filter: drop-shadow(
-        0 20px 40px rgba(0,0,0,.28)
-      );
+
+      transform:
+        translate(11%, -2%);
+
+      filter:
+        drop-shadow(
+          0 25px 55px rgba(0,0,0,.30)
+        );
     }
 
     .hero-art-label {
       position: absolute;
       z-index: 2;
-      right: 5px;
-      bottom: 30px;
+
+      right: -10px;
+      bottom: 35px;
+
       padding: 10px 15px;
-      background: rgba(29,32,39,.9);
-      border: 1px solid var(--border-strong);
+
+      background:
+        rgba(36,40,63,.90);
+
+      border:
+        1px solid var(--border-strong);
+
       border-radius: 12px;
+
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+
       text-align: right;
     }
 
     .hero-art-label strong {
       display: block;
+
       color: var(--accent-light);
+
       font-size: 12px;
       letter-spacing: .1em;
     }
 
     .hero-art-label span {
       display: block;
+
       color: var(--muted);
       font-size: 10px;
     }
@@ -470,22 +631,31 @@
     .hero-art.is-missing .hero-art-label {
       right: 50%;
       bottom: 45%;
+
       transform: translate(50%,50%);
+
       text-align: center;
     }
 
-    /* ABOUT */
+    /* ========================================
+       ABOUT
+    ======================================== */
 
     .about-card {
       display: grid;
-      grid-template-columns: 1fr auto;
+
+      grid-template-columns:
+        1fr auto;
+
       gap: 25px;
       align-items: center;
     }
 
     .about-card p {
       margin: 0 0 14px;
+
       color: var(--muted);
+
       font-size: 14px;
       line-height: 2.1;
     }
@@ -496,31 +666,50 @@
 
     .about-tag {
       padding: 14px 18px;
-      border: 1px solid var(--border-strong);
+
+      border:
+        1px solid var(--border-strong);
+
       border-radius: 14px;
-      background: rgba(139,197,195,.1);
+
+      background:
+        rgba(166,160,213,.12);
+
       color: var(--accent-light);
+
       font-size: 12px;
       font-weight: 800;
+
       white-space: nowrap;
     }
 
-    /* WHY */
+    /* ========================================
+       FEATURES
+    ======================================== */
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(4,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
       gap: 16px;
     }
 
     .feature-icon {
       display: grid;
       place-items: center;
+
       width: 44px;
       height: 44px;
+
       margin-bottom: 20px;
-      background: rgba(139,197,195,.13);
+
+      background:
+        rgba(166,160,213,.16);
+
       border-radius: 13px;
+
       color: var(--accent-light);
       font-size: 21px;
     }
@@ -532,58 +721,88 @@
 
     .feature-card p {
       margin: 0;
+
       color: var(--muted);
+
       font-size: 12px;
       line-height: 1.9;
     }
 
-    /* METRICS */
+    /* ========================================
+       METRICS
+    ======================================== */
 
     .metrics-grid,
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
       gap: 16px;
     }
 
     .metric-card {
       padding: 24px 21px;
-      background: var(--surface);
+
+      background:
+        linear-gradient(
+          155deg,
+          #353752,
+          #292E45
+        );
+
       border: 1px solid var(--border);
       border-radius: 18px;
     }
 
     .metric-label {
       margin-bottom: 10px;
+
       color: var(--muted);
       font-size: 12px;
     }
 
     .metric-value {
-      font-size: clamp(23px,3vw,32px);
+      color: var(--text);
+
+      font-size: clamp(
+        23px,
+        3vw,
+        32px
+      );
+
       font-weight: 800;
       line-height: 1.4;
       letter-spacing: -.04em;
+
       overflow-wrap: anywhere;
     }
 
     .metric-note {
       margin-top: 7px;
+
       color: var(--subtle);
       font-size: 10px;
     }
 
     .data-note {
       margin-top: 18px;
+
       color: var(--subtle);
       font-size: 11px;
     }
 
-    /* PARTNERSHIP */
+    /* ========================================
+       PARTNERSHIP
+    ======================================== */
 
     .partnership-grid {
       display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
       gap: 16px;
     }
 
@@ -591,11 +810,13 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+
       min-height: 270px;
     }
 
     .partnership-number {
-      color: var(--accent);
+      color: var(--accent-light);
+
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .14em;
@@ -603,34 +824,48 @@
 
     .partnership-card h3 {
       margin: 6px 0 0;
+
       font-size: 19px;
       line-height: 1.5;
     }
 
     .partnership-card p {
       margin: 0;
+
       color: var(--muted);
+
       font-size: 12px;
       line-height: 2;
     }
 
     .partnership-tag {
       align-self: flex-start;
+
       margin-top: auto;
       padding: 6px 12px;
+
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(139,197,195,.1);
+
+      background:
+        rgba(166,160,213,.13);
+
       color: var(--accent-light);
+
       font-size: 10px;
       font-weight: 700;
     }
 
-    /* SNS */
+    /* ========================================
+       SOCIAL LINKS
+    ======================================== */
 
     .sns-grid {
       display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
       gap: 16px;
     }
 
@@ -638,8 +873,12 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+
       min-height: 160px;
-      transition: transform .2s, border-color .2s;
+
+      transition:
+        transform .2s,
+        border-color .2s;
     }
 
     .sns-card:hover {
@@ -659,57 +898,82 @@
 
     .sns-arrow {
       margin-top: auto;
-      color: var(--accent);
+
+      color: var(--accent-light);
+
       font-size: 12px;
       font-weight: 800;
     }
 
-    /* TIMELINE */
+    /* ========================================
+       TIMELINE
+    ======================================== */
 
     .timeline {
       position: relative;
+
       display: flex;
       flex-direction: column;
     }
 
     .timeline::before {
       content: "";
+
       position: absolute;
+
       top: 16px;
       bottom: 22px;
       left: 134px;
+
       width: 2px;
-      background: linear-gradient(
-        var(--accent),
-        rgba(139,197,195,.12)
-      );
+
+      background:
+        linear-gradient(
+          var(--accent),
+          rgba(166,160,213,.12)
+        );
     }
 
     .timeline-entry {
       display: grid;
-      grid-template-columns: 115px 38px minmax(0,1fr);
+
+      grid-template-columns:
+        115px 38px minmax(0,1fr);
+
       align-items: start;
+
       padding-bottom: 24px;
     }
 
     .timeline-date {
       padding-top: 22px;
+
       color: var(--accent-light);
+
       font-size: 12px;
       font-weight: 700;
+
       text-align: right;
     }
 
     .timeline-dot {
       position: relative;
       z-index: 1;
+
       width: 13px;
       height: 13px;
+
       margin: 25px auto 0;
+
       background: var(--accent);
-      border: 3px solid var(--bg);
+
+      border:
+        3px solid var(--bg);
+
       border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--accent-dark);
+
+      box-shadow:
+        0 0 0 2px var(--accent-dark);
     }
 
     .timeline-content h3 {
@@ -719,27 +983,39 @@
 
     .timeline-content p {
       margin: 0;
+
       color: var(--muted);
       font-size: 13px;
     }
 
     .timeline-type {
       display: inline-block;
+
       margin-top: 14px;
       padding: 5px 11px;
+
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(139,197,195,.1);
+
+      background:
+        rgba(166,160,213,.13);
+
       color: var(--accent-light);
+
       font-size: 10px;
       font-weight: 700;
     }
 
-    /* CHARTS */
+    /* ========================================
+       CHARTS
+    ======================================== */
 
     .chart-grid {
       display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
       gap: 18px;
     }
 
@@ -754,52 +1030,71 @@
 
     .chart-description {
       margin: 0 0 18px;
+
       color: var(--muted);
       font-size: 11px;
     }
 
     .chart-box {
       position: relative;
+
       width: 100%;
       height: 270px;
     }
 
     .chart-fallback {
       display: none;
+
       color: var(--muted);
       font-size: 12px;
     }
 
-    /* CONTACT */
+    /* ========================================
+       CONTACT
+    ======================================== */
 
     .contact-panel {
       padding: 44px;
+
       background:
         radial-gradient(
           circle at 85% 20%,
-          rgba(139,197,195,.18),
+          rgba(166,160,213,.23),
           transparent 48%
         ),
         linear-gradient(
           140deg,
-          #304243,
-          #1B1E25 70%
+          #393B5D,
+          #222A40 75%
         );
-      border: 1px solid var(--border-strong);
+
+      border:
+        1px solid var(--border-strong);
+
       border-radius: 28px;
-      box-shadow: 0 20px 65px rgba(0,0,0,.2);
+
+      box-shadow:
+        0 20px 65px rgba(0,0,0,.2);
     }
 
     .contact-panel h2 {
       max-width: 760px;
+
       margin: 10px 0 16px;
-      font-size: clamp(25px,4vw,38px);
+
+      font-size: clamp(
+        25px,
+        4vw,
+        38px
+      );
+
       line-height: 1.5;
     }
 
     .contact-panel p {
       max-width: 690px;
       margin: 0;
+
       color: var(--muted);
       font-size: 13px;
     }
@@ -808,14 +1103,20 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+
       margin: 28px 0 18px;
     }
 
     .contact-email {
       color: var(--accent-light);
+
       font-size: 12px;
       overflow-wrap: anywhere;
     }
+
+    /* ========================================
+       OFFICIAL LINKS
+    ======================================== */
 
     .official-links {
       display: flex;
@@ -825,22 +1126,34 @@
 
     .official-link {
       padding: 10px 17px;
-      border: 1px solid var(--border-strong);
+
+      border:
+        1px solid var(--border-strong);
+
       border-radius: 999px;
+
       color: var(--muted);
+
       font-size: 12px;
       font-weight: 700;
     }
 
     .official-link:hover {
       color: var(--accent-light);
-      background: var(--surface-2);
+      background: var(--surface);
     }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     footer {
       padding: 35px 0 45px;
+
       border-top: 1px solid var(--border);
+
       color: var(--subtle);
+
       font-size: 11px;
       text-align: center;
     }
@@ -849,6 +1162,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
+
       color: var(--muted);
       font-size: 11px;
     }
@@ -856,16 +1170,25 @@
     .status-dot {
       width: 7px;
       height: 7px;
-      background: #A8D6BC;
+
+      background: var(--accent);
       border-radius: 50%;
     }
 
-    /* TABLET */
+    /* ========================================
+       TABLET
+    ======================================== */
 
     @media (max-width: 900px) {
+      .hero {
+        padding: 48px 0 15px;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
         gap: 0;
+
+        min-height: 0;
       }
 
       .hero h1 {
@@ -875,20 +1198,29 @@
       .hero-art {
         min-height: 520px;
         max-width: 100%;
+
         margin-inline: auto;
       }
 
       .hero-illustration {
-        width: 100%;
-        max-width: 600px;
-        max-height: 570px;
-        transform: translateY(-10px);
+        width: 115%;
+        max-width: 690px;
+        max-height: none;
+
+        transform:
+          translate(5%, -2%);
+      }
+
+      .hero-art-label {
+        right: 5%;
+        bottom: 25px;
       }
 
       .feature-grid,
       .metrics-grid,
       .stats-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
       }
 
       .partnership-grid {
@@ -900,11 +1232,16 @@
       }
     }
 
-    /* MOBILE */
+    /* ========================================
+       MOBILE
+    ======================================== */
 
     @media (max-width: 640px) {
       .container {
-        width: min(calc(100% - 28px),var(--max));
+        width: min(
+          calc(100% - 28px),
+          var(--max)
+        );
       }
 
       .topbar-inner {
@@ -916,15 +1253,23 @@
       }
 
       .hero {
-        padding: 45px 0 20px;
+        padding: 42px 0 10px;
       }
 
       .hero h1 {
-        font-size: clamp(46px,12vw,70px);
+        font-size: clamp(
+          46px,
+          12vw,
+          70px
+        );
       }
 
       .hero-catch {
         font-size: 18px;
+      }
+
+      .hero-desc {
+        font-size: 13px;
       }
 
       .hero-actions {
@@ -936,30 +1281,33 @@
       }
 
       .hero-art {
-        min-height: 410px;
-        margin-top: 15px;
+        min-height: 390px;
+        margin-top: 8px;
       }
 
       .hero-art::before {
-        width: 115%;
-        top: 5%;
+        width: 135%;
+        top: 0;
       }
 
       .hero-illustration {
-        width: 110%;
-        max-width: 450px;
-        max-height: 480px;
-        transform: translateY(-5px);
+        width: 130%;
+        max-width: none;
+        max-height: none;
+
+        transform:
+          translate(6%, -1%);
       }
 
       .hero-art-label {
         right: 0;
-        bottom: 10px;
+        bottom: 8px;
+
         padding: 8px 12px;
       }
 
       .section {
-        padding: 52px 0;
+        padding: 54px 0;
       }
 
       .card {
@@ -975,7 +1323,9 @@
       }
 
       .feature-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+
         gap: 10px;
       }
 
@@ -1027,21 +1377,27 @@
       }
 
       .timeline-entry {
-        grid-template-columns: 22px minmax(0,1fr);
+        grid-template-columns:
+          22px minmax(0,1fr);
+
         gap: 0 10px;
+
         padding-bottom: 20px;
       }
 
       .timeline-date {
         grid-column: 2;
         grid-row: 1;
+
         padding: 0 0 10px;
+
         text-align: left;
       }
 
       .timeline-dot {
         grid-column: 1;
         grid-row: 1 / span 2;
+
         margin: 4px 0 0 4px;
       }
 
@@ -1080,9 +1436,13 @@
 
 <body id="top">
 
-  <!-- HEADER -->
+  <!-- ======================================
+       HEADER
+  ====================================== -->
+
   <header class="topbar">
     <div class="container topbar-inner">
+
       <button
         class="menu-button"
         id="menuButton"
@@ -1093,17 +1453,24 @@
       >☰</button>
 
       <a class="site-logo" href="#top">
-        ちゃみねむ <span>✦</span>
+        ちゃみねむ
       </a>
 
       <span class="topbar-note">
         STREAMER PORTFOLIO
       </span>
+
     </div>
   </header>
 
-  <!-- LEFT MENU -->
-  <div class="menu-overlay" id="menuOverlay"></div>
+  <!-- ======================================
+       LEFT MENU
+  ====================================== -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+  ></div>
 
   <aside
     class="menu-panel"
@@ -1111,8 +1478,9 @@
     aria-hidden="true"
     inert
   >
+
     <div class="menu-head">
-      <strong>CHAMINEMU ✦</strong>
+      <strong>CHAMINEMU</strong>
 
       <button
         class="menu-close"
@@ -1122,41 +1490,86 @@
       >×</button>
     </div>
 
-    <nav class="menu-links" aria-label="ページ内メニュー">
-      <a href="#top">HOME｜トップ</a>
-      <a href="#about">ABOUT｜自己紹介</a>
-      <a href="#why">WHY CHAMINEMU｜活動の魅力</a>
-      <a href="#audience">AUDIENCE｜活動データ</a>
-      <a href="#partnership">PARTNERSHIP｜提携について</a>
-      <a href="#sns">SNS｜公式アカウント</a>
-      <a href="#company-results">WORKS｜企業実績</a>
-      <a href="#tournament-results">EVENTS｜大会実績</a>
-      <a href="#stream">ANALYTICS｜配信グラフ</a>
-      <a href="#twitch-results">TWITCH｜配信実績</a>
-      <a href="#youtube-results">YOUTUBE｜チャンネル実績</a>
-      <a href="#contact">CONTACT｜お問い合わせ</a>
-      <a href="#official-links">LINKS｜公式リンク</a>
+    <nav
+      class="menu-links"
+      aria-label="ページ内メニュー"
+    >
+      <a href="#top">
+        HOME｜トップ
+      </a>
+
+      <a href="#about">
+        ABOUT｜自己紹介
+      </a>
+
+      <a href="#why">
+        WHY CHAMINEMU｜活動の魅力
+      </a>
+
+      <a href="#audience">
+        AUDIENCE｜活動データ
+      </a>
+
+      <a href="#partnership">
+        PARTNERSHIP｜提携について
+      </a>
+
+      <a href="#sns">
+        SNS｜公式アカウント
+      </a>
+
+      <a href="#company-results">
+        WORKS｜企業実績
+      </a>
+
+      <a href="#tournament-results">
+        EVENTS｜大会実績
+      </a>
+
+      <a href="#stream">
+        ANALYTICS｜配信グラフ
+      </a>
+
+      <a href="#twitch-results">
+        TWITCH｜配信実績
+      </a>
+
+      <a href="#youtube-results">
+        YOUTUBE｜チャンネル実績
+      </a>
+
+      <a href="#contact">
+        CONTACT｜お問い合わせ
+      </a>
+
+      <a href="#official-links">
+        LINKS｜公式リンク
+      </a>
     </nav>
 
     <div class="menu-footer">
       © CHAMINEMU
     </div>
+
   </aside>
 
   <main>
 
-    <!-- HERO WITH LARGE TRANSPARENT PNG -->
+    <!-- ======================================
+         HERO
+    ====================================== -->
+
     <section class="hero">
       <div class="container hero-grid">
 
         <div class="hero-copy">
+
           <span class="eyebrow">
-            VALORANT STREAMER / BRAND PARTNERSHIP
+            VALORANT STREAMER /
+            BRAND PARTNERSHIP
           </span>
 
-          <h1>
-            ちゃみねむ<span>✦</span>
-          </h1>
+          <h1>ちゃみねむ</h1>
 
           <p class="hero-catch">
             ゲームの楽しさを、<br>
@@ -1164,27 +1577,42 @@
           </p>
 
           <p class="hero-desc">
-            Twitchを中心にVALORANTの配信活動を展開。
-            視聴者とのコミュニケーションを大切にしながら、
+            Twitchを中心にVALORANTの
+            配信活動を展開。
+            視聴者とのコミュニケーションを
+            大切にしながら、
             ゲームの魅力を発信しています。
-            長期スポンサー・ブランドアンバサダーをはじめ、
-            継続的なパートナーシップのご相談を歓迎しています。
+            長期スポンサー・ブランドアンバサダーを
+            はじめ、継続的なパートナーシップの
+            ご相談を歓迎しています。
           </p>
 
           <div class="hero-actions">
+
             <a
               class="button button-primary"
               href="#contact"
-            >パートナーシップのご相談 ↗</a>
+            >
+              パートナーシップのご相談 ↗
+            </a>
 
             <a
               class="button button-outline"
               href="#company-results"
-            >活動実績を見る ↓</a>
+            >
+              活動実績を見る ↓
+            </a>
+
           </div>
         </div>
 
-        <div class="hero-art" id="heroArt">
+        <!-- PNGはGitHubの同じ階層から読み込み -->
+
+        <div
+          class="hero-art"
+          id="heroArt"
+        >
+
           <img
             src="./chaminemu.png"
             alt="ちゃみねむのキャラクターイラスト"
@@ -1195,37 +1623,52 @@
           >
 
           <div class="hero-art-label">
-            <strong>CHAMINEMU ✦</strong>
+            <strong>CHAMINEMU</strong>
             <span>VALORANT STREAMER</span>
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
+    <!-- ======================================
+         ABOUT
+    ====================================== -->
+
+    <section
+      class="section"
+      id="about"
+    >
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-kicker">01 / ABOUT</span>
+          <span class="section-kicker">
+            01 / ABOUT
+          </span>
+
           <h2>ABOUT ME｜自己紹介</h2>
         </div>
 
         <div class="card about-card">
+
           <div>
             <p>
-              はじめまして！Twitchを中心に、
+              はじめまして！
+              Twitchを中心に、
               VALORANTの配信活動をしている
               「ちゃみねむ」です。
             </p>
 
             <p>
-              日々の配信を通して、視聴者の皆さんと
-              一緒に楽しめる時間を大切にしながら活動しています。
+              日々の配信を通して、
+              視聴者の皆さんと一緒に楽しめる時間を
+              大切にしながら活動しています。
             </p>
 
             <p>
-              企業案件・製品提供・PR配信・コラボレーションに加え、
+              企業案件・製品提供・PR配信・
+              コラボレーションに加え、
               長期スポンサーやブランドアンバサダーとしての
               継続的な取り組みについても
               ご相談を受け付けています。
@@ -1235,13 +1678,21 @@
           <div class="about-tag">
             VALORANT × TWITCH
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- WHY -->
-    <section class="section" id="why">
+    <!-- ======================================
+         WHY CHAMINEMU
+    ====================================== -->
+
+    <section
+      class="section"
+      id="why"
+    >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             02 / WHY CHAMINEMU
@@ -1250,15 +1701,19 @@
           <h2>パートナーとしての魅力</h2>
 
           <p>
-            配信活動の特徴と、ブランドとの
-            継続的な取り組みに向けた考え方。
+            配信活動の特徴と、
+            ブランドとの継続的な取り組みに向けた
+            考え方をご紹介します。
           </p>
         </div>
 
         <div class="feature-grid">
+
           <article class="card feature-card">
             <div class="feature-icon">♡</div>
+
             <h3>コミュニティとの交流</h3>
+
             <p>
               視聴者とのコミュニケーションを
               大切にした配信スタイル。
@@ -1267,7 +1722,9 @@
 
           <article class="card feature-card">
             <div class="feature-icon">✦</div>
+
             <h3>ゲーミング領域</h3>
+
             <p>
               VALORANTを中心に、
               ゲームの楽しさを継続的に発信。
@@ -1276,7 +1733,9 @@
 
           <article class="card feature-card">
             <div class="feature-icon">↗</div>
+
             <h3>データの可視化</h3>
+
             <p>
               配信の視聴データや活動実績を
               確認できるポートフォリオ。
@@ -1285,19 +1744,29 @@
 
           <article class="card feature-card">
             <div class="feature-icon">∞</div>
+
             <h3>長期的な関係づくり</h3>
+
             <p>
               単発の紹介だけでなく、
               継続的なブランド発信を目指します。
             </p>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- AUDIENCE -->
-    <section class="section" id="audience">
+    <!-- ======================================
+         AUDIENCE & REACH
+    ====================================== -->
+
+    <section
+      class="section"
+      id="audience"
+    >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             03 / AUDIENCE & REACH
@@ -1306,20 +1775,24 @@
           <h2>活動データ</h2>
 
           <p>
-            企業担当者の方が活動規模を確認しやすいよう、
+            企業担当者の方が活動規模を
+            確認しやすいよう、
             主要な指標をまとめています。
           </p>
         </div>
 
         <div class="metrics-grid">
+
           <div class="metric-card">
             <div class="metric-label">
               Twitch フォロワー
             </div>
+
             <div
               class="metric-value"
               id="twitchFollowers"
             >—</div>
+
             <div class="metric-note">
               APIから自動取得
             </div>
@@ -1329,9 +1802,11 @@
             <div class="metric-label">
               X フォロワー
             </div>
+
             <div class="metric-value">
               13,221
             </div>
+
             <div class="metric-note">
               手動更新の参考値
             </div>
@@ -1341,10 +1816,12 @@
             <div class="metric-label">
               YouTube 登録者
             </div>
+
             <div
               class="metric-value"
               id="youtubeSubscribers"
             >—</div>
+
             <div class="metric-note">
               APIから自動取得
             </div>
@@ -1354,35 +1831,51 @@
             <div class="metric-label">
               週間平均視聴者数
             </div>
+
             <div
               class="metric-value"
               id="weeklyAverage"
             >—</div>
+
             <div
               class="metric-note"
               id="weeklyAverageNote"
-            >データ取得中</div>
+            >
+              データ取得中
+            </div>
           </div>
+
         </div>
 
         <p class="data-note">
-          ※ Twitch・YouTubeの数値は連携APIから取得します。
+          ※ Twitch・YouTubeの数値は
+          連携APIから取得します。
           Xのフォロワー数は手動更新のため、
           現在値と異なる場合があります。
           <span id="lastUpdated"></span>
         </p>
+
       </div>
     </section>
 
-    <!-- PARTNERSHIP -->
-    <section class="section" id="partnership">
+    <!-- ======================================
+         PARTNERSHIP
+    ====================================== -->
+
+    <section
+      class="section"
+      id="partnership"
+    >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             04 / PARTNERSHIP
           </span>
 
-          <h2>ブランドとのパートナーシップ</h2>
+          <h2>
+            ブランドとのパートナーシップ
+          </h2>
 
           <p>
             長期的なスポンサーシップを中心に、
@@ -1392,15 +1885,20 @@
         </div>
 
         <div class="partnership-grid">
+
           <article class="card partnership-card">
+
             <span class="partnership-number">
               PARTNERSHIP / 01
             </span>
 
-            <h3>ブランドアンバサダー</h3>
+            <h3>
+              ブランドアンバサダー
+            </h3>
 
             <p>
-              製品の継続使用、配信内での自然な紹介、
+              製品の継続使用、
+              配信内での自然な紹介、
               SNSでの発信などを組み合わせた
               長期的なブランド連携。
             </p>
@@ -1408,14 +1906,18 @@
             <span class="partnership-tag">
               LONG-TERM COLLABORATION
             </span>
+
           </article>
 
           <article class="card partnership-card">
+
             <span class="partnership-number">
               PARTNERSHIP / 02
             </span>
 
-            <h3>継続スポンサーシップ</h3>
+            <h3>
+              継続スポンサーシップ
+            </h3>
 
             <p>
               配信やSNSなど複数の接点を通じて、
@@ -1426,17 +1928,22 @@
             <span class="partnership-tag">
               SPONSORSHIP
             </span>
+
           </article>
 
           <article class="card partnership-card">
+
             <span class="partnership-number">
               PARTNERSHIP / 03
             </span>
 
-            <h3>イベント・キャンペーン連携</h3>
+            <h3>
+              イベント・キャンペーン連携
+            </h3>
 
             <p>
-              製品発表、イベントへの参加、
+              製品発表、
+              イベントへの参加、
               キャンペーン告知などの
               共同企画についてのご相談。
             </p>
@@ -1444,7 +1951,9 @@
             <span class="partnership-tag">
               EVENT & CAMPAIGN
             </span>
+
           </article>
+
         </div>
 
         <p class="data-note">
@@ -1457,14 +1966,24 @@
           <a
             class="button button-primary"
             href="#contact"
-          >提携について問い合わせる ↗</a>
+          >
+            提携について問い合わせる ↗
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- SNS -->
-    <section class="section" id="sns">
+    <!-- ======================================
+         SOCIAL MEDIA
+    ====================================== -->
+
+    <section
+      class="section"
+      id="sns"
+    >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             05 / SOCIAL MEDIA
@@ -1473,22 +1992,28 @@
           <h2>SNS｜公式アカウント</h2>
 
           <p>
-            配信・投稿など、各プラットフォームでの
-            活動をご覧いただけます。
+            配信・投稿など、
+            各プラットフォームでの活動を
+            ご覧いただけます。
           </p>
         </div>
 
         <div class="sns-grid">
+
           <a
             class="card sns-card"
             href="https://www.twitch.tv/chaminemu"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="sns-name">Twitch</div>
+            <div class="sns-name">
+              Twitch
+            </div>
+
             <div class="sns-handle">
               chaminemu / ライブ配信
             </div>
+
             <div class="sns-arrow">
               チャンネルを見る ↗
             </div>
@@ -1500,10 +2025,14 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="sns-name">X</div>
+            <div class="sns-name">
+              X
+            </div>
+
             <div class="sns-handle">
               @chaminemu / 活動情報
             </div>
+
             <div class="sns-arrow">
               プロフィールを見る ↗
             </div>
@@ -1515,24 +2044,33 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="sns-name">YouTube</div>
+            <div class="sns-name">
+              YouTube
+            </div>
+
             <div class="sns-handle">
               @chaminemu / 動画
             </div>
+
             <div class="sns-arrow">
               チャンネルを見る ↗
             </div>
           </a>
+
         </div>
       </div>
     </section>
 
-    <!-- COMPANY WORKS -->
+    <!-- ======================================
+         COMPANY WORKS
+    ====================================== -->
+
     <section
       class="section"
       id="company-results"
     >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             06 / BRAND COLLABORATIONS
@@ -1541,74 +2079,105 @@
           <h2>企業との実績・活動歴</h2>
 
           <p>
-            これまでの企業案件・製品提供・活動実績を
-            新しい順に掲載しています。
+            これまでの企業案件・製品提供・
+            活動実績を新しい順に掲載しています。
           </p>
         </div>
 
         <div class="timeline">
 
           <div class="timeline-entry">
+
             <div class="timeline-date">
               2026年10月
             </div>
+
             <div class="timeline-dot"></div>
 
             <article class="card timeline-content">
+
               <h3>WALLHACK様</h3>
-              <p>製品提供・アフィリエイト</p>
+
+              <p>
+                製品提供・アフィリエイト
+              </p>
+
               <span class="timeline-type">
                 PRODUCT / AFFILIATE
               </span>
+
             </article>
           </div>
 
           <div class="timeline-entry">
+
             <div class="timeline-date">
               2026年9月
             </div>
+
             <div class="timeline-dot"></div>
 
             <article class="card timeline-content">
+
               <h3>Rabbit0様</h3>
+
               <p>
-                製品提供・東京ゲームショウ（TGS）への招待
+                製品提供・
+                東京ゲームショウ（TGS）への招待
               </p>
+
               <span class="timeline-type">
                 PRODUCT / EVENT
               </span>
+
             </article>
           </div>
 
           <div class="timeline-entry">
+
             <div class="timeline-date">
               2026年7月
             </div>
+
             <div class="timeline-dot"></div>
 
             <article class="card timeline-content">
+
               <h3>Gamee様</h3>
-              <p>企業案件</p>
+
+              <p>
+                企業案件
+              </p>
+
               <span class="timeline-type">
                 BRAND COLLABORATION
               </span>
+
             </article>
           </div>
 
           <div class="timeline-entry">
+
             <div class="timeline-date">
-              2024年<br>9月30日
+              2024年9月30日
             </div>
+
             <div class="timeline-dot"></div>
 
             <article class="card timeline-content">
-              <h3>Twitchアフィリエイト開始</h3>
+
+              <h3>
+                Twitchアフィリエイト開始
+              </h3>
+
               <p>
                 Twitchでアフィリエイト活動を開始。
               </p>
+
               <span class="timeline-type">
                 STREAMING MILESTONE
               </span>
+
             </article>
           </div>
 
@@ -1616,12 +2185,16 @@
       </div>
     </section>
 
-    <!-- TOURNAMENT -->
+    <!-- ======================================
+         TOURNAMENT
+    ====================================== -->
+
     <section
       class="section"
       id="tournament-results"
     >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             07 / EVENTS & TOURNAMENTS
@@ -1631,29 +2204,46 @@
         </div>
 
         <div class="timeline">
+
           <div class="timeline-entry">
+
             <div class="timeline-date">
               2026年8月
             </div>
+
             <div class="timeline-dot"></div>
 
             <article class="card timeline-content">
+
               <h3>PcuteCustom5</h3>
+
               <p>
-                imi様主催の大会にリーダー枠で出場。
+                imi様主催の大会に
+                リーダー枠で出場。
               </p>
+
               <span class="timeline-type">
                 TOURNAMENT / TEAM LEADER
               </span>
+
             </article>
+
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ANALYTICS -->
-    <section class="section" id="stream">
+    <!-- ======================================
+         ANALYTICS
+    ====================================== -->
+
+    <section
+      class="section"
+      id="stream"
+    >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             08 / STREAM ANALYTICS
@@ -1663,13 +2253,18 @@
 
           <p>
             配信中の視聴者数と、
-            週間平均視聴者数の推移を掲載しています。
+            週間平均視聴者数の推移を
+            掲載しています。
           </p>
         </div>
 
         <div class="chart-grid">
+
           <article class="card chart-card">
-            <h3>Twitch 視聴者数の推移</h3>
+
+            <h3>
+              Twitch 視聴者数の推移
+            </h3>
 
             <p class="chart-description">
               取得した視聴者数の時系列データ
@@ -1688,10 +2283,14 @@
             >
               表示できるデータがありません。
             </p>
+
           </article>
 
           <article class="card chart-card">
-            <h3>週間平均視聴者数の推移</h3>
+
+            <h3>
+              週間平均視聴者数の推移
+            </h3>
 
             <p class="chart-description">
               週ごとの平均視聴者数
@@ -1710,23 +2309,31 @@
             >
               表示できるデータがありません。
             </p>
+
           </article>
+
         </div>
 
         <p class="data-note">
-          ※ グラフはCloudflare Workerの記録データを使用しています。
+          ※ グラフはCloudflare Workerの
+          記録データを使用しています。
           配信がない時間帯や集計途中の週は、
           データが少ない場合があります。
         </p>
+
       </div>
     </section>
 
-    <!-- TWITCH RESULTS -->
+    <!-- ======================================
+         TWITCH PERFORMANCE
+    ====================================== -->
+
     <section
       class="section"
       id="twitch-results"
     >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             09 / TWITCH PERFORMANCE
@@ -1736,14 +2343,17 @@
         </div>
 
         <div class="stats-grid">
+
           <div class="metric-card">
             <div class="metric-label">
               最大同時視聴者数
             </div>
+
             <div
               class="metric-value"
               id="peakViewers"
             >—</div>
+
             <div class="metric-note">
               記録データ内の最大値
             </div>
@@ -1753,10 +2363,12 @@
             <div class="metric-label">
               週間最大視聴者数
             </div>
+
             <div
               class="metric-value"
               id="weeklyPeakViewers"
             >—</div>
+
             <div class="metric-note">
               API集計値
             </div>
@@ -1766,10 +2378,12 @@
             <div class="metric-label">
               配信回数
             </div>
+
             <div
               class="metric-value"
               id="streamCount"
             >—</div>
+
             <div class="metric-note">
               API集計値
             </div>
@@ -1779,41 +2393,53 @@
             <div class="metric-label">
               計測時間
             </div>
+
             <div
               class="metric-value"
               id="measuredHours"
             >—</div>
+
             <div class="metric-note">
               時間 / API集計値
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- YOUTUBE RESULTS -->
+    <!-- ======================================
+         YOUTUBE PERFORMANCE
+    ====================================== -->
+
     <section
       class="section"
       id="youtube-results"
     >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             10 / YOUTUBE PERFORMANCE
           </span>
 
-          <h2>YouTube｜チャンネル実績</h2>
+          <h2>
+            YouTube｜チャンネル実績
+          </h2>
         </div>
 
         <div class="stats-grid">
+
           <div class="metric-card">
             <div class="metric-label">
               チャンネル登録者数
             </div>
+
             <div
               class="metric-value"
               id="youtubeSubscribersDetail"
             >—</div>
+
             <div class="metric-note">
               APIから自動取得
             </div>
@@ -1823,10 +2449,12 @@
             <div class="metric-label">
               総再生回数
             </div>
+
             <div
               class="metric-value"
               id="youtubeViews"
             >—</div>
+
             <div class="metric-note">
               APIから自動取得
             </div>
@@ -1836,10 +2464,12 @@
             <div class="metric-label">
               動画数
             </div>
+
             <div
               class="metric-value"
               id="youtubeVideos"
             >—</div>
+
             <div class="metric-note">
               APIから自動取得
             </div>
@@ -1849,6 +2479,7 @@
             <div class="metric-label">
               公式チャンネル
             </div>
+
             <div
               class="metric-value"
               style="font-size:18px"
@@ -1857,20 +2488,32 @@
                 href="https://www.youtube.com/@chaminemu"
                 target="_blank"
                 rel="noopener noreferrer"
-              >YouTube ↗</a>
+              >
+                YouTube ↗
+              </a>
             </div>
+
             <div class="metric-note">
               動画・活動情報
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
+    <!-- ======================================
+         CONTACT
+    ====================================== -->
+
+    <section
+      class="section"
+      id="contact"
+    >
       <div class="container">
+
         <div class="contact-panel">
+
           <span class="section-kicker">
             11 / LET'S WORK TOGETHER
           </span>
@@ -1881,41 +2524,57 @@
           </h2>
 
           <p>
-            長期スポンサー契約、ブランドアンバサダー、
-            継続的なPR施策、製品提供、
+            長期スポンサー契約、
+            ブランドアンバサダー、
+            継続的なPR施策、
+            製品提供、
             イベント・大会へのご招待など、
-            お仕事のご相談はメールまたはXのDMより
+            お仕事のご相談は
+            メールまたはXのDMより
             お気軽にご連絡ください。
           </p>
 
           <div class="contact-actions">
+
             <a
               class="button button-primary"
               href="mailto:chami2m2@gmail.com?subject=%E3%80%90%E3%81%8A%E4%BB%95%E4%BA%8B%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87%E3%80%91"
-            >メールでお問い合わせ ↗</a>
+            >
+              メールでお問い合わせ ↗
+            </a>
 
             <a
               class="button button-outline"
               href="https://x.com/chaminemu"
               target="_blank"
               rel="noopener noreferrer"
-            >XのDMで相談する ↗</a>
+            >
+              XのDMで相談する ↗
+            </a>
+
           </div>
 
           <a
             class="contact-email"
             href="mailto:chami2m2@gmail.com"
-          >chami2m2@gmail.com</a>
+          >
+            chami2m2@gmail.com
+          </a>
+
         </div>
       </div>
     </section>
 
-    <!-- LINKS -->
+    <!-- ======================================
+         OFFICIAL LINKS
+    ====================================== -->
+
     <section
       class="section"
       id="official-links"
     >
       <div class="container">
+
         <div class="section-heading">
           <span class="section-kicker">
             12 / OFFICIAL LINKS
@@ -1925,48 +2584,65 @@
         </div>
 
         <div class="official-links">
+
           <a
             class="official-link"
             href="https://www.twitch.tv/chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >Twitch ↗</a>
+          >
+            Twitch ↗
+          </a>
 
           <a
             class="official-link"
             href="https://x.com/chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >X ↗</a>
+          >
+            X ↗
+          </a>
 
           <a
             class="official-link"
             href="https://www.youtube.com/@chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >YouTube ↗</a>
+          >
+            YouTube ↗
+          </a>
 
           <a
             class="official-link"
             href="https://www.tiktok.com/@chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >TikTok ↗</a>
+          >
+            TikTok ↗
+          </a>
 
           <a
             class="official-link"
             href="https://lit.link/chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >LitLink ↗</a>
+          >
+            LitLink ↗
+          </a>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ======================================
+       FOOTER
+  ====================================== -->
+
   <footer>
     <div class="container">
+
       <p>
         © <span id="copyrightYear"></span>
         CHAMINEMU. All rights reserved.
@@ -1974,12 +2650,20 @@
 
       <div class="status-line">
         <span class="status-dot"></span>
+
         <span>
-          STREAMER & BRAND PARTNERSHIP PORTFOLIO
+          STREAMER & BRAND PARTNERSHIP
+          PORTFOLIO
         </span>
       </div>
+
     </div>
   </footer>
+
+  <!-- ======================================
+       JAVASCRIPT
+       API / CHARTS / MENU
+  ====================================== -->
 
   <script>
     "use strict";
@@ -1987,19 +2671,30 @@
     const API_BASE =
       "https://chaminemu-stats-worker.chami2m2.workers.dev";
 
-    const REFRESH_INTERVAL = 60 * 1000;
+    const REFRESH_INTERVAL =
+      60 * 1000;
 
-    const $ = (id) => document.getElementById(id);
+    const $ = (id) =>
+      document.getElementById(id);
 
-    const numberFormatter = new Intl.NumberFormat("ja-JP", {
-      maximumFractionDigits: 1
-    });
+    const integerFormatter =
+      new Intl.NumberFormat("ja-JP", {
+        maximumFractionDigits: 0
+      });
 
-    const integerFormatter = new Intl.NumberFormat("ja-JP", {
-      maximumFractionDigits: 0
-    });
+    const decimalFormatter =
+      new Intl.NumberFormat("ja-JP", {
+        maximumFractionDigits: 1
+      });
 
-    function formatNumber(value, digits = 0) {
+    /* ======================================
+       NUMBER HELPERS
+    ====================================== */
+
+    function formatNumber(
+      value,
+      digits = 0
+    ) {
       if (
         value === null ||
         value === undefined ||
@@ -2016,7 +2711,7 @@
 
       return digits === 0
         ? integerFormatter.format(number)
-        : numberFormatter.format(number);
+        : decimalFormatter.format(number);
     }
 
     function setText(id, value) {
@@ -2028,7 +2723,9 @@
     }
 
     function formatDate(value) {
-      if (!value) return "";
+      if (!value) {
+        return "";
+      }
 
       const date = new Date(value);
 
@@ -2036,15 +2733,20 @@
         return String(value);
       }
 
-      return date.toLocaleDateString("ja-JP", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric"
-      });
+      return date.toLocaleDateString(
+        "ja-JP",
+        {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric"
+        }
+      );
     }
 
     function formatDateTime(value) {
-      if (!value) return "";
+      if (!value) {
+        return "";
+      }
 
       const date = new Date(value);
 
@@ -2052,18 +2754,27 @@
         return String(value);
       }
 
-      return date.toLocaleString("ja-JP", {
-        month: "numeric",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-      });
+      return date.toLocaleString(
+        "ja-JP",
+        {
+          month: "numeric",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        }
+      );
     }
+
+    /* ======================================
+       API FETCH
+    ====================================== */
 
     async function fetchJSON(path) {
       const response = await fetch(
         API_BASE + path,
-        { cache: "no-store" }
+        {
+          cache: "no-store"
+        }
       );
 
       if (!response.ok) {
@@ -2075,7 +2786,9 @@
       return response.json();
     }
 
-    /* MENU */
+    /* ======================================
+       MENU
+    ====================================== */
 
     const menuButton = $("menuButton");
     const menuPanel = $("menuPanel");
@@ -2084,17 +2797,32 @@
 
     function openMenu() {
       menuPanel.inert = false;
-      menuPanel.setAttribute("aria-hidden", "false");
+
+      menuPanel.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
       menuPanel.classList.add("is-open");
       menuOverlay.classList.add("is-open");
-      menuButton.setAttribute("aria-expanded", "true");
-      document.body.classList.add("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      document.body.classList.add(
+        "menu-open"
+      );
+
       menuClose.focus();
     }
 
     function closeMenu() {
       const focusWasInside =
-        menuPanel.contains(document.activeElement);
+        menuPanel.contains(
+          document.activeElement
+        );
 
       if (focusWasInside) {
         menuButton.focus();
@@ -2102,10 +2830,22 @@
 
       menuPanel.classList.remove("is-open");
       menuOverlay.classList.remove("is-open");
-      menuPanel.setAttribute("aria-hidden", "true");
+
+      menuPanel.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
       menuPanel.inert = true;
-      menuButton.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      document.body.classList.remove(
+        "menu-open"
+      );
     }
 
     menuButton.addEventListener(
@@ -2123,28 +2863,32 @@
       closeMenu
     );
 
-    menuPanel.querySelectorAll("a").forEach(
-      (link) => {
+    menuPanel
+      .querySelectorAll("a")
+      .forEach((link) => {
         link.addEventListener(
           "click",
           closeMenu
         );
-      }
-    );
+      });
 
     document.addEventListener(
       "keydown",
       (event) => {
         if (
           event.key === "Escape" &&
-          menuPanel.classList.contains("is-open")
+          menuPanel.classList.contains(
+            "is-open"
+          )
         ) {
           closeMenu();
         }
 
         if (
           event.key === "Tab" &&
-          menuPanel.classList.contains("is-open")
+          menuPanel.classList.contains(
+            "is-open"
+          )
         ) {
           const focusables = [
             ...menuPanel.querySelectorAll(
@@ -2152,10 +2896,16 @@
             )
           ];
 
-          if (!focusables.length) return;
+          if (!focusables.length) {
+            return;
+          }
 
           const first = focusables[0];
-          const last = focusables[focusables.length - 1];
+
+          const last =
+            focusables[
+              focusables.length - 1
+            ];
 
           if (
             event.shiftKey &&
@@ -2174,20 +2924,31 @@
       }
     );
 
-    /* ILLUSTRATION FALLBACK */
+    /* ======================================
+       ILLUSTRATION FALLBACK
+    ====================================== */
 
-    const heroIllustration = $("heroIllustration");
-    const heroArt = $("heroArt");
+    const heroIllustration =
+      $("heroIllustration");
+
+    const heroArt =
+      $("heroArt");
 
     heroIllustration.addEventListener(
       "error",
       () => {
-        heroIllustration.style.display = "none";
-        heroArt.classList.add("is-missing");
+        heroIllustration.style.display =
+          "none";
+
+        heroArt.classList.add(
+          "is-missing"
+        );
       }
     );
 
-    /* CHARTS */
+    /* ======================================
+       CHARTS
+    ====================================== */
 
     let viewersChart = null;
     let weeklyChart = null;
@@ -2195,50 +2956,65 @@
     function chartOptions() {
       return {
         responsive: true,
+
         maintainAspectRatio: false,
+
         animation: false,
+
         interaction: {
           mode: "index",
           intersect: false
         },
+
         plugins: {
           legend: {
             display: false
           },
+
           tooltip: {
-            backgroundColor: "#282C35",
-            titleColor: "#F3F4F6",
-            bodyColor: "#C7E8E6",
-            borderColor: "rgba(139,197,195,.4)",
+            backgroundColor: "#30324C",
+            titleColor: "#F5F3FA",
+            bodyColor: "#C6C3E5",
+            borderColor:
+              "rgba(166,160,213,.5)",
             borderWidth: 1
           }
         },
+
         scales: {
           x: {
             ticks: {
-              color: "#BFC3CC",
+              color: "#D2D3E1",
               maxRotation: 0,
               autoSkip: true,
               maxTicksLimit: 6,
+
               font: {
                 size: 10
               }
             },
+
             grid: {
-              color: "rgba(139,197,195,.08)"
+              color:
+                "rgba(166,160,213,.08)"
             }
           },
+
           y: {
             beginAtZero: true,
+
             ticks: {
-              color: "#BFC3CC",
+              color: "#D2D3E1",
               precision: 0,
+
               font: {
                 size: 10
               }
             },
+
             grid: {
-              color: "rgba(139,197,195,.12)"
+              color:
+                "rgba(166,160,213,.12)"
             }
           }
         }
@@ -2263,29 +3039,45 @@
 
       if (existingChart) {
         existingChart.data.labels = labels;
-        existingChart.data.datasets[0].data = values;
+
+        existingChart.data
+          .datasets[0].data = values;
+
         existingChart.update("none");
+
         return existingChart;
       }
 
       return new Chart(canvas, {
         type: "line",
+
         data: {
           labels,
+
           datasets: [{
             data: values,
-            borderColor: "#8BC5C3",
-            backgroundColor: "rgba(139,197,195,.14)",
+
+            borderColor: "#A6A0D5",
+
+            backgroundColor:
+              "rgba(166,160,213,.18)",
+
             borderWidth: 2,
             fill: true,
             tension: .25,
+
             pointRadius:
               values.length > 35 ? 0 : 2,
+
             pointHoverRadius: 5,
-            pointBackgroundColor: "#C7E8E6",
+
+            pointBackgroundColor:
+              "#C6C3E5",
+
             spanGaps: false
           }]
         },
+
         options: chartOptions()
       });
     }
@@ -2312,7 +3104,9 @@
       return [];
     }
 
-    /* VIEWERS */
+    /* ======================================
+       VIEWERS
+    ====================================== */
 
     async function loadViewers() {
       const data = await fetchJSON(
@@ -2342,7 +3136,9 @@
 
       const labels = rows.map(
         (item) =>
-          formatDateTime(item.sampled_at)
+          formatDateTime(
+            item.sampled_at
+          )
       );
 
       const values = rows.map(
@@ -2350,18 +3146,21 @@
           Number(item.viewer_count)
       );
 
-      viewersChart = createOrUpdateChart(
-        "viewersChart",
-        viewersChart,
-        labels,
-        values
-      );
+      viewersChart =
+        createOrUpdateChart(
+          "viewersChart",
+          viewersChart,
+          labels,
+          values
+        );
 
       $("viewersFallback").style.display =
         rows.length ? "none" : "block";
     }
 
-    /* WEEKLY AVERAGE */
+    /* ======================================
+       WEEKLY AVERAGE
+    ====================================== */
 
     async function loadWeekly() {
       const data = await fetchJSON(
@@ -2380,7 +3179,9 @@
 
       if (data.week_start) {
         parts.push(
-          formatDate(data.week_start) + "〜"
+          formatDate(
+            data.week_start
+          ) + "〜"
         );
       }
 
@@ -2406,7 +3207,9 @@
       );
     }
 
-    /* WEEKLY HISTORY */
+    /* ======================================
+       WEEKLY HISTORY
+    ====================================== */
 
     async function loadWeeklyHistory() {
       const data = await fetchJSON(
@@ -2437,7 +3240,9 @@
 
       const labels = rows.map(
         (item) =>
-          formatDate(item.week_start) +
+          formatDate(
+            item.week_start
+          ) +
           (item.provisional ? " ※" : "")
       );
 
@@ -2446,18 +3251,21 @@
           Number(item.average_viewers)
       );
 
-      weeklyChart = createOrUpdateChart(
-        "weeklyChart",
-        weeklyChart,
-        labels,
-        values
-      );
+      weeklyChart =
+        createOrUpdateChart(
+          "weeklyChart",
+          weeklyChart,
+          labels,
+          values
+        );
 
       $("weeklyFallback").style.display =
         rows.length ? "none" : "block";
     }
 
-    /* TWITCH ACHIEVEMENTS */
+    /* ======================================
+       TWITCH ACHIEVEMENTS
+    ====================================== */
 
     async function loadAchievements() {
       const data = await fetchJSON(
@@ -2494,16 +3302,19 @@
       );
     }
 
-    /* YOUTUBE */
+    /* ======================================
+       YOUTUBE
+    ====================================== */
 
     async function loadYouTube() {
       const data = await fetchJSON(
         "/api/youtube"
       );
 
-      const subscribers = formatNumber(
-        data.subscriber_count
-      );
+      const subscribers =
+        formatNumber(
+          data.subscriber_count
+        );
 
       setText(
         "youtubeSubscribers",
@@ -2530,7 +3341,9 @@
       );
     }
 
-    /* TWITCH FOLLOWERS */
+    /* ======================================
+       TWITCH FOLLOWERS
+    ====================================== */
 
     async function loadTwitchFollowers() {
       const data = await fetchJSON(
@@ -2545,7 +3358,9 @@
       );
     }
 
-    /* AUTO REFRESH */
+    /* ======================================
+       AUTO REFRESH
+    ====================================== */
 
     let refreshing = false;
 
@@ -2566,9 +3381,8 @@
           loadTwitchFollowers()
         ];
 
-        const results = await Promise.allSettled(
-          tasks
-        );
+        const results =
+          await Promise.allSettled(tasks);
 
         const succeeded = results.some(
           (result) =>
@@ -2576,8 +3390,8 @@
         );
 
         if (succeeded) {
-          const updated = new Date()
-            .toLocaleString(
+          const updated =
+            new Date().toLocaleString(
               "ja-JP",
               {
                 month: "numeric",
@@ -2611,7 +3425,9 @@
       }
     }
 
-    /* INIT */
+    /* ======================================
+       INIT
+    ====================================== */
 
     setText(
       "copyrightYear",
@@ -2629,6 +3445,8 @@
         );
       }
     );
+
   </script>
+
 </body>
 </html>
