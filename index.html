@@ -43,88 +43,146 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   content:"";width:5px;height:28px;border-radius:4px;
   background:linear-gradient(var(--lav),#8151eb);
 }
-.sns-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.sns-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
 .sns-card,.card {
-  border:1px solid var(--line);border-radius:20px;
+  border:1px solid var(--line);
+  border-radius:20px;
   background:linear-gradient(145deg,#201e30,#1b1a28);
   box-shadow:0 12px 34px rgba(0,0,0,.14);
 }
 .sns-card {
-  min-height:244px;padding:24px;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
+  min-height:244px;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
   transition:transform .2s,border-color .2s;
 }
 .sns-card:hover {transform:translateY(-4px);border-color:#79669d}
 .sns-card:after {
-  content:"";position:absolute;right:-60px;bottom:-130px;
-  width:310px;height:210px;border-radius:50%;
-  background:var(--glow);filter:blur(18px);pointer-events:none;
+  content:"";
+  position:absolute;
+  right:-60px;
+  bottom:-130px;
+  width:310px;
+  height:210px;
+  border-radius:50%;
+  background:var(--glow);
+  filter:blur(18px);
+  pointer-events:none;
 }
 .sns-card>* {position:relative;z-index:1}
 .twitch {--glow:rgba(147,91,255,.15)}
-.youtube {--glow:rgba(255,77,110,.12)}
 .x {--glow:rgba(127,152,231,.12)}
+.youtube {--glow:rgba(255,77,110,.12)}
 .sns-head {display:flex;align-items:center;gap:13px}
 .brand-icon {
-  height:54px;width:54px;flex:none;display:grid;place-items:center;
-  border-radius:14px;font-weight:900;font-size:27px;
+  height:54px;
+  width:54px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  font-weight:900;
+  font-size:27px;
 }
 .twitch .brand-icon {background:linear-gradient(145deg,#a65cff,#6d36d8)}
-.youtube .brand-icon {background:linear-gradient(145deg,#ff435d,#e90024)}
 .x .brand-icon {background:#050509}
+.youtube .brand-icon {background:linear-gradient(145deg,#ff435d,#e90024)}
 .sns-name {font-size:18px;font-weight:800}
 .sns-sub {font-size:12px;color:var(--muted)}
 .sns-number {
-  font-size:clamp(29px,3.8vw,46px);font-weight:850;
-  letter-spacing:-.035em;margin:25px 0 14px;
-  font-variant-numeric:tabular-nums;white-space:nowrap;
+  font-size:clamp(29px,3.8vw,46px);
+  font-weight:850;
+  letter-spacing:-.035em;
+  margin:25px 0 14px;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
 }
 .twitch .sns-number {color:#d4c0ff}
-.youtube .sns-number {color:#ffb9c6}
 .x .sns-number {color:#e1e6ff}
+.youtube .sns-number {color:#ffb9c6}
 .sns-bottom {
-  margin-top:auto;display:flex;justify-content:space-between;
-  align-items:center;gap:10px;
+  margin-top:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
 }
-.sns-bottom a {font-size:13px;text-decoration:none;font-weight:800}
+.sns-bottom a {
+  font-size:13px;
+  text-decoration:none;
+  font-weight:800;
+}
 .twitch .sns-bottom a {color:#b99bff}
-.youtube .sns-bottom a {color:#ff8094}
 .x .sns-bottom a {color:#bbcaff}
+.youtube .sns-bottom a {color:#ff8094}
 .arrow {
-  height:30px;width:30px;border:1px solid #514761;
-  border-radius:50%;display:grid;place-items:center;
+  height:30px;
+  width:30px;
+  border:1px solid #514761;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
 }
 .manual {font-size:11px;color:var(--muted);margin:-6px 0 10px}
 .card {padding:26px}
 .hero-stat {
-  display:grid;grid-template-columns:1.1fr 1fr;
-  gap:28px;align-items:center;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:28px;
+  align-items:center;
 }
 .stat-caption,.metric-label {font-size:14px;color:var(--muted)}
 .big-number {
   font-size:clamp(38px,5.5vw,62px);
-  font-weight:850;color:#cbb3ff;margin:16px 0;
+  font-weight:850;
+  color:#cbb3ff;
+  margin:16px 0;
 }
 .week-details {border-left:1px solid var(--line);padding-left:28px}
 .detail-title {font-weight:700;color:#d6c9f7;font-size:13px}
-.metric-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.metric-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
 .metric-value {
-  font-size:clamp(23px,3vw,33px);font-weight:800;
-  color:#dbc9ff;margin-top:12px;overflow-wrap:anywhere;
+  font-size:clamp(23px,3vw,33px);
+  font-weight:800;
+  color:#dbc9ff;
+  margin-top:12px;
+  overflow-wrap:anywhere;
 }
 .chart-card {margin-top:18px}
 .chart-wrap {height:290px;position:relative;margin:20px 0}
-.youtube-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.youtube-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
 .links {display:flex;flex-wrap:wrap;gap:10px}
 .links a {
-  border:1px solid #594577;background:#2b2240;
-  padding:10px 17px;border-radius:11px;
-  text-decoration:none;font-weight:700;font-size:13px;
+  border:1px solid #594577;
+  background:#2b2240;
+  padding:10px 17px;
+  border-radius:11px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
 }
 .links a:hover {background:#41305d}
 .footer {
-  border-top:1px solid var(--line);padding-top:24px;
-  color:var(--muted);font-size:12px;margin-top:60px;
+  border-top:1px solid var(--line);
+  padding-top:24px;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:60px;
 }
 @media(max-width:850px) {
   .sns-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -138,7 +196,8 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   .sns-card {min-height:218px}
   .sns-number {font-size:39px}
   .week-details {
-    border-left:0;border-top:1px solid var(--line);
+    border-left:0;
+    border-top:1px solid var(--line);
     padding:18px 0 0;
   }
   .card {padding:20px}
@@ -160,11 +219,14 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
 <section class="section">
   <div class="section-heading">
     <h2>SNS フォロワー・登録者数</h2>
-    <p class="section-note">Twitch・YouTubeは自動更新 ／ Xは手動更新</p>
+    <p class="section-note">
+      Twitch・YouTubeは自動更新 ／ Xは手動更新
+    </p>
   </div>
 
   <div class="sns-grid">
 
+    <!-- 1. Twitch -->
     <article class="sns-card twitch">
       <div class="sns-head">
         <div class="brand-icon">♜</div>
@@ -175,26 +237,12 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
       </div>
       <div class="sns-number" id="twitchFollowers">読み込み中</div>
       <div class="sns-bottom">
-        <a href="https://www.twitch.tv/chaminemu" target="_blank">Twitchを見る →</a>
+        <a href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitchを見る →</a>
         <span class="arrow">›</span>
       </div>
     </article>
 
-    <article class="sns-card youtube">
-      <div class="sns-head">
-        <div class="brand-icon">▶</div>
-        <div>
-          <div class="sns-name">YouTube</div>
-          <div class="sns-sub">チャンネル登録者数</div>
-        </div>
-      </div>
-      <div class="sns-number" id="snsYoutubeSubscribers">読み込み中</div>
-      <div class="sns-bottom">
-        <a href="https://www.youtube.com/@chaminemu" target="_blank">YouTubeを見る →</a>
-        <span class="arrow">›</span>
-      </div>
-    </article>
-
+    <!-- 2. X -->
     <article class="sns-card x">
       <div class="sns-head">
         <div class="brand-icon">𝕏</div>
@@ -206,13 +254,32 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
       <div class="sns-number">13,221 人</div>
       <div class="manual">※ 手動更新</div>
       <div class="sns-bottom">
-        <a href="https://x.com/chaminemu" target="_blank">Xを見る →</a>
+        <a href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">Xを見る →</a>
+        <span class="arrow">›</span>
+      </div>
+    </article>
+
+    <!-- 3. YouTube -->
+    <article class="sns-card youtube">
+      <div class="sns-head">
+        <div class="brand-icon">▶</div>
+        <div>
+          <div class="sns-name">YouTube</div>
+          <div class="sns-sub">チャンネル登録者数</div>
+        </div>
+      </div>
+      <div class="sns-number" id="snsYoutubeSubscribers">読み込み中</div>
+      <div class="sns-bottom">
+        <a href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">YouTubeを見る →</a>
         <span class="arrow">›</span>
       </div>
     </article>
 
   </div>
-  <p class="status" id="snsStatus">SNSデータを取得しています...</p>
+
+  <p class="status" id="snsStatus">
+    SNSデータを取得しています...
+  </p>
 </section>
 
 <section class="section">
@@ -236,15 +303,23 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
     <div class="stat-caption">記録期間の平均同時視聴者数</div>
     <div class="metric-value" id="averageViewers">読み込み中...</div>
     <p class="small" id="sampleInfo"></p>
-    <div class="chart-wrap"><canvas id="viewerChart"></canvas></div>
+    <div class="chart-wrap">
+      <canvas id="viewerChart"></canvas>
+    </div>
     <p class="status" id="chartStatus">グラフを読み込み中...</p>
   </div>
 
   <div class="card chart-card">
     <div class="stat-caption">週間平均同時視聴者数の推移</div>
-    <div class="chart-wrap"><canvas id="weeklyHistoryChart"></canvas></div>
-    <p class="status" id="weeklyHistoryStatus">週間履歴を読み込み中...</p>
-    <p class="small">日本時間の月曜日〜日曜日で集計。今週は途中経過です。</p>
+    <div class="chart-wrap">
+      <canvas id="weeklyHistoryChart"></canvas>
+    </div>
+    <p class="status" id="weeklyHistoryStatus">
+      週間履歴を読み込み中...
+    </p>
+    <p class="small">
+      日本時間の月曜日〜日曜日で集計。今週は途中経過です。
+    </p>
   </div>
 </section>
 
@@ -272,7 +347,9 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
 </section>
 
 <section class="section">
-  <div class="section-heading"><h2>YouTube チャンネル実績</h2></div>
+  <div class="section-heading">
+    <h2>YouTube チャンネル実績</h2>
+  </div>
   <div class="youtube-grid">
     <div class="card">
       <div class="metric-label">チャンネル登録者数</div>
@@ -287,17 +364,19 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
       <div class="metric-value" id="youtubeVideos">--</div>
     </div>
   </div>
-  <p class="status" id="youtubeStatus">YouTubeデータを取得中...</p>
+  <p class="status" id="youtubeStatus">
+    YouTubeデータを取得中...
+  </p>
 </section>
 
 <section class="section">
   <div class="section-heading"><h2>公式リンク</h2></div>
   <div class="links">
-    <a href="https://www.twitch.tv/chaminemu" target="_blank">Twitch ↗</a>
-    <a href="https://www.youtube.com/@chaminemu" target="_blank">YouTube ↗</a>
-    <a href="https://x.com/chaminemu" target="_blank">X ↗</a>
-    <a href="https://www.tiktok.com/@chaminemu" target="_blank">TikTok ↗</a>
-    <a href="https://lit.link/chaminemu" target="_blank">LitLink ↗</a>
+    <a href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitch ↗</a>
+    <a href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">X ↗</a>
+    <a href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+    <a href="https://www.tiktok.com/@chaminemu" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+    <a href="https://lit.link/chaminemu" target="_blank" rel="noopener noreferrer">LitLink ↗</a>
   </div>
 </section>
 
@@ -313,7 +392,9 @@ h2 {font-size:clamp(21px,3vw,26px);margin:0}
   </div>
 </section>
 
-<footer class="footer">© ちゃみねむ — STREAMER PORTFOLIO</footer>
+<footer class="footer">
+  © ちゃみねむ — STREAMER PORTFOLIO
+</footer>
 
 </main>
 
@@ -357,9 +438,11 @@ async function get(path) {
   const response = await fetch(API_BASE + path, {
     cache: "no-store"
   });
+
   if (!response.ok) {
     throw Error("API error " + response.status);
   }
+
   return response.json();
 }
 
@@ -391,26 +474,31 @@ async function loadSNS() {
 
         set("snsYoutubeSubscribers", subscribers);
         set("youtubeSubscribers", subscribers);
+
         set(
           "youtubeViews",
           valid(d.view_count)
             ? fmt(d.view_count) + " 回"
             : "データなし"
         );
+
         set(
           "youtubeVideos",
           valid(d.video_count)
             ? fmt(d.video_count) + " 本"
             : "データなし"
         );
+
         set(
           "youtubeStatus",
           "YouTube Data APIから自動取得しています。"
         );
+
         ok++;
       })
       .catch(e => {
         console.error(e);
+
         [
           "snsYoutubeSubscribers",
           "youtubeSubscribers",
@@ -456,7 +544,9 @@ async function loadWeekly() {
 
     set(
       "weeklyStatus",
-      d.provisional ? "※ 今週の途中経過です" : "週間集計データ"
+      d.provisional
+        ? "※ 今週の途中経過です"
+        : "週間集計データ"
     );
   } catch (e) {
     console.error(e);
@@ -464,7 +554,7 @@ async function loadWeekly() {
   }
 }
 
-// グラフ
+// グラフ共通設定
 function makeChart(id, labels, values, label) {
   return new Chart(document.getElementById(id), {
     type: "line",
@@ -496,12 +586,18 @@ function makeChart(id, labels, values, label) {
       },
       scales: {
         x: {
-          ticks: { color: "#b8b3ca", maxTicksLimit: 6 },
+          ticks: {
+            color: "#b8b3ca",
+            maxTicksLimit: 6
+          },
           grid: { color: "#39344e" }
         },
         y: {
           beginAtZero: true,
-          ticks: { color: "#b8b3ca", precision: 0 },
+          ticks: {
+            color: "#b8b3ca",
+            precision: 0
+          },
           grid: { color: "#39344e" }
         }
       }
@@ -513,7 +609,10 @@ function makeChart(id, labels, values, label) {
 async function loadViewers() {
   try {
     const d = await get("/api/viewers");
-    if (!Array.isArray(d)) throw Error("Invalid data");
+
+    if (!Array.isArray(d)) {
+      throw Error("Invalid data");
+    }
 
     const rows = d
       .filter(x => x.sampled_at && valid(x.viewer_count))
@@ -530,15 +629,21 @@ async function loadViewers() {
       return;
     }
 
-    const avg = rows.reduce((a, x) => a + x.count, 0) / rows.length;
+    const avg =
+      rows.reduce((a, x) => a + x.count, 0) /
+      rows.length;
 
     set("averageViewers", fmt(avg) + " 人");
+
     set(
       "sampleInfo",
-      "最新記録: " + date(rows[rows.length - 1].time)
+      "最新記録: " +
+      date(rows[rows.length - 1].time)
     );
 
-    if (viewerChart) viewerChart.destroy();
+    if (viewerChart) {
+      viewerChart.destroy();
+    }
 
     viewerChart = makeChart(
       "viewerChart",
@@ -547,11 +652,17 @@ async function loadViewers() {
       "同時視聴者数"
     );
 
-    set("chartStatus", "60秒ごとに更新します");
+    set(
+      "chartStatus",
+      "60秒ごとに更新します"
+    );
   } catch (e) {
     console.error(e);
     set("averageViewers", "取得失敗");
-    set("chartStatus", "グラフデータを取得できませんでした");
+    set(
+      "chartStatus",
+      "グラフデータを取得できませんでした"
+    );
   }
 }
 
@@ -559,10 +670,16 @@ async function loadViewers() {
 async function loadHistory() {
   try {
     const d = await get("/api/weekly-history");
-    if (!Array.isArray(d)) throw Error("Invalid data");
+
+    if (!Array.isArray(d)) {
+      throw Error("Invalid data");
+    }
 
     const rows = d
-      .filter(x => x.week_start && valid(x.average_viewers))
+      .filter(x =>
+        x.week_start &&
+        valid(x.average_viewers)
+      )
       .map(x => ({
         time: new Date(x.week_start),
         value: Number(x.average_viewers),
@@ -572,7 +689,10 @@ async function loadHistory() {
       .sort((a, b) => a.time - b.time);
 
     if (!rows.length) {
-      set("weeklyHistoryStatus", "週間データの蓄積を待っています");
+      set(
+        "weeklyHistoryStatus",
+        "週間データの蓄積を待っています"
+      );
       return;
     }
 
@@ -582,21 +702,30 @@ async function loadHistory() {
       day: "2-digit"
     });
 
-    if (weeklyHistoryChart) weeklyHistoryChart.destroy();
+    if (weeklyHistoryChart) {
+      weeklyHistoryChart.destroy();
+    }
 
     weeklyHistoryChart = makeChart(
       "weeklyHistoryChart",
       rows.map(x =>
-        f.format(x.time) + (x.provisional ? " (途中)" : "")
+        f.format(x.time) +
+        (x.provisional ? " (途中)" : "")
       ),
       rows.map(x => x.value),
       "週間平均同時視聴者数"
     );
 
-    set("weeklyHistoryStatus", "週間データを表示中");
+    set(
+      "weeklyHistoryStatus",
+      "週間データを表示中"
+    );
   } catch (e) {
     console.error(e);
-    set("weeklyHistoryStatus", "週間履歴を取得できませんでした");
+    set(
+      "weeklyHistoryStatus",
+      "週間履歴を取得できませんでした"
+    );
   }
 }
 
@@ -605,17 +734,33 @@ async function loadAchievements() {
   try {
     const d = await get("/api/achievements");
 
-    set("peakViewers",
-      valid(d.peak_viewers) ? fmt(d.peak_viewers) + " 人" : "データなし");
+    set(
+      "peakViewers",
+      valid(d.peak_viewers)
+        ? fmt(d.peak_viewers) + " 人"
+        : "データなし"
+    );
 
-    set("weeklyPeakViewers",
-      valid(d.weekly_peak_viewers) ? fmt(d.weekly_peak_viewers) + " 人" : "データなし");
+    set(
+      "weeklyPeakViewers",
+      valid(d.weekly_peak_viewers)
+        ? fmt(d.weekly_peak_viewers) + " 人"
+        : "データなし"
+    );
 
-    set("streamCount",
-      valid(d.stream_count) ? fmt(d.stream_count) + " 回" : "データなし");
+    set(
+      "streamCount",
+      valid(d.stream_count)
+        ? fmt(d.stream_count) + " 回"
+        : "データなし"
+    );
 
-    set("measuredHours",
-      valid(d.measured_hours) ? fmt(d.measured_hours) + " 時間" : "データなし");
+    set(
+      "measuredHours",
+      valid(d.measured_hours)
+        ? fmt(d.measured_hours) + " 時間"
+        : "データなし"
+    );
 
     set(
       "achievementStatus",
@@ -623,6 +768,7 @@ async function loadAchievements() {
     );
   } catch (e) {
     console.error(e);
+
     [
       "peakViewers",
       "weeklyPeakViewers",
@@ -632,6 +778,7 @@ async function loadAchievements() {
   }
 }
 
+// 全データ更新
 function updateAll() {
   loadSNS();
   loadWeekly();
