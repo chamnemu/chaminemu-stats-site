@@ -93,9 +93,6 @@
     }
 
     .sns-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       font-weight: bold;
     }
 
@@ -105,6 +102,10 @@
 
     .youtube-color {
       color: #ff6975;
+    }
+
+    .x-color {
+      color: #f5f3ff;
     }
 
     .sns-card .value {
@@ -210,6 +211,8 @@
     <h2>SNS フォロワー・登録者数</h2>
 
     <div class="sns-grid">
+
+      <!-- Twitch -->
       <div class="card sns-card">
         <div class="sns-label twitch-color">
           Twitch
@@ -232,6 +235,7 @@
         </a>
       </div>
 
+      <!-- YouTube -->
       <div class="card sns-card">
         <div class="sns-label youtube-color">
           YouTube
@@ -253,6 +257,34 @@
           YouTubeを見る →
         </a>
       </div>
+
+      <!-- X：無料の手動更新 -->
+      <div class="card sns-card">
+        <div class="sns-label x-color">
+          X
+        </div>
+
+        <p class="muted">
+          フォロワー数
+        </p>
+
+        <div class="value" id="xFollowers">
+          13,221 人
+        </div>
+
+        <p class="small">
+          ※ 手動更新
+        </p>
+
+        <a
+          href="https://x.com/chaminemu"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Xを見る →
+        </a>
+      </div>
+
     </div>
 
     <p class="small" id="snsStatus">
@@ -475,6 +507,7 @@
         同時視聴者数の推移・週間平均・成長記録・
         Twitchフォロワー数・
         YouTubeチャンネル実績を自動更新しています。
+        Xのフォロワー数は手動で更新しています。
       </p>
     </div>
 
@@ -661,18 +694,20 @@
       if (successCount === 2) {
         setText(
           "snsStatus",
-          "TwitchとYouTubeの数字を自動取得しています。" +
-          " 60秒ごとに更新を確認します。"
+          "Twitch・YouTubeは自動取得（60秒ごとに更新確認）。" +
+          " Xは手動更新です。"
         );
       } else if (successCount === 1) {
         setText(
           "snsStatus",
-          "一部のSNSデータを取得できませんでした。"
+          "一部のSNSデータを取得できませんでした。" +
+          " Xは手動更新です。"
         );
       } else {
         setText(
           "snsStatus",
-          "SNSデータの取得に失敗しました。"
+          "Twitch・YouTubeのデータ取得に失敗しました。" +
+          " Xは手動更新です。"
         );
       }
     }
