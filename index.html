@@ -11,12 +11,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
 
 <style>
-/* =====================================
-   THEME / MIDNIGHT LAVENDER
-===================================== */
+/* =========================
+   THEME
+========================= */
 :root {
   --bg: #141C2B;
   --bg-deep: #101725;
@@ -31,8 +32,6 @@
   --border: rgba(166,160,213,.22);
   --border-strong: rgba(166,160,213,.46);
   --max: 1160px;
-
-  /* PC版のイラストサイズ */
   --hero-image-height: 790px;
 }
 
@@ -49,7 +48,7 @@ body {
   margin: 0;
   color: var(--text);
   background: var(--bg);
-  font-family: "DM Sans","Noto Sans JP",sans-serif;
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
   line-height: 1.85;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
@@ -75,13 +74,13 @@ button:focus-visible {
 }
 
 .container {
-  width: min(calc(100% - 40px),var(--max));
+  width: min(calc(100% - 40px), var(--max));
   margin-inline: auto;
 }
 
-/* =====================================
+/* =========================
    HEADER
-===================================== */
+========================= */
 .topbar {
   position: sticky;
   top: 0;
@@ -125,9 +124,9 @@ button:focus-visible {
   letter-spacing: .16em;
 }
 
-/* =====================================
-   LEFT DRAWER MENU
-===================================== */
+/* =========================
+   DRAWER MENU
+========================= */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -135,7 +134,7 @@ button:focus-visible {
   background: rgba(4,7,16,.8);
   opacity: 0;
   visibility: hidden;
-  transition: opacity .25s,visibility .25s;
+  transition: opacity .25s, visibility .25s;
 }
 
 .menu-overlay.is-open {
@@ -155,7 +154,7 @@ button:focus-visible {
   box-shadow: 20px 0 65px rgba(0,0,0,.45);
   transform: translateX(-105%);
   visibility: hidden;
-  transition: transform .3s,visibility .3s;
+  transition: transform .3s, visibility .3s;
 }
 
 .menu-panel.is-open {
@@ -202,9 +201,9 @@ button:focus-visible {
   color: var(--accent-light);
 }
 
-/* =====================================
+/* =========================
    COMMON
-===================================== */
+========================= */
 .section {
   padding: 78px 0;
   border-top: 1px solid rgba(166,160,213,.11);
@@ -238,6 +237,7 @@ button:focus-visible {
 }
 
 .card {
+  min-width: 0;
   padding: 26px;
   background: linear-gradient(150deg,#353752,#282D44);
   border: 1px solid var(--border);
@@ -255,7 +255,7 @@ button:focus-visible {
   font-size: 13px;
   font-weight: 800;
   text-align: center;
-  transition: transform .2s,background .2s;
+  transition: transform .2s, background .2s;
 }
 
 .button:hover {
@@ -287,9 +287,9 @@ button:focus-visible {
   font-size: 11px;
 }
 
-/* =====================================
-   HERO / DESKTOP LARGE IMAGE
-===================================== */
+/* =========================
+   HERO
+========================= */
 .hero {
   position: relative;
   overflow: hidden;
@@ -426,9 +426,9 @@ button:focus-visible {
   font-size: 10px;
 }
 
-/* =====================================
+/* =========================
    ABOUT
-===================================== */
+========================= */
 .about-card {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -458,9 +458,9 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-/* =====================================
-   WHY CHAMINEMU
-===================================== */
+/* =========================
+   FEATURES
+========================= */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -491,9 +491,9 @@ button:focus-visible {
   line-height: 1.9;
 }
 
-/* =====================================
+/* =========================
    METRICS
-===================================== */
+========================= */
 .metrics-grid,
 .stats-grid {
   display: grid;
@@ -502,6 +502,7 @@ button:focus-visible {
 }
 
 .metric-card {
+  min-width: 0;
   padding: 23px 20px;
   background: linear-gradient(155deg,#353752,#292E45);
   border: 1px solid var(--border);
@@ -527,9 +528,9 @@ button:focus-visible {
   font-size: 10px;
 }
 
-/* =====================================
+/* =========================
    PARTNERSHIP
-===================================== */
+========================= */
 .partnership-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -540,6 +541,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
   min-height: 260px;
 }
 
@@ -554,6 +556,7 @@ button:focus-visible {
   margin: 5px 0 0;
   font-size: 19px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .partnership-card p {
@@ -565,6 +568,7 @@ button:focus-visible {
 
 .partnership-tag {
   align-self: flex-start;
+  max-width: 100%;
   margin-top: auto;
   padding: 6px 12px;
   color: var(--accent-light);
@@ -573,11 +577,12 @@ button:focus-visible {
   border-radius: 999px;
   font-size: 10px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-/* =====================================
+/* =========================
    SNS
-===================================== */
+========================= */
 .sns-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -614,9 +619,9 @@ button:focus-visible {
   font-weight: 800;
 }
 
-/* =====================================
+/* =========================
    TIMELINE
-===================================== */
+========================= */
 .timeline {
   position: relative;
   display: flex;
@@ -630,7 +635,10 @@ button:focus-visible {
   bottom: 22px;
   left: 134px;
   width: 2px;
-  background: linear-gradient(var(--accent),rgba(166,160,213,.12));
+  background: linear-gradient(
+    var(--accent),
+    rgba(166,160,213,.12)
+  );
 }
 
 .timeline-entry {
@@ -683,9 +691,9 @@ button:focus-visible {
   font-weight: 700;
 }
 
-/* =====================================
+/* =========================
    CHARTS
-===================================== */
+========================= */
 .chart-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -719,13 +727,17 @@ button:focus-visible {
   font-size: 12px;
 }
 
-/* =====================================
+/* =========================
    CONTACT
-===================================== */
+========================= */
 .contact-panel {
   padding: 44px;
   background:
-    radial-gradient(circle at 85% 20%,rgba(166,160,213,.23),transparent 48%),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(166,160,213,.23),
+      transparent 48%
+    ),
     linear-gradient(140deg,#393B5D,#222A40 75%);
   border: 1px solid var(--border-strong);
   border-radius: 28px;
@@ -785,9 +797,9 @@ footer {
   text-align: center;
 }
 
-/* =====================================
+/* =========================
    TABLET
-===================================== */
+========================= */
 @media (min-width: 641px) and (max-width: 900px) {
   .hero {
     padding: 35px 0 15px;
@@ -837,9 +849,9 @@ footer {
   }
 }
 
-/* =====================================
-   MOBILE / COMPACT ILLUSTRATION
-===================================== */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 640px) {
   .container {
     width: min(calc(100% - 28px),var(--max));
@@ -888,11 +900,7 @@ footer {
     flex: 1 1 180px;
   }
 
-  /*
-    スマホ専用：
-    以前の420px / 490pxから縮小。
-    顔全体が見えやすいように調整。
-  */
+  /* スマホのイラストをコンパクトに */
   .hero-art {
     position: relative;
     height: 300px;
@@ -990,6 +998,47 @@ footer {
     font-size: 23px;
   }
 
+  /* ★ 今回の修正：3列を1列に変更 ★ */
+  .partnership-grid {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 16px;
+  }
+
+  .partnership-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 24px;
+    gap: 12px;
+  }
+
+  .partnership-number {
+    font-size: 11px;
+    letter-spacing: .12em;
+  }
+
+  .partnership-card h3 {
+    margin: 5px 0 0;
+    font-size: 20px;
+    line-height: 1.6;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .partnership-card p {
+    font-size: 13px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+  }
+
+  .partnership-tag {
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: 10px;
+    white-space: normal;
+  }
+
   .sns-grid,
   .chart-grid {
     grid-template-columns: 1fr;
@@ -1062,7 +1111,6 @@ footer {
 
 <body id="top">
 
-<!-- HEADER -->
 <header class="topbar">
   <div class="container topbar-inner">
     <button
@@ -1076,11 +1124,12 @@ footer {
 
     <a class="site-logo" href="#top">ちゃみねむ</a>
 
-    <span class="topbar-note">STREAMER PORTFOLIO</span>
+    <span class="topbar-note">
+      STREAMER PORTFOLIO
+    </span>
   </div>
 </header>
 
-<!-- LEFT MENU -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <aside
@@ -1091,6 +1140,7 @@ footer {
 >
   <div class="menu-head">
     <strong>CHAMINEMU</strong>
+
     <button
       class="menu-close"
       id="menuClose"
@@ -1147,13 +1197,16 @@ footer {
           パートナーシップのご相談 ↗
         </a>
 
-        <a class="button button-outline" href="#company-results">
+        <a
+          class="button button-outline"
+          href="#company-results"
+        >
           活動実績を見る ↓
         </a>
       </div>
     </div>
 
-    <div class="hero-art" id="heroArt">
+    <div class="hero-art">
       <img
         src="./chaminemu.png"
         alt="ちゃみねむのキャラクターイラスト"
@@ -1202,7 +1255,9 @@ footer {
         </p>
       </div>
 
-      <div class="about-tag">VALORANT × TWITCH</div>
+      <div class="about-tag">
+        VALORANT × TWITCH
+      </div>
     </div>
   </div>
 </section>
@@ -1233,8 +1288,8 @@ footer {
         <div class="feature-icon">◇</div>
         <h3>ゲーミング領域</h3>
         <p>
-          VALORANTを中心に、ゲームの楽しさを
-          継続的に発信。
+          VALORANTを中心に、
+          ゲームの楽しさを継続的に発信。
         </p>
       </article>
 
@@ -1273,26 +1328,48 @@ footer {
 
     <div class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-label">Twitch フォロワー</div>
-        <div class="metric-value" id="twitchFollowers">—</div>
-        <div class="metric-note">APIから自動取得</div>
+        <div class="metric-label">
+          Twitch フォロワー
+        </div>
+        <div class="metric-value" id="twitchFollowers">
+          —
+        </div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">X フォロワー</div>
-        <div class="metric-value">13,221</div>
-        <div class="metric-note">手動更新の参考値</div>
+        <div class="metric-label">
+          X フォロワー
+        </div>
+        <div class="metric-value">
+          13,221
+        </div>
+        <div class="metric-note">
+          手動更新の参考値
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">YouTube 登録者</div>
-        <div class="metric-value" id="youtubeSubscribers">—</div>
-        <div class="metric-note">APIから自動取得</div>
+        <div class="metric-label">
+          YouTube 登録者
+        </div>
+        <div class="metric-value" id="youtubeSubscribers">
+          —
+        </div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">週間平均視聴者数</div>
-        <div class="metric-value" id="weeklyAverage">—</div>
+        <div class="metric-label">
+          週間平均視聴者数
+        </div>
+        <div class="metric-value" id="weeklyAverage">
+          —
+        </div>
         <div class="metric-note" id="weeklyAverageNote">
           データ取得中
         </div>
@@ -1322,40 +1399,61 @@ footer {
     </div>
 
     <div class="partnership-grid">
+
       <article class="card partnership-card">
-        <span class="partnership-number">PARTNERSHIP / 01</span>
+        <span class="partnership-number">
+          PARTNERSHIP / 01
+        </span>
+
         <h3>ブランドアンバサダー</h3>
+
         <p>
           製品の継続使用、配信内での自然な紹介、
           SNSでの発信などを組み合わせた
           長期的なブランド連携。
         </p>
+
         <span class="partnership-tag">
           LONG-TERM COLLABORATION
         </span>
       </article>
 
       <article class="card partnership-card">
-        <span class="partnership-number">PARTNERSHIP / 02</span>
+        <span class="partnership-number">
+          PARTNERSHIP / 02
+        </span>
+
         <h3>継続スポンサーシップ</h3>
+
         <p>
           配信やSNSなど複数の接点を通じて、
           ブランド認知の向上を目指す
           継続的な取り組み。
         </p>
-        <span class="partnership-tag">SPONSORSHIP</span>
+
+        <span class="partnership-tag">
+          SPONSORSHIP
+        </span>
       </article>
 
       <article class="card partnership-card">
-        <span class="partnership-number">PARTNERSHIP / 03</span>
+        <span class="partnership-number">
+          PARTNERSHIP / 03
+        </span>
+
         <h3>イベント・キャンペーン連携</h3>
+
         <p>
           製品発表、イベントへの参加、
           キャンペーン告知などの
           共同企画についてのご相談。
         </p>
-        <span class="partnership-tag">EVENT & CAMPAIGN</span>
+
+        <span class="partnership-tag">
+          EVENT & CAMPAIGN
+        </span>
       </article>
+
     </div>
 
     <p class="data-note">
@@ -1395,7 +1493,9 @@ footer {
         <div class="sns-handle">
           chaminemu / ライブ配信
         </div>
-        <div class="sns-arrow">チャンネルを見る ↗</div>
+        <div class="sns-arrow">
+          チャンネルを見る ↗
+        </div>
       </a>
 
       <a
@@ -1408,7 +1508,9 @@ footer {
         <div class="sns-handle">
           @chaminemu / 活動情報
         </div>
-        <div class="sns-arrow">プロフィールを見る ↗</div>
+        <div class="sns-arrow">
+          プロフィールを見る ↗
+        </div>
       </a>
 
       <a
@@ -1421,17 +1523,21 @@ footer {
         <div class="sns-handle">
           @chaminemu / 動画
         </div>
-        <div class="sns-arrow">チャンネルを見る ↗</div>
+        <div class="sns-arrow">
+          チャンネルを見る ↗
+        </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- COMPANY WORKS -->
+<!-- COMPANY RESULTS -->
 <section class="section" id="company-results">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">06 / BRAND COLLABORATIONS</span>
+      <span class="kicker">
+        06 / BRAND COLLABORATIONS
+      </span>
       <h2>企業との実績・活動歴</h2>
       <p>
         これまでの企業案件・製品提供・活動実績を
@@ -1440,9 +1546,13 @@ footer {
     </div>
 
     <div class="timeline">
+
       <div class="timeline-entry">
-        <div class="timeline-date">2026年10月</div>
+        <div class="timeline-date">
+          2026年10月
+        </div>
         <div class="timeline-dot"></div>
+
         <article class="card timeline-content">
           <h3>WALLHACK様</h3>
           <p>製品提供・アフィリエイト</p>
@@ -1453,8 +1563,11 @@ footer {
       </div>
 
       <div class="timeline-entry">
-        <div class="timeline-date">2026年9月</div>
+        <div class="timeline-date">
+          2026年9月
+        </div>
         <div class="timeline-dot"></div>
+
         <article class="card timeline-content">
           <h3>Rabbit0様</h3>
           <p>
@@ -1467,8 +1580,11 @@ footer {
       </div>
 
       <div class="timeline-entry">
-        <div class="timeline-date">2026年7月</div>
+        <div class="timeline-date">
+          2026年7月
+        </div>
         <div class="timeline-dot"></div>
+
         <article class="card timeline-content">
           <h3>Gamee様</h3>
           <p>企業案件</p>
@@ -1479,8 +1595,11 @@ footer {
       </div>
 
       <div class="timeline-entry">
-        <div class="timeline-date">2024年9月30日</div>
+        <div class="timeline-date">
+          2024年9月30日
+        </div>
         <div class="timeline-dot"></div>
+
         <article class="card timeline-content">
           <h3>Twitchアフィリエイト開始</h3>
           <p>
@@ -1491,6 +1610,7 @@ footer {
           </span>
         </article>
       </div>
+
     </div>
   </div>
 </section>
@@ -1499,14 +1619,19 @@ footer {
 <section class="section" id="tournament-results">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">07 / EVENTS & TOURNAMENTS</span>
+      <span class="kicker">
+        07 / EVENTS & TOURNAMENTS
+      </span>
       <h2>大会参加実績</h2>
     </div>
 
     <div class="timeline">
       <div class="timeline-entry">
-        <div class="timeline-date">2026年8月</div>
+        <div class="timeline-date">
+          2026年8月
+        </div>
         <div class="timeline-dot"></div>
+
         <article class="card timeline-content">
           <h3>PcuteCustom5</h3>
           <p>
@@ -1521,11 +1646,13 @@ footer {
   </div>
 </section>
 
-<!-- STREAM ANALYTICS -->
+<!-- ANALYTICS -->
 <section class="section" id="stream">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">08 / STREAM ANALYTICS</span>
+      <span class="kicker">
+        08 / STREAM ANALYTICS
+      </span>
       <h2>配信データ・視聴者推移</h2>
       <p>
         配信中の視聴者数と、
@@ -1547,7 +1674,10 @@ footer {
           ></canvas>
         </div>
 
-        <p class="chart-fallback" id="viewersFallback">
+        <p
+          class="chart-fallback"
+          id="viewersFallback"
+        >
           表示できるデータがありません。
         </p>
       </article>
@@ -1565,7 +1695,10 @@ footer {
           ></canvas>
         </div>
 
-        <p class="chart-fallback" id="weeklyFallback">
+        <p
+          class="chart-fallback"
+          id="weeklyFallback"
+        >
           表示できるデータがありません。
         </p>
       </article>
@@ -1579,82 +1712,137 @@ footer {
   </div>
 </section>
 
-<!-- TWITCH PERFORMANCE -->
+<!-- TWITCH -->
 <section class="section" id="twitch-results">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">09 / TWITCH PERFORMANCE</span>
+      <span class="kicker">
+        09 / TWITCH PERFORMANCE
+      </span>
       <h2>Twitch｜配信実績</h2>
     </div>
 
     <div class="stats-grid">
       <div class="metric-card">
-        <div class="metric-label">最大同時視聴者数</div>
-        <div class="metric-value" id="peakViewers">—</div>
-        <div class="metric-note">記録データ内の最大値</div>
+        <div class="metric-label">
+          最大同時視聴者数
+        </div>
+        <div class="metric-value" id="peakViewers">
+          —
+        </div>
+        <div class="metric-note">
+          記録データ内の最大値
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">週間最大視聴者数</div>
-        <div class="metric-value" id="weeklyPeakViewers">—</div>
-        <div class="metric-note">API集計値</div>
+        <div class="metric-label">
+          週間最大視聴者数
+        </div>
+        <div class="metric-value" id="weeklyPeakViewers">
+          —
+        </div>
+        <div class="metric-note">
+          API集計値
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">配信回数</div>
-        <div class="metric-value" id="streamCount">—</div>
-        <div class="metric-note">API集計値</div>
+        <div class="metric-label">
+          配信回数
+        </div>
+        <div class="metric-value" id="streamCount">
+          —
+        </div>
+        <div class="metric-note">
+          API集計値
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">計測時間</div>
-        <div class="metric-value" id="measuredHours">—</div>
-        <div class="metric-note">時間 / API集計値</div>
+        <div class="metric-label">
+          計測時間
+        </div>
+        <div class="metric-value" id="measuredHours">
+          —
+        </div>
+        <div class="metric-note">
+          時間 / API集計値
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- YOUTUBE PERFORMANCE -->
+<!-- YOUTUBE -->
 <section class="section" id="youtube-results">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">10 / YOUTUBE PERFORMANCE</span>
+      <span class="kicker">
+        10 / YOUTUBE PERFORMANCE
+      </span>
       <h2>YouTube｜チャンネル実績</h2>
     </div>
 
     <div class="stats-grid">
       <div class="metric-card">
-        <div class="metric-label">チャンネル登録者数</div>
+        <div class="metric-label">
+          チャンネル登録者数
+        </div>
         <div
           class="metric-value"
           id="youtubeSubscribersDetail"
-        >—</div>
-        <div class="metric-note">APIから自動取得</div>
+        >
+          —
+        </div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">総再生回数</div>
-        <div class="metric-value" id="youtubeViews">—</div>
-        <div class="metric-note">APIから自動取得</div>
+        <div class="metric-label">
+          総再生回数
+        </div>
+        <div class="metric-value" id="youtubeViews">
+          —
+        </div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">動画数</div>
-        <div class="metric-value" id="youtubeVideos">—</div>
-        <div class="metric-note">APIから自動取得</div>
+        <div class="metric-label">
+          動画数
+        </div>
+        <div class="metric-value" id="youtubeVideos">
+          —
+        </div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
       </div>
 
       <div class="metric-card">
-        <div class="metric-label">公式チャンネル</div>
-        <div class="metric-value" style="font-size:18px">
+        <div class="metric-label">
+          公式チャンネル
+        </div>
+        <div
+          class="metric-value"
+          style="font-size:18px"
+        >
           <a
             href="https://www.youtube.com/@chaminemu"
             target="_blank"
             rel="noopener noreferrer"
-          >YouTube ↗</a>
+          >
+            YouTube ↗
+          </a>
         </div>
-        <div class="metric-note">動画・活動情報</div>
+        <div class="metric-note">
+          動画・活動情報
+        </div>
       </div>
     </div>
   </div>
@@ -1664,7 +1852,9 @@ footer {
 <section class="section" id="contact">
   <div class="container">
     <div class="contact-panel">
-      <span class="kicker">11 / LET'S WORK TOGETHER</span>
+      <span class="kicker">
+        11 / LET'S WORK TOGETHER
+      </span>
 
       <h2>
         長期的なパートナーシップの<br>
@@ -1707,11 +1897,13 @@ footer {
   </div>
 </section>
 
-<!-- OFFICIAL LINKS -->
+<!-- LINKS -->
 <section class="section" id="official-links">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">12 / OFFICIAL LINKS</span>
+      <span class="kicker">
+        12 / OFFICIAL LINKS
+      </span>
       <h2>公式リンク</h2>
     </div>
 
@@ -1756,20 +1948,24 @@ footer {
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <p>
       © <span id="copyrightYear"></span>
       CHAMINEMU. All rights reserved.
     </p>
-    <p>STREAMER & BRAND PARTNERSHIP PORTFOLIO</p>
+    <p>
+      STREAMER & BRAND PARTNERSHIP PORTFOLIO
+    </p>
   </div>
 </footer>
 
 <script>
 "use strict";
 
+/* =========================
+   API SETTINGS
+========================= */
 const API_BASE =
   "https://chaminemu-stats-worker.chami2m2.workers.dev";
 
@@ -1785,7 +1981,9 @@ const decimalFormat = new Intl.NumberFormat("ja-JP", {
   maximumFractionDigits: 1
 });
 
-/* FORMAT HELPERS */
+/* =========================
+   HELPERS
+========================= */
 function formatNumber(value, digits = 0) {
   if (
     value === null ||
@@ -1847,7 +2045,9 @@ function formatDateTime(value) {
   });
 }
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 const menuButton = $("menuButton");
 const menuPanel = $("menuPanel");
 const menuOverlay = $("menuOverlay");
@@ -1929,13 +2129,17 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* IMAGE FALLBACK */
+/* =========================
+   IMAGE FALLBACK
+========================= */
 $("heroIllustration").addEventListener("error", () => {
   $("heroIllustration").style.display = "none";
   console.warn("chaminemu.png を読み込めませんでした。");
 });
 
-/* FETCH */
+/* =========================
+   FETCH
+========================= */
 async function fetchJSON(path) {
   const response = await fetch(API_BASE + path, {
     cache: "no-store"
@@ -1964,7 +2168,9 @@ function normalizeArray(data, keys) {
   return [];
 }
 
-/* CHART.JS */
+/* =========================
+   CHARTS
+========================= */
 let viewersChart = null;
 let weeklyChart = null;
 
@@ -2070,7 +2276,9 @@ function createOrUpdateChart(
   });
 }
 
-/* VIEWER HISTORY */
+/* =========================
+   VIEWER HISTORY
+========================= */
 async function loadViewers() {
   const data = await fetchJSON("/api/viewers");
 
@@ -2112,7 +2320,9 @@ async function loadViewers() {
     rows.length ? "none" : "block";
 }
 
-/* WEEKLY AVERAGE */
+/* =========================
+   WEEKLY AVERAGE
+========================= */
 async function loadWeekly() {
   const data = await fetchJSON("/api/weekly");
 
@@ -2146,7 +2356,9 @@ async function loadWeekly() {
   );
 }
 
-/* WEEKLY HISTORY */
+/* =========================
+   WEEKLY HISTORY
+========================= */
 async function loadWeeklyHistory() {
   const data = await fetchJSON("/api/weekly-history");
 
@@ -2188,7 +2400,9 @@ async function loadWeeklyHistory() {
     rows.length ? "none" : "block";
 }
 
-/* TWITCH ACHIEVEMENTS */
+/* =========================
+   TWITCH ACHIEVEMENTS
+========================= */
 async function loadAchievements() {
   const data = await fetchJSON("/api/achievements");
 
@@ -2213,7 +2427,9 @@ async function loadAchievements() {
   );
 }
 
-/* YOUTUBE */
+/* =========================
+   YOUTUBE
+========================= */
 async function loadYouTube() {
   const data = await fetchJSON("/api/youtube");
 
@@ -2235,7 +2451,9 @@ async function loadYouTube() {
   );
 }
 
-/* TWITCH FOLLOWERS */
+/* =========================
+   TWITCH FOLLOWERS
+========================= */
 async function loadTwitchFollowers() {
   const data = await fetchJSON("/api/twitch-followers");
 
@@ -2245,7 +2463,9 @@ async function loadTwitchFollowers() {
   );
 }
 
-/* REFRESH EVERY 60 SECONDS */
+/* =========================
+   AUTO REFRESH
+========================= */
 let refreshing = false;
 
 async function refreshAll() {
@@ -2298,7 +2518,9 @@ async function refreshAll() {
   }
 }
 
-/* INIT */
+/* =========================
+   INITIALIZE
+========================= */
 setText(
   "copyrightYear",
   new Date().getFullYear()
