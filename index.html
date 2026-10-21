@@ -159,6 +159,25 @@
       </p>
     </div>
 
+    <div class="card">
+      <p class="muted">
+        Twitch 週間平均同時視聴者数の推移
+      </p>
+
+      <div class="chart-wrap">
+        <canvas id="weeklyHistoryChart"></canvas>
+      </div>
+
+      <p class="status" id="weeklyHistoryStatus">
+        週間履歴を読み込み中...
+      </p>
+
+      <p class="small">
+        日本時間の月曜日〜日曜日で集計。
+        今週の数値は途中経過です。
+      </p>
+    </div>
+
     <h2>公式リンク</h2>
 
     <div class="links">
@@ -191,6 +210,7 @@
       "https://chaminemu-stats-worker.chami2m2.workers.dev";
 
     let viewerChart = null;
+    let weeklyHistoryChart = null;
 
     const dateFormatter = new Intl.DateTimeFormat(
       "ja-JP",
@@ -450,12 +470,146 @@
       }
     }
 
+    async function loadWeeklyHistory() {
+      const statusElement =
+        document.getElementById("weeklyHistoryStatus");
+
+      try {
+        const data = await fetchJSON("/api/weekly-history");
+
+        if (!Array.isArray(data)) {
+          throw new Error("週間履歴の形式が正しくありません");
+        }
+
+        const weeks = data
+          .filter(item =>
+            item.week_start &&
+            item.average_viewers !== null &&
+            item.average_viewers !== undefined &&
+            Number.isFinite(Number(item.average_viewers))
+          )
+          .map(item => ({
+            time: new Date(item.week_start),
+            average: Number(item.average_viewers),
+            provisional: Boolean(item.provisional)
+          }))
+          .filter(item =>
+            !Number.isNaN(item.time.getTime())
+          )
+          .sort((a, b) => a.time - b.time);
+
+        if (!weeks.length) {
+          statusElement.textContent =
+            "週間データが蓄積されるとグラフが表示されます。";
+
+          if (weeklyHistoryChart) {
+            weeklyHistoryChart.destroy();
+            weeklyHistoryChart = null;
+          }
+          return;
+        }
+
+        if (typeof Chart === "undefined") {
+          statusElement.textContent =
+            "グラフライブラリを読み込めませんでした。";
+          return;
+        }
+
+        const labels = weeks.map(w =>
+          new Intl.DateTimeFormat("ja-JP", {
+            timeZone: "Asia/Tokyo",
+            month: "2-digit",
+            day: "2-digit"
+          }).format(w.time) +
+          (w.provisional ? " (途中)" : "")
+        );
+
+        if (weeklyHistoryChart) {
+          weeklyHistoryChart.destroy();
+        }
+
+        weeklyHistoryChart = new Chart(
+          document.getElementById("weeklyHistoryChart"),
+          {
+            type: "line",
+
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: "週間平均同時視聴者数",
+                  data: weeks.map(w => w.average),
+                  borderColor: "#b7a1ff",
+                  backgroundColor: "rgba(183,161,255,0.12)",
+                  fill: true,
+                  tension: 0.25,
+                  pointRadius: 4,
+                  pointHoverRadius: 6,
+                  borderWidth: 2
+                }
+              ]
+            },
+
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#e6dcff"
+                  }
+                }
+              },
+
+              scales: {
+                x: {
+                  ticks: {
+                    color: "#b5b3c5",
+                    maxTicksLimit: 8
+                  },
+                  grid: {
+                    color: "#353149"
+                  }
+                },
+
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    color: "#b5b3c5",
+                    precision: 0
+                  },
+                  grid: {
+                    color: "#353149"
+                  }
+                }
+              }
+            }
+          }
+        );
+
+        statusElement.textContent =
+          weeks.length === 1
+            ? "現在は1週分の記録です。来週以降、成長の推移が線で表示されます。"
+            : weeks.length +
+              "週分の記録を表示中。60秒ごとに更新します。";
+
+      } catch (error) {
+        console.error("Weekly history error:", error);
+
+        statusElement.textContent =
+          "週間履歴を取得できませんでした。";
+      }
+    }
+
     loadWeeklyStats();
     loadViewerStats();
+    loadWeeklyHistory();
 
     setInterval(() => {
       loadWeeklyStats();
       loadViewerStats();
+      loadWeeklyHistory();
     }, 60000);
   </script>
 </body>
