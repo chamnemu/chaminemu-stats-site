@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
 
   <style>
@@ -20,12 +21,9 @@
       --surface: #1D2027;
       --surface-2: #282C35;
       --surface-3: #343944;
-
-      /* MAIN ACCENT */
       --accent: #8BC5C3;
       --accent-light: #C7E8E6;
       --accent-dark: #5C9D9A;
-
       --text: #F3F4F6;
       --muted: #BFC3CC;
       --subtle: #9399A5;
@@ -35,7 +33,9 @@
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -45,8 +45,16 @@
     body {
       margin: 0;
       background:
-        radial-gradient(ellipse 60% 28% at 88% 2%, rgba(139,197,195,.11), transparent 72%),
-        radial-gradient(ellipse 48% 28% at 0% 48%, rgba(95,160,157,.06), transparent 75%),
+        radial-gradient(
+          ellipse 60% 28% at 88% 2%,
+          rgba(139,197,195,.11),
+          transparent 72%
+        ),
+        radial-gradient(
+          ellipse 48% 28% at 0% 48%,
+          rgba(95,160,157,.06),
+          transparent 75%
+        ),
         var(--bg);
       color: var(--text);
       font-family: "DM Sans", "Noto Sans JP", sans-serif;
@@ -54,10 +62,18 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open { overflow: hidden; }
+    body.menu-open {
+      overflow: hidden;
+    }
 
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
 
     a:focus-visible,
     button:focus-visible {
@@ -112,7 +128,9 @@
       letter-spacing: .04em;
     }
 
-    .site-logo span { color: var(--accent); }
+    .site-logo span {
+      color: var(--accent);
+    }
 
     .topbar-note {
       margin-left: auto;
@@ -122,7 +140,7 @@
       color: var(--muted);
     }
 
-    /* LEFT DRAWER */
+    /* LEFT MENU */
 
     .menu-overlay {
       position: fixed;
@@ -213,7 +231,9 @@
       border-top: 1px solid rgba(139,197,195,.08);
     }
 
-    .section-heading { margin-bottom: 32px; }
+    .section-heading {
+      margin-bottom: 32px;
+    }
 
     .section-kicker,
     .eyebrow {
@@ -240,7 +260,11 @@
 
     .card {
       padding: 26px;
-      background: linear-gradient(150deg,#242831,#1B1E25);
+      background: linear-gradient(
+        150deg,
+        #242831,
+        #1B1E25
+      );
       border: 1px solid var(--border);
       border-radius: 22px;
     }
@@ -259,7 +283,9 @@
       transition: transform .2s, background .2s;
     }
 
-    .button:hover { transform: translateY(-2px); }
+    .button:hover {
+      transform: translateY(-2px);
+    }
 
     .button-primary {
       background: var(--accent);
@@ -284,7 +310,7 @@
 
     .hero {
       position: relative;
-      padding: 96px 0 90px;
+      padding: 90px 0 75px;
       overflow: hidden;
     }
 
@@ -296,15 +322,21 @@
       width: 590px;
       height: 590px;
       border-radius: 50%;
-      background: radial-gradient(circle,rgba(139,197,195,.13),transparent 70%);
+      background: radial-gradient(
+        circle,
+        rgba(139,197,195,.13),
+        transparent 70%
+      );
       pointer-events: none;
     }
 
     .hero-grid {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr);
-      gap: 55px;
+      grid-template-columns:
+        minmax(0,1.1fr)
+        minmax(300px,.9fr);
+      gap: 35px;
       align-items: center;
     }
 
@@ -316,7 +348,9 @@
       letter-spacing: -.065em;
     }
 
-    .hero h1 span { color: var(--accent); }
+    .hero h1 span {
+      color: var(--accent);
+    }
 
     .hero-catch {
       margin: 0 0 20px;
@@ -340,58 +374,101 @@
       margin-top: 32px;
     }
 
-    .hero-side {
+    /* TRANSPARENT CHARACTER ILLUSTRATION */
+
+    .hero-art {
       position: relative;
-      padding: 30px;
-      background: linear-gradient(150deg,#304243,#252F34 65%,#1C2227);
-      border: 1px solid var(--border-strong);
-      border-radius: 28px;
-      box-shadow: 0 20px 65px rgba(0,0,0,.2);
-    }
-
-    .hero-side::after {
-      content: "✦";
-      position: absolute;
-      top: 12px;
-      right: 24px;
-      color: rgba(199,232,230,.28);
-      font-size: 62px;
-    }
-
-    .side-label {
-      color: var(--accent-light);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .2em;
-    }
-
-    .side-title {
-      margin: 25px 0 20px;
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.4;
-    }
-
-    .side-line {
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 0;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 520px;
+      isolation: isolate;
     }
 
-    .side-line span { color: var(--muted); }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: min(95%,440px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(139,197,195,.2) 0%,
+        rgba(139,197,195,.08) 42%,
+        transparent 73%
+      );
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
 
-    .side-line strong {
-      color: var(--accent-light);
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 76%;
+      height: 50%;
+      left: 12%;
+      bottom: 3%;
+      border: 1px solid rgba(139,197,195,.17);
+      border-radius: 50%;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .hero-illustration {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 490px;
+      max-height: 600px;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(
+        0 18px 32px rgba(0,0,0,.28)
+      );
+    }
+
+    .hero-art-label {
+      position: absolute;
+      z-index: 2;
+      bottom: 18px;
+      right: 0;
+      padding: 10px 15px;
+      background: rgba(29,32,39,.9);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       text-align: right;
     }
 
-    .side-bottom {
-      margin: 18px 0 0;
+    .hero-art-label strong {
+      display: block;
+      color: var(--accent-light);
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .hero-art-label span {
+      display: block;
       color: var(--muted);
-      font-size: 11px;
+      font-size: 10px;
+    }
+
+    .hero-art.is-missing {
+      min-height: 320px;
+    }
+
+    .hero-art.is-missing .hero-art-label {
+      right: 50%;
+      bottom: 45%;
+      transform: translate(50%,50%);
+      text-align: center;
     }
 
     /* ABOUT */
@@ -410,7 +487,9 @@
       line-height: 2.1;
     }
 
-    .about-card p:last-child { margin-bottom: 0; }
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
 
     .about-tag {
       padding: 14px 18px;
@@ -597,7 +676,10 @@
       bottom: 22px;
       left: 134px;
       width: 2px;
-      background: linear-gradient(var(--accent),rgba(139,197,195,.12));
+      background: linear-gradient(
+        var(--accent),
+        rgba(139,197,195,.12)
+      );
     }
 
     .timeline-entry {
@@ -658,7 +740,9 @@
       gap: 18px;
     }
 
-    .chart-card { min-width: 0; }
+    .chart-card {
+      min-width: 0;
+    }
 
     .chart-card h3 {
       margin: 0 0 6px;
@@ -688,8 +772,16 @@
     .contact-panel {
       padding: 44px;
       background:
-        radial-gradient(circle at 85% 20%,rgba(139,197,195,.18),transparent 48%),
-        linear-gradient(140deg,#304243,#1B1E25 70%);
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(139,197,195,.18),
+          transparent 48%
+        ),
+        linear-gradient(
+          140deg,
+          #304243,
+          #1B1E25 70%
+        );
       border: 1px solid var(--border-strong);
       border-radius: 28px;
       box-shadow: 0 20px 65px rgba(0,0,0,.2);
@@ -770,10 +862,19 @@
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 15px;
       }
 
-      .hero-side { max-width: 550px; }
+      .hero-art {
+        min-height: 440px;
+        max-width: 560px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .hero-illustration {
+        max-height: 500px;
+      }
 
       .feature-grid,
       .metrics-grid,
@@ -781,8 +882,13 @@
         grid-template-columns: repeat(2,minmax(0,1fr));
       }
 
-      .partnership-grid { grid-template-columns: 1fr; }
-      .partnership-card { min-height: 0; }
+      .partnership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partnership-card {
+        min-height: 0;
+      }
     }
 
     @media (max-width: 640px) {
@@ -790,38 +896,112 @@
         width: min(calc(100% - 28px),var(--max));
       }
 
-      .topbar-inner { min-height: 66px; }
-      .topbar-note { display: none; }
-      .hero { padding: 65px 0 58px; }
-      .hero h1 { font-size: clamp(48px,13vw,70px); }
-      .hero-catch { font-size: 18px; }
-      .hero-side { padding: 24px; }
-      .section { padding: 52px 0; }
-      .card { padding: 21px; }
-      .about-card { grid-template-columns: 1fr; }
-      .about-tag { justify-self: start; }
+      .topbar-inner {
+        min-height: 66px;
+      }
+
+      .topbar-note {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 0 38px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px,13vw,70px);
+      }
+
+      .hero-catch {
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .hero-actions .button {
+        flex: 1 1 190px;
+      }
+
+      .hero-art {
+        min-height: 350px;
+        margin-top: 10px;
+      }
+
+      .hero-illustration {
+        max-width: 370px;
+        max-height: 420px;
+      }
+
+      .hero-art-label {
+        right: 0;
+        bottom: 4px;
+        padding: 8px 12px;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .card {
+        padding: 21px;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+      }
+
+      .about-tag {
+        justify-self: start;
+      }
 
       .feature-grid {
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 10px;
       }
 
-      .feature-card { padding: 18px; }
-      .feature-card h3 { font-size: 13px; }
-      .feature-card p { font-size: 11px; }
+      .feature-card {
+        padding: 18px;
+      }
+
+      .feature-card h3 {
+        font-size: 13px;
+      }
+
+      .feature-card p {
+        font-size: 11px;
+      }
 
       .metrics-grid,
-      .stats-grid { gap: 10px; }
+      .stats-grid {
+        gap: 10px;
+      }
 
-      .metric-card { padding: 18px 14px; }
-      .metric-label { font-size: 11px; }
-      .metric-value { font-size: 23px; }
+      .metric-card {
+        padding: 18px 14px;
+      }
+
+      .metric-label {
+        font-size: 11px;
+      }
+
+      .metric-value {
+        font-size: 23px;
+      }
 
       .sns-grid,
-      .chart-grid { grid-template-columns: 1fr; }
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
 
-      .sns-card { min-height: 0; }
-      .chart-box { height: 240px; }
+      .sns-card {
+        min-height: 0;
+      }
+
+      .chart-box {
+        height: 240px;
+      }
 
       .timeline::before {
         left: 10px;
@@ -852,15 +1032,27 @@
         grid-row: 2;
       }
 
-      .contact-panel { padding: 28px 22px; }
-      .contact-actions { flex-direction: column; }
-      .contact-actions .button { width: 100%; }
+      .contact-panel {
+        padding: 28px 22px;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .contact-actions .button {
+        width: 100%;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html {
+        scroll-behavior: auto;
+      }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
       }
@@ -882,18 +1074,34 @@
         aria-controls="menuPanel"
       >☰</button>
 
-      <a class="site-logo" href="#top">ちゃみねむ <span>✦</span></a>
-      <span class="topbar-note">STREAMER PORTFOLIO</span>
+      <a class="site-logo" href="#top">
+        ちゃみねむ <span>✦</span>
+      </a>
+
+      <span class="topbar-note">
+        STREAMER PORTFOLIO
+      </span>
     </div>
   </header>
 
   <!-- LEFT MENU -->
   <div class="menu-overlay" id="menuOverlay"></div>
 
-  <aside class="menu-panel" id="menuPanel" aria-hidden="true" inert>
+  <aside
+    class="menu-panel"
+    id="menuPanel"
+    aria-hidden="true"
+    inert
+  >
     <div class="menu-head">
       <strong>CHAMINEMU ✦</strong>
-      <button class="menu-close" id="menuClose" type="button" aria-label="メニューを閉じる">×</button>
+
+      <button
+        class="menu-close"
+        id="menuClose"
+        type="button"
+        aria-label="メニューを閉じる"
+      >×</button>
     </div>
 
     <nav class="menu-links" aria-label="ページ内メニュー">
@@ -912,18 +1120,26 @@
       <a href="#official-links">LINKS｜公式リンク</a>
     </nav>
 
-    <div class="menu-footer">© CHAMINEMU</div>
+    <div class="menu-footer">
+      © CHAMINEMU
+    </div>
   </aside>
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO WITH TRANSPARENT PNG -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">VALORANT STREAMER / BRAND PARTNERSHIP</span>
 
-          <h1>ちゃみねむ<span>✦</span></h1>
+        <!-- LEFT TEXT -->
+        <div>
+          <span class="eyebrow">
+            VALORANT STREAMER / BRAND PARTNERSHIP
+          </span>
+
+          <h1>
+            ちゃみねむ<span>✦</span>
+          </h1>
 
           <p class="hero-catch">
             ゲームの楽しさを、<br>
@@ -939,38 +1155,35 @@
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">
-              パートナーシップのご相談 ↗
-            </a>
-            <a class="button button-outline" href="#company-results">
-              活動実績を見る ↓
-            </a>
+            <a
+              class="button button-primary"
+              href="#contact"
+            >パートナーシップのご相談 ↗</a>
+
+            <a
+              class="button button-outline"
+              href="#company-results"
+            >活動実績を見る ↓</a>
           </div>
         </div>
 
-        <div class="hero-side">
-          <div class="side-label">PARTNERSHIP PROFILE</div>
-          <div class="side-title">Create Value<br>Together.</div>
+        <!-- RIGHT CHARACTER ILLUSTRATION -->
+        <div class="hero-art" id="heroArt">
+          <img
+            src="./chaminemu.png"
+            alt="ちゃみねむのキャラクターイラスト"
+            class="hero-illustration"
+            id="heroIllustration"
+            fetchpriority="high"
+            decoding="async"
+          >
 
-          <div class="side-line">
-            <span>活動プラットフォーム</span>
-            <strong>Twitch</strong>
+          <div class="hero-art-label">
+            <strong>CHAMINEMU ✦</strong>
+            <span>VALORANT STREAMER</span>
           </div>
-
-          <div class="side-line">
-            <span>メインタイトル</span>
-            <strong>VALORANT</strong>
-          </div>
-
-          <div class="side-line">
-            <span>提携のご相談</span>
-            <strong>スポンサー / アンバサダー</strong>
-          </div>
-
-          <p class="side-bottom">
-            ブランドとコミュニティの長期的な関係づくりを目指して。
-          </p>
         </div>
+
       </div>
     </section>
 
@@ -985,21 +1198,27 @@
         <div class="card about-card">
           <div>
             <p>
-              はじめまして！Twitchを中心に、VALORANTの配信活動をしている
+              はじめまして！Twitchを中心に、
+              VALORANTの配信活動をしている
               「ちゃみねむ」です。
             </p>
+
             <p>
-              日々の配信を通して、視聴者の皆さんと一緒に楽しめる時間を
-              大切にしながら活動しています。
+              日々の配信を通して、視聴者の皆さんと
+              一緒に楽しめる時間を大切にしながら活動しています。
             </p>
+
             <p>
               企業案件・製品提供・PR配信・コラボレーションに加え、
               長期スポンサーやブランドアンバサダーとしての
-              継続的な取り組みについてもご相談を受け付けています。
+              継続的な取り組みについても
+              ご相談を受け付けています。
             </p>
           </div>
 
-          <div class="about-tag">VALORANT × TWITCH</div>
+          <div class="about-tag">
+            VALORANT × TWITCH
+          </div>
         </div>
       </div>
     </section>
@@ -1008,34 +1227,53 @@
     <section class="section" id="why">
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">02 / WHY CHAMINEMU</span>
+          <span class="section-kicker">
+            02 / WHY CHAMINEMU
+          </span>
+
           <h2>パートナーとしての魅力</h2>
-          <p>配信活動の特徴と、ブランドとの継続的な取り組みに向けた考え方。</p>
+
+          <p>
+            配信活動の特徴と、ブランドとの
+            継続的な取り組みに向けた考え方。
+          </p>
         </div>
 
         <div class="feature-grid">
           <article class="card feature-card">
             <div class="feature-icon">♡</div>
             <h3>コミュニティとの交流</h3>
-            <p>視聴者とのコミュニケーションを大切にした配信スタイル。</p>
+            <p>
+              視聴者とのコミュニケーションを
+              大切にした配信スタイル。
+            </p>
           </article>
 
           <article class="card feature-card">
             <div class="feature-icon">✦</div>
             <h3>ゲーミング領域</h3>
-            <p>VALORANTを中心に、ゲームの楽しさを継続的に発信。</p>
+            <p>
+              VALORANTを中心に、
+              ゲームの楽しさを継続的に発信。
+            </p>
           </article>
 
           <article class="card feature-card">
             <div class="feature-icon">↗</div>
             <h3>データの可視化</h3>
-            <p>配信の視聴データや活動実績を確認できるポートフォリオ。</p>
+            <p>
+              配信の視聴データや活動実績を
+              確認できるポートフォリオ。
+            </p>
           </article>
 
           <article class="card feature-card">
             <div class="feature-icon">∞</div>
             <h3>長期的な関係づくり</h3>
-            <p>単発の紹介だけでなく、継続的なブランド発信を目指します。</p>
+            <p>
+              単発の紹介だけでなく、
+              継続的なブランド発信を目指します。
+            </p>
           </article>
         </div>
       </div>
@@ -1045,40 +1283,76 @@
     <section class="section" id="audience">
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">03 / AUDIENCE & REACH</span>
+          <span class="section-kicker">
+            03 / AUDIENCE & REACH
+          </span>
+
           <h2>活動データ</h2>
-          <p>企業担当者の方が活動規模を確認しやすいよう、主要な指標をまとめています。</p>
+
+          <p>
+            企業担当者の方が活動規模を確認しやすいよう、
+            主要な指標をまとめています。
+          </p>
         </div>
 
         <div class="metrics-grid">
           <div class="metric-card">
-            <div class="metric-label">Twitch フォロワー</div>
-            <div class="metric-value" id="twitchFollowers">—</div>
-            <div class="metric-note">APIから自動取得</div>
+            <div class="metric-label">
+              Twitch フォロワー
+            </div>
+            <div
+              class="metric-value"
+              id="twitchFollowers"
+            >—</div>
+            <div class="metric-note">
+              APIから自動取得
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">X フォロワー</div>
-            <div class="metric-value">13,221</div>
-            <div class="metric-note">手動更新の参考値</div>
+            <div class="metric-label">
+              X フォロワー
+            </div>
+            <div class="metric-value">
+              13,221
+            </div>
+            <div class="metric-note">
+              手動更新の参考値
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">YouTube 登録者</div>
-            <div class="metric-value" id="youtubeSubscribers">—</div>
-            <div class="metric-note">APIから自動取得</div>
+            <div class="metric-label">
+              YouTube 登録者
+            </div>
+            <div
+              class="metric-value"
+              id="youtubeSubscribers"
+            >—</div>
+            <div class="metric-note">
+              APIから自動取得
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">週間平均視聴者数</div>
-            <div class="metric-value" id="weeklyAverage">—</div>
-            <div class="metric-note" id="weeklyAverageNote">データ取得中</div>
+            <div class="metric-label">
+              週間平均視聴者数
+            </div>
+            <div
+              class="metric-value"
+              id="weeklyAverage"
+            >—</div>
+            <div
+              class="metric-note"
+              id="weeklyAverageNote"
+            >データ取得中</div>
           </div>
         </div>
 
         <p class="data-note">
           ※ Twitch・YouTubeの数値は連携APIから取得します。
-          Xのフォロワー数は手動更新のため、現在値と異なる場合があります。
+          Xのフォロワー数は手動更新のため、
+          現在値と異なる場合があります。
           <span id="lastUpdated"></span>
         </p>
       </div>
@@ -1088,55 +1362,86 @@
     <section class="section" id="partnership">
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">04 / PARTNERSHIP</span>
+          <span class="section-kicker">
+            04 / PARTNERSHIP
+          </span>
+
           <h2>ブランドとのパートナーシップ</h2>
+
           <p>
             長期的なスポンサーシップを中心に、
-            ブランドの目的に合わせた取り組みをご相談いただけます。
+            ブランドの目的に合わせた取り組みを
+            ご相談いただけます。
           </p>
         </div>
 
         <div class="partnership-grid">
           <article class="card partnership-card">
-            <span class="partnership-number">PARTNERSHIP / 01</span>
+            <span class="partnership-number">
+              PARTNERSHIP / 01
+            </span>
+
             <h3>ブランドアンバサダー</h3>
+
             <p>
               製品の継続使用、配信内での自然な紹介、
-              SNSでの発信などを組み合わせた長期的なブランド連携。
+              SNSでの発信などを組み合わせた
+              長期的なブランド連携。
             </p>
-            <span class="partnership-tag">LONG-TERM COLLABORATION</span>
+
+            <span class="partnership-tag">
+              LONG-TERM COLLABORATION
+            </span>
           </article>
 
           <article class="card partnership-card">
-            <span class="partnership-number">PARTNERSHIP / 02</span>
+            <span class="partnership-number">
+              PARTNERSHIP / 02
+            </span>
+
             <h3>継続スポンサーシップ</h3>
+
             <p>
               配信やSNSなど複数の接点を通じて、
-              ブランド認知の向上を目指す継続的な取り組み。
+              ブランド認知の向上を目指す
+              継続的な取り組み。
             </p>
-            <span class="partnership-tag">SPONSORSHIP</span>
+
+            <span class="partnership-tag">
+              SPONSORSHIP
+            </span>
           </article>
 
           <article class="card partnership-card">
-            <span class="partnership-number">PARTNERSHIP / 03</span>
+            <span class="partnership-number">
+              PARTNERSHIP / 03
+            </span>
+
             <h3>イベント・キャンペーン連携</h3>
+
             <p>
               製品発表、イベントへの参加、
-              キャンペーン告知などの共同企画についてのご相談。
+              キャンペーン告知などの
+              共同企画についてのご相談。
             </p>
-            <span class="partnership-tag">EVENT & CAMPAIGN</span>
+
+            <span class="partnership-tag">
+              EVENT & CAMPAIGN
+            </span>
           </article>
         </div>
 
         <p class="data-note">
           ※ 上記はご相談可能な提携例です。
-          対応範囲・実施期間・条件は案件ごとにご相談ください。
+          対応範囲・実施期間・条件は
+          案件ごとにご相談ください。
         </p>
 
         <div style="margin-top:24px">
-          <a class="button button-primary" href="#contact">
-            提携について問い合わせる ↗
-          </a>
+          <a
+            class="button button-primary"
+            href="#contact"
+          >提携について問い合わせる ↗</a>
         </div>
       </div>
     </section>
@@ -1145,102 +1450,185 @@
     <section class="section" id="sns">
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">05 / SOCIAL MEDIA</span>
+          <span class="section-kicker">
+            05 / SOCIAL MEDIA
+          </span>
+
           <h2>SNS｜公式アカウント</h2>
-          <p>配信・投稿など、各プラットフォームでの活動をご覧いただけます。</p>
+
+          <p>
+            配信・投稿など、各プラットフォームでの
+            活動をご覧いただけます。
+          </p>
         </div>
 
         <div class="sns-grid">
-          <a class="card sns-card" href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">
+          <a
+            class="card sns-card"
+            href="https://www.twitch.tv/chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="sns-name">Twitch</div>
-            <div class="sns-handle">chaminemu / ライブ配信</div>
-            <div class="sns-arrow">チャンネルを見る ↗</div>
+            <div class="sns-handle">
+              chaminemu / ライブ配信
+            </div>
+            <div class="sns-arrow">
+              チャンネルを見る ↗
+            </div>
           </a>
 
-          <a class="card sns-card" href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">
+          <a
+            class="card sns-card"
+            href="https://x.com/chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="sns-name">X</div>
-            <div class="sns-handle">@chaminemu / 活動情報</div>
-            <div class="sns-arrow">プロフィールを見る ↗</div>
+            <div class="sns-handle">
+              @chaminemu / 活動情報
+            </div>
+            <div class="sns-arrow">
+              プロフィールを見る ↗
+            </div>
           </a>
 
-          <a class="card sns-card" href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">
+          <a
+            class="card sns-card"
+            href="https://www.youtube.com/@chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="sns-name">YouTube</div>
-            <div class="sns-handle">@chaminemu / 動画</div>
-            <div class="sns-arrow">チャンネルを見る ↗</div>
+            <div class="sns-handle">
+              @chaminemu / 動画
+            </div>
+            <div class="sns-arrow">
+              チャンネルを見る ↗
+            </div>
           </a>
         </div>
       </div>
     </section>
 
     <!-- COMPANY WORKS -->
-    <section class="section" id="company-results">
+    <section
+      class="section"
+      id="company-results"
+    >
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">06 / BRAND COLLABORATIONS</span>
+          <span class="section-kicker">
+            06 / BRAND COLLABORATIONS
+          </span>
+
           <h2>企業との実績・活動歴</h2>
-          <p>これまでの企業案件・製品提供・活動実績を新しい順に掲載しています。</p>
+
+          <p>
+            これまでの企業案件・製品提供・活動実績を
+            新しい順に掲載しています。
+          </p>
         </div>
 
         <div class="timeline">
+
           <div class="timeline-entry">
-            <div class="timeline-date">2026年10月</div>
+            <div class="timeline-date">
+              2026年10月
+            </div>
             <div class="timeline-dot"></div>
+
             <article class="card timeline-content">
               <h3>WALLHACK様</h3>
               <p>製品提供・アフィリエイト</p>
-              <span class="timeline-type">PRODUCT / AFFILIATE</span>
+              <span class="timeline-type">
+                PRODUCT / AFFILIATE
+              </span>
             </article>
           </div>
 
           <div class="timeline-entry">
-            <div class="timeline-date">2026年9月</div>
+            <div class="timeline-date">
+              2026年9月
+            </div>
             <div class="timeline-dot"></div>
+
             <article class="card timeline-content">
               <h3>Rabbit0様</h3>
-              <p>製品提供・東京ゲームショウ（TGS）への招待</p>
-              <span class="timeline-type">PRODUCT / EVENT</span>
+              <p>
+                製品提供・東京ゲームショウ（TGS）への招待
+              </p>
+              <span class="timeline-type">
+                PRODUCT / EVENT
+              </span>
             </article>
           </div>
 
           <div class="timeline-entry">
-            <div class="timeline-date">2026年7月</div>
+            <div class="timeline-date">
+              2026年7月
+            </div>
             <div class="timeline-dot"></div>
+
             <article class="card timeline-content">
               <h3>Gamee様</h3>
               <p>企業案件</p>
-              <span class="timeline-type">BRAND COLLABORATION</span>
+              <span class="timeline-type">
+                BRAND COLLABORATION
+              </span>
             </article>
           </div>
 
           <div class="timeline-entry">
-            <div class="timeline-date">2024年<br>9月30日</div>
+            <div class="timeline-date">
+              2024年<br>9月30日
+            </div>
             <div class="timeline-dot"></div>
+
             <article class="card timeline-content">
               <h3>Twitchアフィリエイト開始</h3>
-              <p>Twitchでアフィリエイト活動を開始。</p>
-              <span class="timeline-type">STREAMING MILESTONE</span>
+              <p>
+                Twitchでアフィリエイト活動を開始。
+              </p>
+              <span class="timeline-type">
+                STREAMING MILESTONE
+              </span>
             </article>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- TOURNAMENT -->
-    <section class="section" id="tournament-results">
+    <section
+      class="section"
+      id="tournament-results"
+    >
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">07 / EVENTS & TOURNAMENTS</span>
+          <span class="section-kicker">
+            07 / EVENTS & TOURNAMENTS
+          </span>
+
           <h2>大会参加実績</h2>
         </div>
 
         <div class="timeline">
           <div class="timeline-entry">
-            <div class="timeline-date">2026年8月</div>
+            <div class="timeline-date">
+              2026年8月
+            </div>
             <div class="timeline-dot"></div>
+
             <article class="card timeline-content">
               <h3>PcuteCustom5</h3>
-              <p>imi様主催の大会にリーダー枠で出場。</p>
-              <span class="timeline-type">TOURNAMENT / TEAM LEADER</span>
+              <p>
+                imi様主催の大会にリーダー枠で出場。
+              </p>
+              <span class="timeline-type">
+                TOURNAMENT / TEAM LEADER
+              </span>
             </article>
           </div>
         </div>
@@ -1251,30 +1639,59 @@
     <section class="section" id="stream">
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">08 / STREAM ANALYTICS</span>
+          <span class="section-kicker">
+            08 / STREAM ANALYTICS
+          </span>
+
           <h2>配信データ・視聴者推移</h2>
-          <p>配信中の視聴者数と、週間平均視聴者数の推移を掲載しています。</p>
+
+          <p>
+            配信中の視聴者数と、
+            週間平均視聴者数の推移を掲載しています。
+          </p>
         </div>
 
         <div class="chart-grid">
           <article class="card chart-card">
             <h3>Twitch 視聴者数の推移</h3>
-            <p class="chart-description">取得した視聴者数の時系列データ</p>
+
+            <p class="chart-description">
+              取得した視聴者数の時系列データ
+            </p>
+
             <div class="chart-box">
-              <canvas id="viewersChart" aria-label="Twitch視聴者数の推移"></canvas>
+              <canvas
+                id="viewersChart"
+                aria-label="Twitch視聴者数の推移"
+              ></canvas>
             </div>
-            <p class="chart-fallback" id="viewersFallback">
+
+            <p
+              class="chart-fallback"
+              id="viewersFallback"
+            >
               表示できるデータがありません。
             </p>
           </article>
 
           <article class="card chart-card">
             <h3>週間平均視聴者数の推移</h3>
-            <p class="chart-description">週ごとの平均視聴者数</p>
+
+            <p class="chart-description">
+              週ごとの平均視聴者数
+            </p>
+
             <div class="chart-box">
-              <canvas id="weeklyChart" aria-label="週間平均視聴者数の推移"></canvas>
+              <canvas
+                id="weeklyChart"
+                aria-label="週間平均視聴者数の推移"
+              ></canvas>
             </div>
-            <p class="chart-fallback" id="weeklyFallback">
+
+            <p
+              class="chart-fallback"
+              id="weeklyFallback"
+            >
               表示できるデータがありません。
             </p>
           </article>
@@ -1282,82 +1699,153 @@
 
         <p class="data-note">
           ※ グラフはCloudflare Workerの記録データを使用しています。
-          配信がない時間帯や集計途中の週は、データが少ない場合があります。
+          配信がない時間帯や集計途中の週は、
+          データが少ない場合があります。
         </p>
       </div>
     </section>
 
     <!-- TWITCH RESULTS -->
-    <section class="section" id="twitch-results">
+    <section
+      class="section"
+      id="twitch-results"
+    >
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">09 / TWITCH PERFORMANCE</span>
+          <span class="section-kicker">
+            09 / TWITCH PERFORMANCE
+          </span>
+
           <h2>Twitch｜配信実績</h2>
         </div>
 
         <div class="stats-grid">
           <div class="metric-card">
-            <div class="metric-label">最大同時視聴者数</div>
-            <div class="metric-value" id="peakViewers">—</div>
-            <div class="metric-note">記録データ内の最大値</div>
+            <div class="metric-label">
+              最大同時視聴者数
+            </div>
+            <div
+              class="metric-value"
+              id="peakViewers"
+            >—</div>
+            <div class="metric-note">
+              記録データ内の最大値
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">週間最大視聴者数</div>
-            <div class="metric-value" id="weeklyPeakViewers">—</div>
-            <div class="metric-note">API集計値</div>
+            <div class="metric-label">
+              週間最大視聴者数
+            </div>
+            <div
+              class="metric-value"
+              id="weeklyPeakViewers"
+            >—</div>
+            <div class="metric-note">
+              API集計値
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">配信回数</div>
-            <div class="metric-value" id="streamCount">—</div>
-            <div class="metric-note">API集計値</div>
+            <div class="metric-label">
+              配信回数
+            </div>
+            <div
+              class="metric-value"
+              id="streamCount"
+            >—</div>
+            <div class="metric-note">
+              API集計値
+            </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-label">計測時間</div>
-            <div class="metric-value" id="measuredHours">—</div>
-            <div class="metric-note">時間 / API集計値</div>
+            <div class="metric-label">
+              計測時間
+            </div>
+            <div
+              class="metric-value"
+              id="measuredHours"
+            >—</div>
+            <div class="metric-note">
+              時間 / API集計値
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- YOUTUBE RESULTS -->
-    <section class="section" id="youtube-results">
+    <section
+      class="section"
+      id="youtube-results"
+    >
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">10 / YOUTUBE PERFORMANCE</span>
+          <span class="section-kicker">
+            10 / YOUTUBE PERFORMANCE
+          </span>
+
           <h2>YouTube｜チャンネル実績</h2>
         </div>
 
         <div class="stats-grid">
           <div class="metric-card">
-            <div class="metric-label">チャンネル登録者数</div>
-            <div class="metric-value" id="youtubeSubscribersDetail">—</div>
-            <div class="metric-note">APIから自動取得</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-label">総再生回数</div>
-            <div class="metric-value" id="youtubeViews">—</div>
-            <div class="metric-note">APIから自動取得</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-label">動画数</div>
-            <div class="metric-value" id="youtubeVideos">—</div>
-            <div class="metric-note">APIから自動取得</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-label">公式チャンネル</div>
-            <div class="metric-value" style="font-size:18px">
-              <a href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">
-                YouTube ↗
-              </a>
+            <div class="metric-label">
+              チャンネル登録者数
             </div>
-            <div class="metric-note">動画・活動情報</div>
+            <div
+              class="metric-value"
+              id="youtubeSubscribersDetail"
+            >—</div>
+            <div class="metric-note">
+              APIから自動取得
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              総再生回数
+            </div>
+            <div
+              class="metric-value"
+              id="youtubeViews"
+            >—</div>
+            <div class="metric-note">
+              APIから自動取得
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              動画数
+            </div>
+            <div
+              class="metric-value"
+              id="youtubeVideos"
+            >—</div>
+            <div class="metric-note">
+              APIから自動取得
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              公式チャンネル
+            </div>
+            <div
+              class="metric-value"
+              style="font-size:18px"
+            >
+              <a
+                href="https://www.youtube.com/@chaminemu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >YouTube ↗</a>
+            </div>
+            <div class="metric-note">
+              動画・活動情報
+            </div>
           </div>
         </div>
       </div>
@@ -1367,7 +1855,9 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-panel">
-          <span class="section-kicker">11 / LET'S WORK TOGETHER</span>
+          <span class="section-kicker">
+            11 / LET'S WORK TOGETHER
+          </span>
 
           <h2>
             長期的なパートナーシップの<br>
@@ -1376,8 +1866,10 @@
 
           <p>
             長期スポンサー契約、ブランドアンバサダー、
-            継続的なPR施策、製品提供、イベント・大会へのご招待など、
-            お仕事のご相談はメールまたはXのDMよりお気軽にご連絡ください。
+            継続的なPR施策、製品提供、
+            イベント・大会へのご招待など、
+            お仕事のご相談はメールまたはXのDMより
+            お気軽にご連絡ください。
           </p>
 
           <div class="contact-actions">
@@ -1394,27 +1886,63 @@
             >XのDMで相談する ↗</a>
           </div>
 
-          <a class="contact-email" href="mailto:chami2m2@gmail.com">
-            chami2m2@gmail.com
-          </a>
+          <a
+            class="contact-email"
+            href="mailto:chami2m2@gmail.com"
+          >chami2m2@gmail.com</a>
         </div>
       </div>
     </section>
 
     <!-- LINKS -->
-    <section class="section" id="official-links">
+    <section
+      class="section"
+      id="official-links"
+    >
       <div class="container">
         <div class="section-heading">
-          <span class="section-kicker">12 / OFFICIAL LINKS</span>
+          <span class="section-kicker">
+            12 / OFFICIAL LINKS
+          </span>
+
           <h2>公式リンク</h2>
         </div>
 
         <div class="official-links">
-          <a class="official-link" href="https://www.twitch.tv/chaminemu" target="_blank" rel="noopener noreferrer">Twitch ↗</a>
-          <a class="official-link" href="https://x.com/chaminemu" target="_blank" rel="noopener noreferrer">X ↗</a>
-          <a class="official-link" href="https://www.youtube.com/@chaminemu" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-          <a class="official-link" href="https://www.tiktok.com/@chaminemu" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
-          <a class="official-link" href="https://lit.link/chaminemu" target="_blank" rel="noopener noreferrer">LitLink ↗</a>
+          <a
+            class="official-link"
+            href="https://www.twitch.tv/chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Twitch ↗</a>
+
+          <a
+            class="official-link"
+            href="https://x.com/chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >X ↗</a>
+
+          <a
+            class="official-link"
+            href="https://www.youtube.com/@chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >YouTube ↗</a>
+
+          <a
+            class="official-link"
+            href="https://www.tiktok.com/@chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >TikTok ↗</a>
+
+          <a
+            class="official-link"
+            href="https://lit.link/chaminemu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LitLink ↗</a>
         </div>
       </div>
     </section>
@@ -1423,10 +1951,16 @@
 
   <footer>
     <div class="container">
-      <p>© <span id="copyrightYear"></span> CHAMINEMU. All rights reserved.</p>
+      <p>
+        © <span id="copyrightYear"></span>
+        CHAMINEMU. All rights reserved.
+      </p>
+
       <div class="status-line">
         <span class="status-dot"></span>
-        <span>STREAMER & BRAND PARTNERSHIP PORTFOLIO</span>
+        <span>
+          STREAMER & BRAND PARTNERSHIP PORTFOLIO
+        </span>
       </div>
     </div>
   </footer>
@@ -1450,7 +1984,11 @@
     });
 
     function formatNumber(value, digits = 0) {
-      if (value === null || value === undefined || value === "") {
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
         return "—";
       }
 
@@ -1467,7 +2005,10 @@
 
     function setText(id, value) {
       const element = $(id);
-      if (element) element.textContent = value;
+
+      if (element) {
+        element.textContent = value;
+      }
     }
 
     function formatDate(value) {
@@ -1504,12 +2045,15 @@
     }
 
     async function fetchJSON(path) {
-      const response = await fetch(API_BASE + path, {
-        cache: "no-store"
-      });
+      const response = await fetch(
+        API_BASE + path,
+        { cache: "no-store" }
+      );
 
       if (!response.ok) {
-        throw new Error(path + ": HTTP " + response.status);
+        throw new Error(
+          path + ": HTTP " + response.status
+        );
       }
 
       return response.json();
@@ -1533,7 +2077,8 @@
     }
 
     function closeMenu() {
-      const focusWasInside = menuPanel.contains(document.activeElement);
+      const focusWasInside =
+        menuPanel.contains(document.activeElement);
 
       if (focusWasInside) {
         menuButton.focus();
@@ -1547,52 +2092,84 @@
       document.body.classList.remove("menu-open");
     }
 
-    menuButton.addEventListener("click", openMenu);
-    menuClose.addEventListener("click", closeMenu);
-    menuOverlay.addEventListener("click", closeMenu);
+    menuButton.addEventListener(
+      "click",
+      openMenu
+    );
 
-    menuPanel.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
+    menuClose.addEventListener(
+      "click",
+      closeMenu
+    );
 
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        menuPanel.classList.contains("is-open")
-      ) {
-        closeMenu();
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
+
+    menuPanel.querySelectorAll("a").forEach(
+      (link) => {
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
       }
+    );
 
-      if (
-        event.key === "Tab" &&
-        menuPanel.classList.contains("is-open")
-      ) {
-        const focusables = [
-          ...menuPanel.querySelectorAll(
-            'a[href], button:not([disabled])'
-          )
-        ];
-
-        if (!focusables.length) return;
-
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (
+          event.key === "Escape" &&
+          menuPanel.classList.contains("is-open")
+        ) {
+          closeMenu();
+        }
 
         if (
-          event.shiftKey &&
-          document.activeElement === first
+          event.key === "Tab" &&
+          menuPanel.classList.contains("is-open")
         ) {
-          event.preventDefault();
-          last.focus();
-        } else if (
-          !event.shiftKey &&
-          document.activeElement === last
-        ) {
-          event.preventDefault();
-          first.focus();
+          const focusables = [
+            ...menuPanel.querySelectorAll(
+              'a[href], button:not([disabled])'
+            )
+          ];
+
+          if (!focusables.length) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (
+            event.shiftKey &&
+            document.activeElement === first
+          ) {
+            event.preventDefault();
+            last.focus();
+          } else if (
+            !event.shiftKey &&
+            document.activeElement === last
+          ) {
+            event.preventDefault();
+            first.focus();
+          }
         }
       }
-    });
+    );
+
+    /* ILLUSTRATION FALLBACK */
+
+    const heroIllustration = $("heroIllustration");
+    const heroArt = $("heroArt");
+
+    heroIllustration.addEventListener(
+      "error",
+      () => {
+        heroIllustration.style.display = "none";
+        heroArt.classList.add("is-missing");
+      }
+    );
 
     /* CHARTS */
 
@@ -1627,7 +2204,9 @@
               maxRotation: 0,
               autoSkip: true,
               maxTicksLimit: 6,
-              font: { size: 10 }
+              font: {
+                size: 10
+              }
             },
             grid: {
               color: "rgba(139,197,195,.08)"
@@ -1638,7 +2217,9 @@
             ticks: {
               color: "#BFC3CC",
               precision: 0,
-              font: { size: 10 }
+              font: {
+                size: 10
+              }
             },
             grid: {
               color: "rgba(139,197,195,.12)"
@@ -1660,7 +2241,9 @@
 
       const canvas = $(canvasId);
 
-      if (!canvas) return existingChart;
+      if (!canvas) {
+        return existingChart;
+      }
 
       if (existingChart) {
         existingChart.data.labels = labels;
@@ -1680,7 +2263,8 @@
             borderWidth: 2,
             fill: true,
             tension: .25,
-            pointRadius: values.length > 35 ? 0 : 2,
+            pointRadius:
+              values.length > 35 ? 0 : 2,
             pointHoverRadius: 5,
             pointBackgroundColor: "#C7E8E6",
             spanGaps: false
@@ -1690,10 +2274,18 @@
       });
     }
 
-    function normalizeArray(data, possibleKeys) {
-      if (Array.isArray(data)) return data;
+    function normalizeArray(
+      data,
+      possibleKeys
+    ) {
+      if (Array.isArray(data)) {
+        return data;
+      }
 
-      if (data && typeof data === "object") {
+      if (
+        data &&
+        typeof data === "object"
+      ) {
         for (const key of possibleKeys) {
           if (Array.isArray(data[key])) {
             return data[key];
@@ -1704,32 +2296,42 @@
       return [];
     }
 
-    /* TWITCH VIEWERS */
+    /* VIEWERS */
 
     async function loadViewers() {
-      const data = await fetchJSON("/api/viewers");
+      const data = await fetchJSON(
+        "/api/viewers"
+      );
 
-      const rows = normalizeArray(data, [
-        "viewers",
-        "samples",
-        "data",
-        "history"
-      ])
+      const rows = normalizeArray(
+        data,
+        [
+          "viewers",
+          "samples",
+          "data",
+          "history"
+        ]
+      )
         .filter((item) =>
           item &&
           item.sampled_at &&
-          Number.isFinite(Number(item.viewer_count))
+          Number.isFinite(
+            Number(item.viewer_count)
+          )
         )
         .sort((a, b) =>
-          new Date(a.sampled_at) - new Date(b.sampled_at)
+          new Date(a.sampled_at) -
+          new Date(b.sampled_at)
         );
 
-      const labels = rows.map((item) =>
-        formatDateTime(item.sampled_at)
+      const labels = rows.map(
+        (item) =>
+          formatDateTime(item.sampled_at)
       );
 
-      const values = rows.map((item) =>
-        Number(item.viewer_count)
+      const values = rows.map(
+        (item) =>
+          Number(item.viewer_count)
       );
 
       viewersChart = createOrUpdateChart(
@@ -1746,17 +2348,24 @@
     /* WEEKLY AVERAGE */
 
     async function loadWeekly() {
-      const data = await fetchJSON("/api/weekly");
+      const data = await fetchJSON(
+        "/api/weekly"
+      );
 
       setText(
         "weeklyAverage",
-        formatNumber(data.average_viewers, 1)
+        formatNumber(
+          data.average_viewers,
+          1
+        )
       );
 
       const parts = [];
 
       if (data.week_start) {
-        parts.push(formatDate(data.week_start) + "〜");
+        parts.push(
+          formatDate(data.week_start) + "〜"
+        );
       }
 
       if (data.provisional) {
@@ -1768,44 +2377,57 @@
         data.measured_minutes !== null
       ) {
         parts.push(
-          formatNumber(data.measured_minutes) + "分計測"
+          formatNumber(
+            data.measured_minutes
+          ) + "分計測"
         );
       }
 
       setText(
         "weeklyAverageNote",
-        parts.join(" / ") || "週間集計値"
+        parts.join(" / ") ||
+        "週間集計値"
       );
     }
 
     /* WEEKLY HISTORY */
 
     async function loadWeeklyHistory() {
-      const data = await fetchJSON("/api/weekly-history");
+      const data = await fetchJSON(
+        "/api/weekly-history"
+      );
 
-      const rows = normalizeArray(data, [
-        "weeks",
-        "history",
-        "data"
-      ])
+      const rows = normalizeArray(
+        data,
+        [
+          "weeks",
+          "history",
+          "data"
+        ]
+      )
         .filter((item) =>
           item &&
           item.week_start &&
           item.average_viewers !== null &&
           item.average_viewers !== undefined &&
-          Number.isFinite(Number(item.average_viewers))
+          Number.isFinite(
+            Number(item.average_viewers)
+          )
         )
         .sort((a, b) =>
-          new Date(a.week_start) - new Date(b.week_start)
+          new Date(a.week_start) -
+          new Date(b.week_start)
         );
 
-      const labels = rows.map((item) =>
-        formatDate(item.week_start) +
-        (item.provisional ? " ※" : "")
+      const labels = rows.map(
+        (item) =>
+          formatDate(item.week_start) +
+          (item.provisional ? " ※" : "")
       );
 
-      const values = rows.map((item) =>
-        Number(item.average_viewers)
+      const values = rows.map(
+        (item) =>
+          Number(item.average_viewers)
       );
 
       weeklyChart = createOrUpdateChart(
@@ -1822,58 +2444,88 @@
     /* TWITCH ACHIEVEMENTS */
 
     async function loadAchievements() {
-      const data = await fetchJSON("/api/achievements");
+      const data = await fetchJSON(
+        "/api/achievements"
+      );
 
       setText(
         "peakViewers",
-        formatNumber(data.peak_viewers)
+        formatNumber(
+          data.peak_viewers
+        )
       );
 
       setText(
         "weeklyPeakViewers",
-        formatNumber(data.weekly_peak_viewers)
+        formatNumber(
+          data.weekly_peak_viewers
+        )
       );
 
       setText(
         "streamCount",
-        formatNumber(data.stream_count)
+        formatNumber(
+          data.stream_count
+        )
       );
 
       setText(
         "measuredHours",
-        formatNumber(data.measured_hours, 1)
+        formatNumber(
+          data.measured_hours,
+          1
+        )
       );
     }
 
     /* YOUTUBE */
 
     async function loadYouTube() {
-      const data = await fetchJSON("/api/youtube");
+      const data = await fetchJSON(
+        "/api/youtube"
+      );
 
       const subscribers = formatNumber(
         data.subscriber_count
       );
 
-      setText("youtubeSubscribers", subscribers);
-      setText("youtubeSubscribersDetail", subscribers);
+      setText(
+        "youtubeSubscribers",
+        subscribers
+      );
+
+      setText(
+        "youtubeSubscribersDetail",
+        subscribers
+      );
+
       setText(
         "youtubeViews",
-        formatNumber(data.view_count)
+        formatNumber(
+          data.view_count
+        )
       );
+
       setText(
         "youtubeVideos",
-        formatNumber(data.video_count)
+        formatNumber(
+          data.video_count
+        )
       );
     }
 
     /* TWITCH FOLLOWERS */
 
     async function loadTwitchFollowers() {
-      const data = await fetchJSON("/api/twitch-followers");
+      const data = await fetchJSON(
+        "/api/twitch-followers"
+      );
 
       setText(
         "twitchFollowers",
-        formatNumber(data.follower_count)
+        formatNumber(
+          data.follower_count
+        )
       );
     }
 
@@ -1882,53 +2534,65 @@
     let refreshing = false;
 
     async function refreshAll() {
-      if (refreshing) return;
+      if (refreshing) {
+        return;
+      }
 
       refreshing = true;
 
-      const tasks = [
-        loadViewers(),
-        loadWeekly(),
-        loadWeeklyHistory(),
-        loadAchievements(),
-        loadYouTube(),
-        loadTwitchFollowers()
-      ];
+      try {
+        const tasks = [
+          loadViewers(),
+          loadWeekly(),
+          loadWeeklyHistory(),
+          loadAchievements(),
+          loadYouTube(),
+          loadTwitchFollowers()
+        ];
 
-      const results = await Promise.allSettled(tasks);
-
-      const succeeded = results.some(
-        (result) => result.status === "fulfilled"
-      );
-
-      if (succeeded) {
-        const updated = new Date().toLocaleString(
-          "ja-JP",
-          {
-            month: "numeric",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-          }
+        const results = await Promise.allSettled(
+          tasks
         );
 
-        setText(
-          "lastUpdated",
-          " / 最終取得: " + updated
+        const succeeded = results.some(
+          (result) =>
+            result.status === "fulfilled"
         );
-      }
 
-      results.forEach((result, index) => {
-        if (result.status === "rejected") {
-          console.warn(
-            "データ取得エラー",
-            index,
-            result.reason
+        if (succeeded) {
+          const updated = new Date()
+            .toLocaleString(
+              "ja-JP",
+              {
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+              }
+            );
+
+          setText(
+            "lastUpdated",
+            " / 最終取得: " + updated
           );
         }
-      });
 
-      refreshing = false;
+        results.forEach(
+          (result, index) => {
+            if (
+              result.status === "rejected"
+            ) {
+              console.warn(
+                "データ取得エラー",
+                index,
+                result.reason
+              );
+            }
+          }
+        );
+      } finally {
+        refreshing = false;
+      }
     }
 
     /* INIT */
@@ -1938,13 +2602,17 @@
       new Date().getFullYear()
     );
 
-    window.addEventListener("load", () => {
-      refreshAll();
-      setInterval(
-        refreshAll,
-        REFRESH_INTERVAL
-      );
-    });
+    window.addEventListener(
+      "load",
+      () => {
+        refreshAll();
+
+        setInterval(
+          refreshAll,
+          REFRESH_INTERVAL
+        );
+      }
+    );
   </script>
 </body>
 </html>
