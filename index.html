@@ -2,1116 +2,646 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ちゃみねむ | 配信実績・SNS統計</title>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #101017;
-      color: #f5f3ff;
-      font-family: sans-serif;
-      line-height: 1.7;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 64px 20px;
-    }
-
-    .eyebrow {
-      color: #b7a1ff;
-      letter-spacing: 2px;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 7vw, 64px);
-      margin: 8px 0;
-    }
-
-    h2 {
-      margin-top: 48px;
-    }
-
-    .muted {
-      color: #b5b3c5;
-    }
-
-    .card {
-      background: #1d1c29;
-      border: 1px solid #353149;
-      border-radius: 18px;
-      padding: 24px;
-      margin-top: 20px;
-    }
-
-    .value {
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: bold;
-      color: #e6dcff;
-      overflow-wrap: anywhere;
-    }
-
-    .small,
-    .status {
-      font-size: 13px;
-      color: #b5b3c5;
-    }
-
-    .stats-grid,
-    .sns-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .youtube-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .stats-grid .card,
-    .sns-grid .card,
-    .youtube-grid .card {
-      margin-top: 0;
-    }
-
-    .youtube-grid .value {
-      font-size: clamp(24px, 3.5vw, 36px);
-    }
-
-    .sns-label {
-      font-weight: bold;
-    }
-
-    .twitch-color {
-      color: #bf9cff;
-    }
-
-    .youtube-color {
-      color: #ff6975;
-    }
-
-    .x-color {
-      color: #f5f3ff;
-    }
-
-    .sns-card .value {
-      margin-top: 14px;
-    }
-
-    .sns-card a {
-      color: #b7a1ff;
-      text-decoration: none;
-      font-size: 13px;
-    }
-
-    .sns-card a:hover {
-      text-decoration: underline;
-    }
-
-    .youtube-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .youtube-mark {
-      color: #ff606b;
-      font-size: 24px;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .links a {
-      color: #e6dcff;
-      text-decoration: none;
-      background: #33264d;
-      border-radius: 12px;
-      padding: 10px 16px;
-    }
-
-    .links a:hover {
-      background: #513b79;
-    }
-
-    .chart-wrap {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      margin-top: 24px;
-    }
-
-    footer {
-      margin-top: 64px;
-      color: #9894a8;
-    }
-
-    @media (max-width: 600px) {
-      main {
-        padding: 40px 16px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-
-      .chart-wrap {
-        height: 240px;
-      }
-
-      .stats-grid,
-      .youtube-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .sns-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .sns-grid .card {
-        padding: 14px;
-      }
-
-      .sns-grid .value {
-        font-size: clamp(22px, 5vw, 32px);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101017">
+<title>ちゃみねむ | STREAMER PORTFOLIO</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:#101017;
+  --panel:#1d1c2b;
+  --line:#39344e;
+  --text:#f7f4ff;
+  --muted:#b8b3ca;
+  --lav:#b99bff;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  color:var(--text);
+  font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;
+  line-height:1.7;
+  background:radial-gradient(ellipse 85% 440px at 50% -140px,#25203b 0%,transparent 75%),var(--bg);
+}
+a {color:inherit}
+main {width:min(1120px,calc(100% - 40px));margin:auto;padding:68px 0}
+.eyebrow {font-size:12px;font-weight:800;letter-spacing:4px;color:var(--lav)}
+h1 {font-size:clamp(43px,7vw,72px);margin:8px 0 4px}
+h2 {font-size:clamp(21px,3vw,26px);margin:0}
+.hero {margin-bottom:66px}
+.hero p,.small,.status,.section-note {color:var(--muted)}
+.small,.status,.section-note {font-size:12px}
+.section {margin:54px 0}
+.section-heading {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;margin-bottom:20px;
+}
+.section-heading h2 {display:flex;align-items:center;gap:13px}
+.section-heading h2:before {
+  content:"";width:5px;height:28px;border-radius:4px;
+  background:linear-gradient(var(--lav),#8151eb);
+}
+.sns-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.sns-card,.card {
+  border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(145deg,#201e30,#1b1a28);
+  box-shadow:0 12px 34px rgba(0,0,0,.14);
+}
+.sns-card {
+  min-height:244px;padding:24px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .2s,border-color .2s;
+}
+.sns-card:hover {transform:translateY(-4px);border-color:#79669d}
+.sns-card:after {
+  content:"";position:absolute;right:-60px;bottom:-130px;
+  width:310px;height:210px;border-radius:50%;
+  background:var(--glow);filter:blur(18px);pointer-events:none;
+}
+.sns-card>* {position:relative;z-index:1}
+.twitch {--glow:rgba(147,91,255,.15)}
+.youtube {--glow:rgba(255,77,110,.12)}
+.x {--glow:rgba(127,152,231,.12)}
+.sns-head {display:flex;align-items:center;gap:13px}
+.brand-icon {
+  height:54px;width:54px;flex:none;display:grid;place-items:center;
+  border-radius:14px;font-weight:900;font-size:27px;
+}
+.twitch .brand-icon {background:linear-gradient(145deg,#a65cff,#6d36d8)}
+.youtube .brand-icon {background:linear-gradient(145deg,#ff435d,#e90024)}
+.x .brand-icon {background:#050509}
+.sns-name {font-size:18px;font-weight:800}
+.sns-sub {font-size:12px;color:var(--muted)}
+.sns-number {
+  font-size:clamp(29px,3.8vw,46px);font-weight:850;
+  letter-spacing:-.035em;margin:25px 0 14px;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.twitch .sns-number {color:#d4c0ff}
+.youtube .sns-number {color:#ffb9c6}
+.x .sns-number {color:#e1e6ff}
+.sns-bottom {
+  margin-top:auto;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;
+}
+.sns-bottom a {font-size:13px;text-decoration:none;font-weight:800}
+.twitch .sns-bottom a {color:#b99bff}
+.youtube .sns-bottom a {color:#ff8094}
+.x .sns-bottom a {color:#bbcaff}
+.arrow {
+  height:30px;width:30px;border:1px solid #514761;
+  border-radius:50%;display:grid;place-items:center;
+}
+.manual {font-size:11px;color:var(--muted);margin:-6px 0 10px}
+.card {padding:26px}
+.hero-stat {
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:28px;align-items:center;
+}
+.stat-caption,.metric-label {font-size:14px;color:var(--muted)}
+.big-number {
+  font-size:clamp(38px,5.5vw,62px);
+  font-weight:850;color:#cbb3ff;margin:16px 0;
+}
+.week-details {border-left:1px solid var(--line);padding-left:28px}
+.detail-title {font-weight:700;color:#d6c9f7;font-size:13px}
+.metric-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.metric-value {
+  font-size:clamp(23px,3vw,33px);font-weight:800;
+  color:#dbc9ff;margin-top:12px;overflow-wrap:anywhere;
+}
+.chart-card {margin-top:18px}
+.chart-wrap {height:290px;position:relative;margin:20px 0}
+.youtube-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.links {display:flex;flex-wrap:wrap;gap:10px}
+.links a {
+  border:1px solid #594577;background:#2b2240;
+  padding:10px 17px;border-radius:11px;
+  text-decoration:none;font-weight:700;font-size:13px;
+}
+.links a:hover {background:#41305d}
+.footer {
+  border-top:1px solid var(--line);padding-top:24px;
+  color:var(--muted);font-size:12px;margin-top:60px;
+}
+@media(max-width:850px) {
+  .sns-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px) {
+  main {width:calc(100% - 28px);padding-top:42px}
+  .hero {margin-bottom:42px}
+  .section {margin:38px 0}
+  .sns-grid,.hero-stat,.youtube-grid {grid-template-columns:1fr}
+  .sns-card {min-height:218px}
+  .sns-number {font-size:39px}
+  .week-details {
+    border-left:0;border-top:1px solid var(--line);
+    padding:18px 0 0;
+  }
+  .card {padding:20px}
+  .chart-wrap {height:240px}
+  .metric-grid {gap:10px}
+  .metric-grid .card {padding:17px}
+}
+</style>
 </head>
-
 <body>
-  <main>
-    <div class="eyebrow">STREAMER PORTFOLIO</div>
+<main>
 
-    <h1>ちゃみねむ</h1>
+<header class="hero">
+  <div class="eyebrow">STREAMER PORTFOLIO</div>
+  <h1>ちゃみねむ</h1>
+  <p>配信活動・実績・成長記録</p>
+</header>
 
-    <p class="muted">
-      配信活動・実績・成長記録
-    </p>
-
-    <!-- SNSフォロワー数 -->
+<section class="section">
+  <div class="section-heading">
     <h2>SNS フォロワー・登録者数</h2>
+    <p class="section-note">Twitch・YouTubeは自動更新 ／ Xは手動更新</p>
+  </div>
 
-    <div class="sns-grid">
+  <div class="sns-grid">
 
-      <!-- Twitch -->
-      <div class="card sns-card">
-        <div class="sns-label twitch-color">
-          Twitch
+    <article class="sns-card twitch">
+      <div class="sns-head">
+        <div class="brand-icon">♜</div>
+        <div>
+          <div class="sns-name">Twitch</div>
+          <div class="sns-sub">フォロワー数</div>
         </div>
-
-        <p class="muted">
-          フォロワー数
-        </p>
-
-        <div class="value" id="twitchFollowers">
-          読み込み中...
-        </div>
-
-        <a
-          href="https://www.twitch.tv/chaminemu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Twitchを見る →
-        </a>
       </div>
-
-      <!-- YouTube -->
-      <div class="card sns-card">
-        <div class="sns-label youtube-color">
-          YouTube
-        </div>
-
-        <p class="muted">
-          チャンネル登録者数
-        </p>
-
-        <div class="value" id="snsYoutubeSubscribers">
-          読み込み中...
-        </div>
-
-        <a
-          href="https://www.youtube.com/@chaminemu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YouTubeを見る →
-        </a>
+      <div class="sns-number" id="twitchFollowers">読み込み中</div>
+      <div class="sns-bottom">
+        <a href="https://www.twitch.tv/chaminemu" target="_blank">Twitchを見る →</a>
+        <span class="arrow">›</span>
       </div>
+    </article>
 
-      <!-- X：無料の手動更新 -->
-      <div class="card sns-card">
-        <div class="sns-label x-color">
-          X
+    <article class="sns-card youtube">
+      <div class="sns-head">
+        <div class="brand-icon">▶</div>
+        <div>
+          <div class="sns-name">YouTube</div>
+          <div class="sns-sub">チャンネル登録者数</div>
         </div>
-
-        <p class="muted">
-          フォロワー数
-        </p>
-
-        <div class="value" id="xFollowers">
-          13,221 人
-        </div>
-
-        <p class="small">
-          ※ 手動更新
-        </p>
-
-        <a
-          href="https://x.com/chaminemu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Xを見る →
-        </a>
       </div>
+      <div class="sns-number" id="snsYoutubeSubscribers">読み込み中</div>
+      <div class="sns-bottom">
+        <a href="https://www.youtube.com/@chaminemu" target="_blank">YouTubeを見る →</a>
+        <span class="arrow">›</span>
+      </div>
+    </article>
 
+    <article class="sns-card x">
+      <div class="sns-head">
+        <div class="brand-icon">𝕏</div>
+        <div>
+          <div class="sns-name">X</div>
+          <div class="sns-sub">フォロワー数</div>
+        </div>
+      </div>
+      <div class="sns-number">13,221 人</div>
+      <div class="manual">※ 手動更新</div>
+      <div class="sns-bottom">
+        <a href="https://x.com/chaminemu" target="_blank">Xを見る →</a>
+        <span class="arrow">›</span>
+      </div>
+    </article>
+
+  </div>
+  <p class="status" id="snsStatus">SNSデータを取得しています...</p>
+</section>
+
+<section class="section">
+  <div class="section-heading"><h2>配信データ</h2></div>
+
+  <div class="card hero-stat">
+    <div>
+      <div class="stat-caption">Twitch 今週の平均同時視聴者数</div>
+      <div class="big-number" id="weeklyAverage">読み込み中...</div>
+      <div class="small" id="weeklyStatus">計測データを確認しています</div>
     </div>
+    <div class="week-details">
+      <div class="detail-title">▦ 集計期間</div>
+      <p class="small" id="weeklyPeriod">日本時間・月曜日〜日曜日</p>
+      <div class="detail-title">◷ 計測時間</div>
+      <p class="small" id="weeklyMinutes">取得中...</p>
+    </div>
+  </div>
 
-    <p class="small" id="snsStatus">
-      SNSのデータを取得中...
+  <div class="card chart-card">
+    <div class="stat-caption">記録期間の平均同時視聴者数</div>
+    <div class="metric-value" id="averageViewers">読み込み中...</div>
+    <p class="small" id="sampleInfo"></p>
+    <div class="chart-wrap"><canvas id="viewerChart"></canvas></div>
+    <p class="status" id="chartStatus">グラフを読み込み中...</p>
+  </div>
+
+  <div class="card chart-card">
+    <div class="stat-caption">週間平均同時視聴者数の推移</div>
+    <div class="chart-wrap"><canvas id="weeklyHistoryChart"></canvas></div>
+    <p class="status" id="weeklyHistoryStatus">週間履歴を読み込み中...</p>
+    <p class="small">日本時間の月曜日〜日曜日で集計。今週は途中経過です。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading"><h2>Twitch 配信実績</h2></div>
+  <div class="metric-grid">
+    <div class="card">
+      <div class="metric-label">最高同時視聴者数</div>
+      <div class="metric-value" id="peakViewers">--</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">今週の最高同時視聴者数</div>
+      <div class="metric-value" id="weeklyPeakViewers">--</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">記録された配信回数</div>
+      <div class="metric-value" id="streamCount">--</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">計測できた配信時間</div>
+      <div class="metric-value" id="measuredHours">--</div>
+    </div>
+  </div>
+  <p class="status" id="achievementStatus">配信実績を取得中...</p>
+</section>
+
+<section class="section">
+  <div class="section-heading"><h2>YouTube チャンネル実績</h2></div>
+  <div class="youtube-grid">
+    <div class="card">
+      <div class="metric-label">チャンネル登録者数</div>
+      <div class="metric-value" id="youtubeSubscribers">--</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">総再生回数</div>
+      <div class="metric-value" id="youtubeViews">--</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">動画数</div>
+      <div class="metric-value" id="youtubeVideos">--</div>
+    </div>
+  </div>
+  <p class="status" id="youtubeStatus">YouTubeデータを取得中...</p>
+</section>
+
+<section class="section">
+  <div class="section-heading"><h2>公式リンク</h2></div>
+  <div class="links">
+    <a href="https://www.twitch.tv/chaminemu" target="_blank">Twitch ↗</a>
+    <a href="https://www.youtube.com/@chaminemu" target="_blank">YouTube ↗</a>
+    <a href="https://x.com/chaminemu" target="_blank">X ↗</a>
+    <a href="https://www.tiktok.com/@chaminemu" target="_blank">TikTok ↗</a>
+    <a href="https://lit.link/chaminemu" target="_blank">LitLink ↗</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading"><h2>活動実績</h2></div>
+  <div class="card">
+    <p class="small">
+      Twitchを中心とした配信活動の記録をまとめています。
+      視聴者数の推移、週間平均、配信実績、Twitchフォロワー数、
+      YouTubeチャンネル実績を自動更新しています。
+      Xのフォロワー数は手動更新です。
     </p>
+  </div>
+</section>
 
-    <!-- Twitch配信データ -->
-    <h2>配信データ</h2>
+<footer class="footer">© ちゃみねむ — STREAMER PORTFOLIO</footer>
 
-    <div class="card">
-      <p class="muted">
-        Twitch 今週の平均同時視聴者数
-      </p>
+</main>
 
-      <div class="value" id="weeklyAverage">
-        読み込み中...
-      </div>
+<script>
+const API_BASE = "https://chaminemu-stats-worker.chami2m2.workers.dev";
 
-      <p class="small" id="weeklyPeriod">
-        日本時間・月曜日〜日曜日
-      </p>
+let viewerChart = null;
+let weeklyHistoryChart = null;
 
-      <p class="small" id="weeklyMinutes">
-        計測時間を取得中...
-      </p>
+const formatter = new Intl.DateTimeFormat("ja-JP", {
+  timeZone: "Asia/Tokyo",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit"
+});
 
-      <p class="small" id="weeklyStatus"></p>
-    </div>
+function fmt(n) {
+  return Number(n).toLocaleString("ja-JP", {
+    maximumFractionDigits: 1
+  });
+}
 
-    <div class="card">
-      <p class="muted">
-        Twitch 記録期間の平均同時視聴者数
-      </p>
+function valid(n) {
+  return n !== null &&
+         n !== undefined &&
+         n !== "" &&
+         Number.isFinite(Number(n));
+}
 
-      <div class="value" id="averageViewers">
-        読み込み中...
-      </div>
+function set(id, value) {
+  document.getElementById(id).textContent = value;
+}
 
-      <p class="small" id="sampleInfo"></p>
+function date(d) {
+  return formatter.format(d);
+}
 
-      <div class="chart-wrap">
-        <canvas id="viewerChart"></canvas>
-      </div>
+async function get(path) {
+  const response = await fetch(API_BASE + path, {
+    cache: "no-store"
+  });
+  if (!response.ok) {
+    throw Error("API error " + response.status);
+  }
+  return response.json();
+}
 
-      <p class="status" id="chartStatus">
-        グラフを読み込み中...
-      </p>
+// SNS
+async function loadSNS() {
+  let ok = 0;
 
-      <p class="small">
-        配信中の同時視聴者数を定期的に記録し、
-        グラフを自動更新しています。
-      </p>
-    </div>
+  await Promise.all([
+    get("/api/twitch-followers")
+      .then(d => {
+        set(
+          "twitchFollowers",
+          valid(d.follower_count)
+            ? fmt(d.follower_count) + " 人"
+            : "データなし"
+        );
+        ok++;
+      })
+      .catch(e => {
+        console.error(e);
+        set("twitchFollowers", "取得失敗");
+      }),
 
-    <div class="card">
-      <p class="muted">
-        Twitch 週間平均同時視聴者数の推移
-      </p>
+    get("/api/youtube")
+      .then(d => {
+        const subscribers = valid(d.subscriber_count)
+          ? fmt(d.subscriber_count) + " 人"
+          : "非公開";
 
-      <div class="chart-wrap">
-        <canvas id="weeklyHistoryChart"></canvas>
-      </div>
+        set("snsYoutubeSubscribers", subscribers);
+        set("youtubeSubscribers", subscribers);
+        set(
+          "youtubeViews",
+          valid(d.view_count)
+            ? fmt(d.view_count) + " 回"
+            : "データなし"
+        );
+        set(
+          "youtubeVideos",
+          valid(d.video_count)
+            ? fmt(d.video_count) + " 本"
+            : "データなし"
+        );
+        set(
+          "youtubeStatus",
+          "YouTube Data APIから自動取得しています。"
+        );
+        ok++;
+      })
+      .catch(e => {
+        console.error(e);
+        [
+          "snsYoutubeSubscribers",
+          "youtubeSubscribers",
+          "youtubeViews",
+          "youtubeVideos"
+        ].forEach(id => set(id, "取得失敗"));
+      })
+  ]);
 
-      <p class="status" id="weeklyHistoryStatus">
-        週間履歴を読み込み中...
-      </p>
+  set(
+    "snsStatus",
+    ok === 2
+      ? "Twitch・YouTubeは60秒ごとに更新を確認します。Xは手動更新です。"
+      : "一部のSNSデータを取得できませんでした。"
+  );
+}
 
-      <p class="small">
-        日本時間の月曜日〜日曜日で集計。
-        今週の数値は途中経過です。
-      </p>
-    </div>
+// 週間平均
+async function loadWeekly() {
+  try {
+    const d = await get("/api/weekly");
 
-    <!-- Twitch配信実績 -->
-    <h2>Twitch 配信実績</h2>
-
-    <div class="stats-grid">
-      <div class="card">
-        <p class="muted">
-          最高同時視聴者数（記録開始以降）
-        </p>
-
-        <div class="value" id="peakViewers">
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted">
-          今週の最高同時視聴者数
-        </p>
-
-        <div class="value" id="weeklyPeakViewers">
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted">
-          記録された配信回数
-        </p>
-
-        <div class="value" id="streamCount">
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted">
-          計測できた配信時間
-        </p>
-
-        <div class="value" id="measuredHours">
-          読み込み中...
-        </div>
-      </div>
-    </div>
-
-    <p class="small" id="achievementStatus">
-      配信実績を取得中...
-    </p>
-
-    <!-- YouTube実績 -->
-    <h2 class="youtube-title">
-      <span class="youtube-mark">▶</span>
-      YouTube チャンネル実績
-    </h2>
-
-    <div class="youtube-grid">
-      <div class="card">
-        <p class="muted">
-          チャンネル登録者数
-        </p>
-
-        <div class="value" id="youtubeSubscribers">
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted">
-          総再生回数
-        </p>
-
-        <div class="value" id="youtubeViews">
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted">
-          動画数
-        </p>
-
-        <div class="value" id="youtubeVideos">
-          読み込み中...
-        </div>
-      </div>
-    </div>
-
-    <p class="small" id="youtubeStatus">
-      YouTubeのデータを取得中...
-    </p>
-
-    <!-- 公式リンク -->
-    <h2>公式リンク</h2>
-
-    <div class="links">
-      <a
-        href="https://www.twitch.tv/chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Twitch
-      </a>
-
-      <a
-        href="https://www.youtube.com/@chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        YouTube
-      </a>
-
-      <a
-        href="https://x.com/chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        X
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://lit.link/chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LitLink
-      </a>
-    </div>
-
-    <!-- 活動実績 -->
-    <h2>活動実績</h2>
-
-    <div class="card">
-      <p>
-        Twitchを中心とした配信活動の記録を、
-        このサイトにまとめています。
-      </p>
-
-      <p class="muted">
-        同時視聴者数の推移・週間平均・成長記録・
-        Twitchフォロワー数・
-        YouTubeチャンネル実績を自動更新しています。
-        Xのフォロワー数は手動で更新しています。
-      </p>
-    </div>
-
-    <footer>© ちゃみねむ</footer>
-  </main>
-
-  <script>
-    const API_BASE =
-      "https://chaminemu-stats-worker.chami2m2.workers.dev";
-
-    let viewerChart = null;
-    let weeklyHistoryChart = null;
-
-    const dateFormatter = new Intl.DateTimeFormat(
-      "ja-JP",
-      {
-        timeZone: "Asia/Tokyo",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit"
-      }
+    set(
+      "weeklyAverage",
+      valid(d.average_viewers)
+        ? fmt(d.average_viewers) + " 人"
+        : "計測データなし"
     );
 
-    function formatDate(date) {
-      return dateFormatter.format(date);
-    }
-
-    function formatNumber(value) {
-      return Number(value).toLocaleString(
-        "ja-JP",
-        { maximumFractionDigits: 1 }
+    if (d.week_start) {
+      set(
+        "weeklyPeriod",
+        "週開始: " + date(new Date(d.week_start)) + "（日本時間）"
       );
     }
 
-    function validNumber(value) {
-      return (
-        value !== null &&
-        value !== undefined &&
-        value !== "" &&
-        Number.isFinite(Number(value))
-      );
-    }
+    set(
+      "weeklyMinutes",
+      valid(d.measured_minutes)
+        ? fmt(d.measured_minutes) + " 分"
+        : "データなし"
+    );
 
-    function setText(id, text) {
-      document.getElementById(id).textContent = text;
-    }
+    set(
+      "weeklyStatus",
+      d.provisional ? "※ 今週の途中経過です" : "週間集計データ"
+    );
+  } catch (e) {
+    console.error(e);
+    set("weeklyAverage", "取得失敗");
+  }
+}
 
-    async function fetchJSON(path) {
-      const response = await fetch(
-        API_BASE + path,
-        { cache: "no-store" }
-      );
-
-      if (!response.ok) {
-        throw new Error(
-          "APIエラー: " + response.status
-        );
-      }
-
-      return await response.json();
-    }
-
-    // Twitchフォロワー数
-    async function loadTwitchFollowers() {
-      try {
-        const data = await fetchJSON(
-          "/api/twitch-followers"
-        );
-
-        setText(
-          "twitchFollowers",
-          validNumber(data.follower_count)
-            ? formatNumber(data.follower_count) + " 人"
-            : "データなし"
-        );
-
-        return true;
-      } catch (error) {
-        console.error(
-          "Twitch followers error:",
-          error
-        );
-
-        setText(
-          "twitchFollowers",
-          "取得失敗"
-        );
-
-        return false;
-      }
-    }
-
-    // YouTube登録者数・再生回数・動画数
-    async function loadYouTubeStats() {
-      try {
-        const data = await fetchJSON(
-          "/api/youtube"
-        );
-
-        const subscriberText =
-          validNumber(data.subscriber_count)
-            ? formatNumber(data.subscriber_count) + " 人"
-            : "非公開";
-
-        setText(
-          "snsYoutubeSubscribers",
-          subscriberText
-        );
-
-        setText(
-          "youtubeSubscribers",
-          subscriberText
-        );
-
-        setText(
-          "youtubeViews",
-          validNumber(data.view_count)
-            ? formatNumber(data.view_count) + " 回"
-            : "データなし"
-        );
-
-        setText(
-          "youtubeVideos",
-          validNumber(data.video_count)
-            ? formatNumber(data.video_count) + " 本"
-            : "データなし"
-        );
-
-        setText(
-          "youtubeStatus",
-          "YouTube Data APIから自動取得しています。" +
-          " 登録者数はYouTube側で丸められた数値の場合があります。"
-        );
-
-        return true;
-      } catch (error) {
-        console.error(
-          "YouTube API error:",
-          error
-        );
-
-        setText(
-          "snsYoutubeSubscribers",
-          "取得失敗"
-        );
-
-        setText(
-          "youtubeSubscribers",
-          "取得できませんでした"
-        );
-
-        setText(
-          "youtubeViews",
-          "取得できませんでした"
-        );
-
-        setText(
-          "youtubeVideos",
-          "取得できませんでした"
-        );
-
-        setText(
-          "youtubeStatus",
-          "YouTubeデータの読み込みに失敗しました。"
-        );
-
-        return false;
+// グラフ
+function makeChart(id, labels, values, label) {
+  return new Chart(document.getElementById(id), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data: values,
+        borderColor: "#b99bff",
+        backgroundColor: "rgba(185,155,255,.14)",
+        fill: true,
+        tension: .3,
+        pointRadius: values.length > 100 ? 0 : 3,
+        pointHoverRadius: 5,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        intersect: false,
+        mode: "index"
+      },
+      plugins: {
+        legend: {
+          labels: { color: "#e6dcff" }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#b8b3ca", maxTicksLimit: 6 },
+          grid: { color: "#39344e" }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: { color: "#b8b3ca", precision: 0 },
+          grid: { color: "#39344e" }
+        }
       }
     }
+  });
+}
 
-    // SNSの数字をまとめて更新
-    async function loadSNSStats() {
-      const results = await Promise.all([
-        loadTwitchFollowers(),
-        loadYouTubeStats()
-      ]);
+// 視聴者数
+async function loadViewers() {
+  try {
+    const d = await get("/api/viewers");
+    if (!Array.isArray(d)) throw Error("Invalid data");
 
-      const successCount = results.filter(
-        Boolean
-      ).length;
+    const rows = d
+      .filter(x => x.sampled_at && valid(x.viewer_count))
+      .map(x => ({
+        time: new Date(x.sampled_at),
+        count: Number(x.viewer_count)
+      }))
+      .filter(x => !isNaN(x.time.getTime()))
+      .sort((a, b) => a.time - b.time);
 
-      if (successCount === 2) {
-        setText(
-          "snsStatus",
-          "Twitch・YouTubeは自動取得（60秒ごとに更新確認）。" +
-          " Xは手動更新です。"
-        );
-      } else if (successCount === 1) {
-        setText(
-          "snsStatus",
-          "一部のSNSデータを取得できませんでした。" +
-          " Xは手動更新です。"
-        );
-      } else {
-        setText(
-          "snsStatus",
-          "Twitch・YouTubeのデータ取得に失敗しました。" +
-          " Xは手動更新です。"
-        );
-      }
+    if (!rows.length) {
+      set("averageViewers", "計測データなし");
+      set("chartStatus", "表示できるデータがありません");
+      return;
     }
 
-    // Twitch今週の平均同時視聴者数
-    async function loadWeeklyStats() {
-      try {
-        const data = await fetchJSON("/api/weekly");
+    const avg = rows.reduce((a, x) => a + x.count, 0) / rows.length;
 
-        setText(
-          "weeklyAverage",
-          validNumber(data.average_viewers)
-            ? formatNumber(data.average_viewers) + " 人"
-            : "計測データなし"
-        );
+    set("averageViewers", fmt(avg) + " 人");
+    set(
+      "sampleInfo",
+      "最新記録: " + date(rows[rows.length - 1].time)
+    );
 
-        if (data.week_start) {
-          setText(
-            "weeklyPeriod",
-            "週開始: " +
-            formatDate(new Date(data.week_start)) +
-            "（日本時間）"
-          );
-        }
+    if (viewerChart) viewerChart.destroy();
 
-        setText(
-          "weeklyMinutes",
-          validNumber(data.measured_minutes)
-            ? "計測時間: " +
-              formatNumber(data.measured_minutes) +
-              " 分"
-            : "計測時間: データなし"
-        );
+    viewerChart = makeChart(
+      "viewerChart",
+      rows.map(x => date(x.time)),
+      rows.map(x => x.count),
+      "同時視聴者数"
+    );
 
-        setText(
-          "weeklyStatus",
-          data.provisional
-            ? "※ 今週の途中経過です。配信データに応じて更新されます。"
-            : "週間集計データ"
-        );
-      } catch (error) {
-        console.error(error);
+    set("chartStatus", "60秒ごとに更新します");
+  } catch (e) {
+    console.error(e);
+    set("averageViewers", "取得失敗");
+    set("chartStatus", "グラフデータを取得できませんでした");
+  }
+}
 
-        setText(
-          "weeklyAverage",
-          "取得できませんでした"
-        );
+// 週間履歴
+async function loadHistory() {
+  try {
+    const d = await get("/api/weekly-history");
+    if (!Array.isArray(d)) throw Error("Invalid data");
 
-        setText(
-          "weeklyStatus",
-          "週間データの取得に失敗しました。"
-        );
-      }
+    const rows = d
+      .filter(x => x.week_start && valid(x.average_viewers))
+      .map(x => ({
+        time: new Date(x.week_start),
+        value: Number(x.average_viewers),
+        provisional: !!x.provisional
+      }))
+      .filter(x => !isNaN(x.time.getTime()))
+      .sort((a, b) => a.time - b.time);
+
+    if (!rows.length) {
+      set("weeklyHistoryStatus", "週間データの蓄積を待っています");
+      return;
     }
 
-    // グラフ共通設定
-    function makeChart(canvasId, labels, values, label) {
-      return new Chart(
-        document.getElementById(canvasId),
-        {
-          type: "line",
+    const f = new Intl.DateTimeFormat("ja-JP", {
+      timeZone: "Asia/Tokyo",
+      month: "2-digit",
+      day: "2-digit"
+    });
 
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                label: label,
-                data: values,
-                borderColor: "#b7a1ff",
-                backgroundColor:
-                  "rgba(183,161,255,0.12)",
-                fill: true,
-                tension: 0.25,
-                pointRadius:
-                  values.length > 100 ? 0 : 4,
-                pointHoverRadius: 5,
-                borderWidth: 2
-              }
-            ]
-          },
+    if (weeklyHistoryChart) weeklyHistoryChart.destroy();
 
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
+    weeklyHistoryChart = makeChart(
+      "weeklyHistoryChart",
+      rows.map(x =>
+        f.format(x.time) + (x.provisional ? " (途中)" : "")
+      ),
+      rows.map(x => x.value),
+      "週間平均同時視聴者数"
+    );
 
-            interaction: {
-              intersect: false,
-              mode: "index"
-            },
+    set("weeklyHistoryStatus", "週間データを表示中");
+  } catch (e) {
+    console.error(e);
+    set("weeklyHistoryStatus", "週間履歴を取得できませんでした");
+  }
+}
 
-            plugins: {
-              legend: {
-                labels: {
-                  color: "#e6dcff"
-                }
-              }
-            },
+// 配信実績
+async function loadAchievements() {
+  try {
+    const d = await get("/api/achievements");
 
-            scales: {
-              x: {
-                ticks: {
-                  color: "#b5b3c5",
-                  maxTicksLimit: 6
-                },
-                grid: {
-                  color: "#353149"
-                }
-              },
+    set("peakViewers",
+      valid(d.peak_viewers) ? fmt(d.peak_viewers) + " 人" : "データなし");
 
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: "#b5b3c5",
-                  precision: 0
-                },
-                grid: {
-                  color: "#353149"
-                }
-              }
-            }
-          }
-        }
-      );
-    }
+    set("weeklyPeakViewers",
+      valid(d.weekly_peak_viewers) ? fmt(d.weekly_peak_viewers) + " 人" : "データなし");
 
-    // Twitch視聴者数グラフ
-    async function loadViewerStats() {
-      try {
-        const data = await fetchJSON("/api/viewers");
+    set("streamCount",
+      valid(d.stream_count) ? fmt(d.stream_count) + " 回" : "データなし");
 
-        if (!Array.isArray(data)) {
-          throw new Error("データ形式が不正です");
-        }
+    set("measuredHours",
+      valid(d.measured_hours) ? fmt(d.measured_hours) + " 時間" : "データなし");
 
-        const samples = data
-          .filter(item =>
-            item.sampled_at &&
-            validNumber(item.viewer_count)
-          )
-          .map(item => ({
-            time: new Date(item.sampled_at),
-            viewers: Number(item.viewer_count)
-          }))
-          .filter(item =>
-            !Number.isNaN(item.time.getTime())
-          )
-          .sort((a, b) => a.time - b.time);
+    set(
+      "achievementStatus",
+      "※ 記録開始以降のデータです。配信時間は計測できた時間です。"
+    );
+  } catch (e) {
+    console.error(e);
+    [
+      "peakViewers",
+      "weeklyPeakViewers",
+      "streamCount",
+      "measuredHours"
+    ].forEach(id => set(id, "取得失敗"));
+  }
+}
 
-        if (!samples.length) {
-          setText(
-            "averageViewers",
-            "計測データなし"
-          );
+function updateAll() {
+  loadSNS();
+  loadWeekly();
+  loadViewers();
+  loadHistory();
+  loadAchievements();
+}
 
-          setText(
-            "sampleInfo",
-            "配信データの蓄積を待っています。"
-          );
-
-          setText(
-            "chartStatus",
-            "表示できるデータがありません。"
-          );
-
-          if (viewerChart) {
-            viewerChart.destroy();
-            viewerChart = null;
-          }
-
-          return;
-        }
-
-        const total = samples.reduce(
-          (sum, item) => sum + item.viewers,
-          0
-        );
-
-        const average = total / samples.length;
-
-        setText(
-          "averageViewers",
-          formatNumber(average) + " 人"
-        );
-
-        const latest = samples[samples.length - 1];
-
-        setText(
-          "sampleInfo",
-          "最新記録: " +
-          formatDate(latest.time) +
-          " / " +
-          samples.length +
-          "件のサンプル"
-        );
-
-        if (typeof Chart === "undefined") {
-          setText(
-            "chartStatus",
-            "グラフを読み込めませんでした。"
-          );
-          return;
-        }
-
-        if (viewerChart) {
-          viewerChart.destroy();
-        }
-
-        viewerChart = makeChart(
-          "viewerChart",
-          samples.map(item =>
-            formatDate(item.time)
-          ),
-          samples.map(item =>
-            item.viewers
-          ),
-          "同時視聴者数"
-        );
-
-        setText(
-          "chartStatus",
-          "グラフは60秒ごとに自動更新されます。"
-        );
-      } catch (error) {
-        console.error(error);
-
-        setText(
-          "averageViewers",
-          "取得できませんでした"
-        );
-
-        setText(
-          "chartStatus",
-          "グラフデータの取得に失敗しました。"
-        );
-      }
-    }
-
-    // Twitch週間平均の履歴
-    async function loadWeeklyHistory() {
-      try {
-        const data = await fetchJSON(
-          "/api/weekly-history"
-        );
-
-        if (!Array.isArray(data)) {
-          throw new Error(
-            "週間履歴の形式が不正です"
-          );
-        }
-
-        const weeks = data
-          .filter(item =>
-            item.week_start &&
-            validNumber(item.average_viewers)
-          )
-          .map(item => ({
-            time: new Date(item.week_start),
-            average: Number(item.average_viewers),
-            provisional: Boolean(item.provisional)
-          }))
-          .filter(item =>
-            !Number.isNaN(item.time.getTime())
-          )
-          .sort((a, b) => a.time - b.time);
-
-        if (!weeks.length) {
-          setText(
-            "weeklyHistoryStatus",
-            "週間データが蓄積されるとグラフが表示されます。"
-          );
-
-          if (weeklyHistoryChart) {
-            weeklyHistoryChart.destroy();
-            weeklyHistoryChart = null;
-          }
-
-          return;
-        }
-
-        if (typeof Chart === "undefined") {
-          setText(
-            "weeklyHistoryStatus",
-            "グラフを読み込めませんでした。"
-          );
-          return;
-        }
-
-        const labels = weeks.map(item =>
-          new Intl.DateTimeFormat(
-            "ja-JP",
-            {
-              timeZone: "Asia/Tokyo",
-              month: "2-digit",
-              day: "2-digit"
-            }
-          ).format(item.time) +
-          (item.provisional ? " (途中)" : "")
-        );
-
-        if (weeklyHistoryChart) {
-          weeklyHistoryChart.destroy();
-        }
-
-        weeklyHistoryChart = makeChart(
-          "weeklyHistoryChart",
-          labels,
-          weeks.map(item =>
-            item.average
-          ),
-          "週間平均同時視聴者数"
-        );
-
-        setText(
-          "weeklyHistoryStatus",
-          weeks.length === 1
-            ? "現在は1週分の記録です。来週以降、推移が表示されます。"
-            : weeks.length +
-              "週分の記録を表示中。60秒ごとに更新します。"
-        );
-      } catch (error) {
-        console.error(error);
-
-        setText(
-          "weeklyHistoryStatus",
-          "週間履歴を取得できませんでした。"
-        );
-      }
-    }
-
-    // Twitch配信実績
-    async function loadAchievements() {
-      try {
-        const data = await fetchJSON(
-          "/api/achievements"
-        );
-
-        setText(
-          "peakViewers",
-          validNumber(data.peak_viewers)
-            ? formatNumber(data.peak_viewers) + " 人"
-            : "データなし"
-        );
-
-        setText(
-          "weeklyPeakViewers",
-          validNumber(data.weekly_peak_viewers)
-            ? formatNumber(data.weekly_peak_viewers) + " 人"
-            : "データなし"
-        );
-
-        setText(
-          "streamCount",
-          validNumber(data.stream_count)
-            ? formatNumber(data.stream_count) + " 回"
-            : "データなし"
-        );
-
-        setText(
-          "measuredHours",
-          validNumber(data.measured_hours)
-            ? formatNumber(data.measured_hours) + " 時間"
-            : "データなし"
-        );
-
-        setText(
-          "achievementStatus",
-          "※ Twitchの記録開始以降に取得できたデータです。" +
-          " 過去すべての配信を含む数字ではありません。" +
-          " 配信時間は実際の総配信時間ではなく計測できた時間です。"
-        );
-      } catch (error) {
-        console.error(error);
-
-        for (const id of [
-          "peakViewers",
-          "weeklyPeakViewers",
-          "streamCount",
-          "measuredHours"
-        ]) {
-          setText(
-            id,
-            "取得できませんでした"
-          );
-        }
-
-        setText(
-          "achievementStatus",
-          "配信実績の取得に失敗しました。"
-        );
-      }
-    }
-
-    // 全データを自動更新
-    function updateAll() {
-      loadSNSStats();
-      loadWeeklyStats();
-      loadViewerStats();
-      loadWeeklyHistory();
-      loadAchievements();
-    }
-
-    updateAll();
-
-    setInterval(updateAll, 60000);
-  </script>
+updateAll();
+setInterval(updateAll, 60000);
+</script>
 </body>
 </html>
