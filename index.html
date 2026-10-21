@@ -32,10 +32,7 @@
   --border-strong: rgba(166,160,213,.46);
   --max: 1160px;
 
-  /*
-    イラストの拡大設定
-    790pxを大きくするとさらに拡大
-  */
+  /* PC版のイラストサイズ */
   --hero-image-height: 790px;
 }
 
@@ -291,7 +288,7 @@ button:focus-visible {
 }
 
 /* =====================================
-   HERO / ILLUSTRATION LARGE
+   HERO / DESKTOP LARGE IMAGE
 ===================================== */
 .hero {
   position: relative;
@@ -350,14 +347,6 @@ button:focus-visible {
   margin-top: 32px;
 }
 
-/*
-  重要：
-  PNGを高さ790pxで表示し、
-  右側に大きく配置します。
-
-  元PNGの透明余白が多い場合は
-  見た目の大きさが変わります。
-*/
 .hero-art {
   position: relative;
   height: 700px;
@@ -402,20 +391,12 @@ button:focus-visible {
   z-index: 1;
   top: 50%;
   left: 50%;
-
   height: var(--hero-image-height);
   width: auto;
   max-width: none;
   max-height: none;
-
   object-fit: contain;
-
-  /*
-    -41% = 少し右寄せ
-    -50% = 上下中央
-  */
   transform: translate(-41%,-50%);
-
   filter: drop-shadow(0 22px 50px rgba(0,0,0,.24));
 }
 
@@ -807,7 +788,7 @@ footer {
 /* =====================================
    TABLET
 ===================================== */
-@media (max-width: 900px) {
+@media (min-width: 641px) and (max-width: 900px) {
   .hero {
     padding: 35px 0 15px;
   }
@@ -826,12 +807,13 @@ footer {
   }
 
   .hero-art {
-    height: 570px;
+    height: 480px;
     width: 100%;
+    overflow: hidden;
   }
 
   .hero-illustration {
-    height: 650px;
+    height: 520px;
     transform: translate(-50%,-50%);
   }
 
@@ -856,7 +838,7 @@ footer {
 }
 
 /* =====================================
-   MOBILE
+   MOBILE / COMPACT ILLUSTRATION
 ===================================== */
 @media (max-width: 640px) {
   .container {
@@ -872,11 +854,22 @@ footer {
   }
 
   .hero {
-    padding: 34px 0 10px;
+    padding: 30px 0 10px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding: 15px 0 0;
   }
 
   .hero h1 {
     font-size: clamp(46px,12vw,70px);
+    white-space: normal;
   }
 
   .hero-catch {
@@ -887,24 +880,63 @@ footer {
     font-size: 13px;
   }
 
+  .hero-actions {
+    margin-top: 24px;
+  }
+
   .hero-actions .button {
     flex: 1 1 180px;
   }
 
+  /*
+    スマホ専用：
+    以前の420px / 490pxから縮小。
+    顔全体が見えやすいように調整。
+  */
   .hero-art {
-    height: 420px;
+    position: relative;
+    height: 300px;
+    min-height: 0;
     margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .hero-art::before {
+    width: 100%;
+    top: 0;
+  }
+
+  .hero-art::after {
+    left: 15%;
+    bottom: 2%;
+    width: 70%;
+    height: 80%;
   }
 
   .hero-illustration {
-    height: 490px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 310px;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
     transform: translate(-50%,-50%);
   }
 
   .hero-art-label {
-    right: 0;
-    bottom: 5px;
-    padding: 8px 12px;
+    right: 8px;
+    bottom: 8px;
+    padding: 7px 10px;
+  }
+
+  .hero-art-label strong {
+    font-size: 10px;
+  }
+
+  .hero-art-label span {
+    font-size: 8px;
   }
 
   .section {
@@ -942,6 +974,7 @@ footer {
 
   .metrics-grid,
   .stats-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 10px;
   }
 
@@ -1085,9 +1118,7 @@ footer {
 
 <main>
 
-<!-- =====================================
-     HERO
-===================================== -->
+<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
 
@@ -1123,7 +1154,6 @@ footer {
     </div>
 
     <div class="hero-art" id="heroArt">
-      <!-- GitHub内の透過PNGをそのまま使用 -->
       <img
         src="./chaminemu.png"
         alt="ちゃみねむのキャラクターイラスト"
@@ -1141,9 +1171,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     ABOUT
-===================================== -->
+<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
     <div class="section-heading">
@@ -1179,9 +1207,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     WHY CHAMINEMU
-===================================== -->
+<!-- WHY CHAMINEMU -->
 <section class="section" id="why">
   <div class="container">
     <div class="section-heading">
@@ -1233,9 +1259,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     AUDIENCE & REACH
-===================================== -->
+<!-- AUDIENCE -->
 <section class="section" id="audience">
   <div class="container">
     <div class="section-heading">
@@ -1284,9 +1308,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     PARTNERSHIP
-===================================== -->
+<!-- PARTNERSHIP -->
 <section class="section" id="partnership">
   <div class="container">
     <div class="section-heading">
@@ -1350,9 +1372,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     SNS
-===================================== -->
+<!-- SNS -->
 <section class="section" id="sns">
   <div class="container">
     <div class="section-heading">
@@ -1407,9 +1427,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     COMPANY WORKS
-===================================== -->
+<!-- COMPANY WORKS -->
 <section class="section" id="company-results">
   <div class="container">
     <div class="section-heading">
@@ -1477,9 +1495,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     TOURNAMENT
-===================================== -->
+<!-- TOURNAMENT -->
 <section class="section" id="tournament-results">
   <div class="container">
     <div class="section-heading">
@@ -1505,9 +1521,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     STREAM ANALYTICS
-===================================== -->
+<!-- STREAM ANALYTICS -->
 <section class="section" id="stream">
   <div class="container">
     <div class="section-heading">
@@ -1565,9 +1579,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     TWITCH PERFORMANCE
-===================================== -->
+<!-- TWITCH PERFORMANCE -->
 <section class="section" id="twitch-results">
   <div class="container">
     <div class="section-heading">
@@ -1603,9 +1615,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     YOUTUBE PERFORMANCE
-===================================== -->
+<!-- YOUTUBE PERFORMANCE -->
 <section class="section" id="youtube-results">
   <div class="container">
     <div class="section-heading">
@@ -1650,9 +1660,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     CONTACT
-===================================== -->
+<!-- CONTACT -->
 <section class="section" id="contact">
   <div class="container">
     <div class="contact-panel">
@@ -1699,9 +1707,7 @@ footer {
   </div>
 </section>
 
-<!-- =====================================
-     OFFICIAL LINKS
-===================================== -->
+<!-- OFFICIAL LINKS -->
 <section class="section" id="official-links">
   <div class="container">
     <div class="section-heading">
@@ -1761,9 +1767,6 @@ footer {
   </div>
 </footer>
 
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
 <script>
 "use strict";
 
@@ -1782,9 +1785,7 @@ const decimalFormat = new Intl.NumberFormat("ja-JP", {
   maximumFractionDigits: 1
 });
 
-/* -------------------------------------
-   FORMAT HELPERS
-------------------------------------- */
+/* FORMAT HELPERS */
 function formatNumber(value, digits = 0) {
   if (
     value === null ||
@@ -1846,9 +1847,7 @@ function formatDateTime(value) {
   });
 }
 
-/* -------------------------------------
-   MENU
-------------------------------------- */
+/* MENU */
 const menuButton = $("menuButton");
 const menuPanel = $("menuPanel");
 const menuOverlay = $("menuOverlay");
@@ -1930,17 +1929,13 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* -------------------------------------
-   IMAGE FALLBACK
-------------------------------------- */
+/* IMAGE FALLBACK */
 $("heroIllustration").addEventListener("error", () => {
   $("heroIllustration").style.display = "none";
   console.warn("chaminemu.png を読み込めませんでした。");
 });
 
-/* -------------------------------------
-   FETCH
-------------------------------------- */
+/* FETCH */
 async function fetchJSON(path) {
   const response = await fetch(API_BASE + path, {
     cache: "no-store"
@@ -1969,9 +1964,7 @@ function normalizeArray(data, keys) {
   return [];
 }
 
-/* -------------------------------------
-   CHART.JS
-------------------------------------- */
+/* CHART.JS */
 let viewersChart = null;
 let weeklyChart = null;
 
@@ -2077,9 +2070,7 @@ function createOrUpdateChart(
   });
 }
 
-/* -------------------------------------
-   VIEWER HISTORY
-------------------------------------- */
+/* VIEWER HISTORY */
 async function loadViewers() {
   const data = await fetchJSON("/api/viewers");
 
@@ -2121,9 +2112,7 @@ async function loadViewers() {
     rows.length ? "none" : "block";
 }
 
-/* -------------------------------------
-   WEEKLY AVERAGE
-------------------------------------- */
+/* WEEKLY AVERAGE */
 async function loadWeekly() {
   const data = await fetchJSON("/api/weekly");
 
@@ -2157,9 +2146,7 @@ async function loadWeekly() {
   );
 }
 
-/* -------------------------------------
-   WEEKLY HISTORY
-------------------------------------- */
+/* WEEKLY HISTORY */
 async function loadWeeklyHistory() {
   const data = await fetchJSON("/api/weekly-history");
 
@@ -2201,9 +2188,7 @@ async function loadWeeklyHistory() {
     rows.length ? "none" : "block";
 }
 
-/* -------------------------------------
-   TWITCH ACHIEVEMENTS
-------------------------------------- */
+/* TWITCH ACHIEVEMENTS */
 async function loadAchievements() {
   const data = await fetchJSON("/api/achievements");
 
@@ -2228,9 +2213,7 @@ async function loadAchievements() {
   );
 }
 
-/* -------------------------------------
-   YOUTUBE
-------------------------------------- */
+/* YOUTUBE */
 async function loadYouTube() {
   const data = await fetchJSON("/api/youtube");
 
@@ -2252,9 +2235,7 @@ async function loadYouTube() {
   );
 }
 
-/* -------------------------------------
-   TWITCH FOLLOWERS
-------------------------------------- */
+/* TWITCH FOLLOWERS */
 async function loadTwitchFollowers() {
   const data = await fetchJSON("/api/twitch-followers");
 
@@ -2264,9 +2245,7 @@ async function loadTwitchFollowers() {
   );
 }
 
-/* -------------------------------------
-   REFRESH EVERY 60 SECONDS
-------------------------------------- */
+/* REFRESH EVERY 60 SECONDS */
 let refreshing = false;
 
 async function refreshAll() {
@@ -2319,9 +2298,7 @@ async function refreshAll() {
   }
 }
 
-/* -------------------------------------
-   INIT
-------------------------------------- */
+/* INIT */
 setText(
   "copyrightYear",
   new Date().getFullYear()
