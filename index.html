@@ -1096,6 +1096,41 @@ footer {
     transition-duration: .01ms !important;
   }
 }
+
+  
+/* お仕事の種類をボタン風から説明文に変更 */
+.hero-work-tags {
+  display: block;
+  margin-top: 24px;
+}
+
+.hero-work-tags::before {
+  content: "対応可能なお仕事";
+  display: block;
+  margin-bottom: 5px;
+  color: #D2D3E1;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.hero-work-tags span {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #C6C3E5;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 2.2;
+}
+
+.hero-work-tags span:not(:last-child)::after {
+  content: " / ";
+  color: #71799A;
+  white-space: pre;
+}
+
 </style>
 </head>
 
