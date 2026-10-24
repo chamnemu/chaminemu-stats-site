@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#141C2B">
-<meta name="description" content="VALORANT配信者ちゃみねむの公式ポートフォリオ。長期スポンサー・ブランドアンバサダー・企業案件のご相談を受け付けています。">
+<meta name="description" content="VALORANT配信者ちゃみねむの公式ポートフォリオ。製品提供、スポンサー、案件配信、PR、イベント、大会出演などのお仕事のご依頼を受け付けています。">
 <title>ちゃみねむ | Streamer Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +15,20 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
 
 <style>
-/* =========================
-   THEME
-========================= */
+/* ====== COLORS ====== */
 :root {
   --bg: #141C2B;
   --bg-deep: #101725;
   --bg-soft: #20283B;
   --surface: #30324C;
-  --surface-light: #3A3D5B;
   --accent: #A6A0D5;
   --accent-light: #C6C3E5;
   --text: #F5F3FA;
   --muted: #D2D3E1;
-  --subtle: #A6ACC0;
+  --subtle: #B8BCCF;
   --border: rgba(166,160,213,.22);
-  --border-strong: rgba(166,160,213,.46);
-  --max: 1160px;
-  --hero-image-height: 790px;
+  --border-strong: rgba(166,160,213,.48);
+  --max-width: 1160px;
 }
 
 * {
@@ -41,14 +37,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-padding-top: 82px;
 }
 
 body {
   margin: 0;
-  color: var(--text);
   background: var(--bg);
-  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  color: var(--text);
+  font-family: "DM Sans","Noto Sans JP",sans-serif;
   line-height: 1.85;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
@@ -74,34 +70,34 @@ button:focus-visible {
 }
 
 .container {
-  width: min(calc(100% - 40px), var(--max));
+  width: min(calc(100% - 40px),var(--max-width));
   margin-inline: auto;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ====== HEADER ====== */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 100;
   background: rgba(20,28,43,.94);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(18px);
 }
 
 .topbar-inner {
   min-height: 74px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 17px;
 }
 
-.menu-button {
-  width: 44px;
-  height: 44px;
+.menu-button,
+.menu-close {
   display: grid;
   place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   color: var(--accent-light);
   background: var(--surface);
   border: 1px solid var(--border-strong);
@@ -113,20 +109,20 @@ button:focus-visible {
 .site-logo {
   font-size: 19px;
   font-weight: 800;
-  letter-spacing: .03em;
 }
 
-.topbar-note {
+.header-contact {
   margin-left: auto;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .16em;
+  padding: 9px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--accent-light);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-/* =========================
-   DRAWER MENU
-========================= */
+/* ====== DRAWER ====== */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -134,7 +130,7 @@ button:focus-visible {
   background: rgba(4,7,16,.8);
   opacity: 0;
   visibility: hidden;
-  transition: opacity .25s, visibility .25s;
+  transition: opacity .25s,visibility .25s;
 }
 
 .menu-overlay.is-open {
@@ -151,10 +147,10 @@ button:focus-visible {
   overflow-y: auto;
   background: #252A42;
   border-right: 1px solid var(--border-strong);
-  box-shadow: 20px 0 65px rgba(0,0,0,.45);
+  box-shadow: 20px 0 65px rgba(0,0,0,.4);
   transform: translateX(-105%);
   visibility: hidden;
-  transition: transform .3s, visibility .3s;
+  transition: transform .3s,visibility .3s;
 }
 
 .menu-panel.is-open {
@@ -164,35 +160,23 @@ button:focus-visible {
 
 .menu-head {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
-  margin-bottom: 15px;
+  align-items: center;
+  padding-bottom: 18px;
+  margin-bottom: 14px;
   border-bottom: 1px solid var(--border);
 }
 
-.menu-close {
-  width: 40px;
-  height: 40px;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  font-size: 23px;
-  cursor: pointer;
-}
-
 .menu-links {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: grid;
+  gap: 5px;
 }
 
 .menu-links a {
   padding: 12px 13px;
-  color: var(--muted);
   border-radius: 10px;
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -201,9 +185,7 @@ button:focus-visible {
   color: var(--accent-light);
 }
 
-/* =========================
-   COMMON
-========================= */
+/* ====== COMMON ====== */
 .section {
   padding: 78px 0;
   border-top: 1px solid rgba(166,160,213,.11);
@@ -219,21 +201,20 @@ button:focus-visible {
   color: var(--accent-light);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: .19em;
+  letter-spacing: .16em;
 }
 
 .section-heading h2 {
   margin: 10px 0 0;
   font-size: clamp(25px,4vw,36px);
-  line-height: 1.4;
-  letter-spacing: -.03em;
+  line-height: 1.45;
 }
 
 .section-heading p {
-  max-width: 740px;
+  max-width: 760px;
   margin: 12px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .card {
@@ -255,7 +236,7 @@ button:focus-visible {
   font-size: 13px;
   font-weight: 800;
   text-align: center;
-  transition: transform .2s, background .2s;
+  transition: transform .2s,background .2s;
 }
 
 .button:hover {
@@ -263,8 +244,8 @@ button:focus-visible {
 }
 
 .button-primary {
-  color: var(--bg-deep);
   background: var(--accent);
+  color: var(--bg-deep);
 }
 
 .button-primary:hover {
@@ -282,20 +263,19 @@ button:focus-visible {
 }
 
 .data-note {
-  margin-top: 18px;
+  margin: 17px 0 0;
   color: var(--subtle);
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.9;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ====== HERO ====== */
 .hero {
   position: relative;
   overflow: hidden;
   background:
     radial-gradient(
-      ellipse at 87% 48%,
+      ellipse at 85% 48%,
       rgba(166,160,213,.16),
       transparent 58%
     ),
@@ -306,7 +286,6 @@ button:focus-visible {
   display: grid;
   grid-template-columns: minmax(0,48%) minmax(0,52%);
   align-items: center;
-  gap: 0;
   min-height: 700px;
 }
 
@@ -320,8 +299,8 @@ button:focus-visible {
   margin: 16px 0 26px;
   font-size: clamp(54px,6.7vw,86px);
   font-weight: 800;
-  letter-spacing: -.065em;
   line-height: 1.18;
+  letter-spacing: -.065em;
   white-space: nowrap;
 }
 
@@ -333,18 +312,35 @@ button:focus-visible {
 }
 
 .hero-desc {
-  max-width: 530px;
+  max-width: 535px;
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 2.1;
+  font-size: 14px;
+  line-height: 2.05;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 28px;
+}
+
+.hero-work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.hero-work-tags span {
+  padding: 5px 11px;
+  background: rgba(166,160,213,.12);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--accent-light);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .hero-art {
@@ -364,13 +360,12 @@ button:focus-visible {
   aspect-ratio: 1;
   transform: translateX(-50%);
   border-radius: 50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(166,160,213,.24) 0%,
-      rgba(166,160,213,.1) 42%,
-      transparent 72%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(166,160,213,.24) 0%,
+    rgba(166,160,213,.1) 42%,
+    transparent 72%
+  );
 }
 
 .hero-art::after {
@@ -391,10 +386,9 @@ button:focus-visible {
   z-index: 1;
   top: 50%;
   left: 50%;
-  height: var(--hero-image-height);
+  height: 790px;
   width: auto;
   max-width: none;
-  max-height: none;
   object-fit: contain;
   transform: translate(-41%,-50%);
   filter: drop-shadow(0 22px 50px rgba(0,0,0,.24));
@@ -409,7 +403,6 @@ button:focus-visible {
   background: rgba(36,40,63,.9);
   border: 1px solid var(--border-strong);
   border-radius: 12px;
-  backdrop-filter: blur(12px);
   text-align: right;
 }
 
@@ -417,7 +410,6 @@ button:focus-visible {
   display: block;
   color: var(--accent-light);
   font-size: 12px;
-  letter-spacing: .08em;
 }
 
 .hero-art-label span {
@@ -426,9 +418,50 @@ button:focus-visible {
   font-size: 10px;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ====== QUICK STATS ====== */
+.quick-stats {
+  padding: 25px 0 32px;
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border);
+}
+
+.quick-stats-grid,
+.metrics-grid,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  min-width: 0;
+  padding: 22px 20px;
+  background: linear-gradient(155deg,#353752,#292E45);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.metric-label {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric-value {
+  font-size: clamp(22px,3vw,32px);
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.metric-note {
+  margin-top: 7px;
+  color: var(--subtle);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ====== ABOUT ====== */
 .about-card {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -458,9 +491,7 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-/* =========================
-   FEATURES
-========================= */
+/* ====== FEATURES ====== */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -472,11 +503,11 @@ button:focus-visible {
   place-items: center;
   width: 44px;
   height: 44px;
-  margin-bottom: 18px;
-  color: var(--accent-light);
+  margin-bottom: 16px;
   background: rgba(166,160,213,.15);
+  color: var(--accent-light);
   border-radius: 13px;
-  font-size: 21px;
+  font-size: 22px;
 }
 
 .feature-card h3 {
@@ -487,86 +518,46 @@ button:focus-visible {
 .feature-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
 }
 
-/* =========================
-   METRICS
-========================= */
-.metrics-grid,
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 16px;
-}
-
-.metric-card {
-  min-width: 0;
-  padding: 23px 20px;
-  background: linear-gradient(155deg,#353752,#292E45);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-}
-
-.metric-label {
-  margin-bottom: 10px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.metric-value {
-  font-size: clamp(23px,3vw,32px);
-  font-weight: 800;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-
-.metric-note {
-  margin-top: 8px;
-  color: var(--subtle);
-  font-size: 10px;
-}
-
-/* =========================
-   PARTNERSHIP
-========================= */
-.partnership-grid {
+/* ====== WORK REQUESTS ====== */
+.work-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 16px;
 }
 
-.partnership-card {
+.work-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-width: 0;
-  min-height: 260px;
+  min-height: 250px;
 }
 
-.partnership-number {
+.work-number {
   color: var(--accent-light);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
 }
 
-.partnership-card h3 {
-  margin: 5px 0 0;
-  font-size: 19px;
-  line-height: 1.5;
+.work-card h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
   overflow-wrap: anywhere;
 }
 
-.partnership-card p {
+.work-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 2;
+  font-size: 13px;
+  line-height: 1.95;
 }
 
-.partnership-tag {
+.work-tag {
   align-self: flex-start;
   max-width: 100%;
   margin-top: auto;
@@ -575,14 +566,12 @@ button:focus-visible {
   background: rgba(166,160,213,.13);
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-/* =========================
-   SNS
-========================= */
+/* ====== SNS ====== */
 .sns-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -609,7 +598,7 @@ button:focus-visible {
 
 .sns-handle {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .sns-arrow {
@@ -619,9 +608,7 @@ button:focus-visible {
   font-weight: 800;
 }
 
-/* =========================
-   TIMELINE
-========================= */
+/* ====== TIMELINE ====== */
 .timeline {
   position: relative;
   display: flex;
@@ -669,7 +656,7 @@ button:focus-visible {
 }
 
 .timeline-content h3 {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
   font-size: 18px;
 }
 
@@ -687,13 +674,11 @@ button:focus-visible {
   background: rgba(166,160,213,.13);
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
 }
 
-/* =========================
-   CHARTS
-========================= */
+/* ====== CHARTS ====== */
 .chart-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -706,30 +691,32 @@ button:focus-visible {
 
 .chart-card h3 {
   margin: 0 0 6px;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .chart-description {
   margin: 0 0 18px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .chart-box {
   position: relative;
   width: 100%;
-  height: 270px;
+  height: 290px;
 }
 
 .chart-fallback {
-  display: none;
-  color: var(--muted);
+  margin: 10px 0 0;
+  color: var(--subtle);
   font-size: 12px;
 }
 
-/* =========================
-   CONTACT
-========================= */
+.chart-fallback[hidden] {
+  display: none;
+}
+
+/* ====== CONTACT ====== */
 .contact-panel {
   padding: 44px;
   background:
@@ -746,14 +733,14 @@ button:focus-visible {
 .contact-panel h2 {
   margin: 10px 0 16px;
   font-size: clamp(25px,4vw,38px);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .contact-panel p {
-  max-width: 690px;
+  max-width: 740px;
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .contact-actions {
@@ -765,7 +752,7 @@ button:focus-visible {
 
 .contact-email {
   color: var(--accent-light);
-  font-size: 12px;
+  font-size: 13px;
   overflow-wrap: anywhere;
 }
 
@@ -777,10 +764,10 @@ button:focus-visible {
 
 .official-link {
   padding: 10px 17px;
-  color: var(--muted);
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  font-size: 12px;
+  color: var(--muted);
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -793,16 +780,14 @@ footer {
   padding: 35px 0 45px;
   border-top: 1px solid var(--border);
   color: var(--subtle);
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (min-width: 641px) and (max-width: 900px) {
+/* ====== TABLET ====== */
+@media (min-width:641px) and (max-width:900px) {
   .hero {
-    padding: 35px 0 15px;
+    padding: 30px 0 10px;
   }
 
   .hero-grid {
@@ -820,7 +805,6 @@ footer {
 
   .hero-art {
     height: 480px;
-    width: 100%;
     overflow: hidden;
   }
 
@@ -834,43 +818,46 @@ footer {
     bottom: 15px;
   }
 
+  .quick-stats-grid,
   .feature-grid,
   .metrics-grid,
   .stats-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
-  .partnership-grid {
-    grid-template-columns: 1fr;
+  .work-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
-  .partnership-card {
+  .work-card {
     min-height: 0;
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 640px) {
+/* ====== MOBILE ====== */
+@media (max-width:640px) {
   .container {
-    width: min(calc(100% - 28px),var(--max));
+    width: min(calc(100% - 28px),var(--max-width));
   }
 
   .topbar-inner {
     min-height: 66px;
   }
 
-  .topbar-note {
-    display: none;
+  .site-logo {
+    font-size: 17px;
+  }
+
+  .header-contact {
+    padding: 8px 11px;
+    font-size: 11px;
   }
 
   .hero {
-    padding: 30px 0 10px;
+    padding: 25px 0 8px;
   }
 
   .hero-grid {
-    display: grid;
     grid-template-columns: minmax(0,1fr);
     min-height: 0;
   }
@@ -900,9 +887,7 @@ footer {
     flex: 1 1 180px;
   }
 
-  /* スマホのイラストをコンパクトに */
   .hero-art {
-    position: relative;
     height: 300px;
     min-height: 0;
     margin-top: 12px;
@@ -922,14 +907,11 @@ footer {
   }
 
   .hero-illustration {
-    position: absolute;
     top: 50%;
     left: 50%;
-    width: auto;
     height: 310px;
+    width: auto;
     max-width: none;
-    max-height: none;
-    object-fit: contain;
     transform: translate(-50%,-50%);
   }
 
@@ -944,42 +926,31 @@ footer {
   }
 
   .hero-art-label span {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .section {
     padding: 54px 0;
   }
 
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .section-heading p {
+    font-size: 13px;
+  }
+
   .card {
     padding: 21px;
   }
 
-  .about-card {
-    grid-template-columns: 1fr;
+  .quick-stats {
+    padding: 20px 0;
   }
 
-  .about-tag {
-    justify-self: start;
-  }
-
-  .feature-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 10px;
-  }
-
-  .feature-card {
-    padding: 17px;
-  }
-
-  .feature-card h3 {
-    font-size: 13px;
-  }
-
-  .feature-card p {
-    font-size: 11px;
-  }
-
+  .quick-stats-grid,
+  .feature-grid,
   .metrics-grid,
   .stats-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -998,63 +969,77 @@ footer {
     font-size: 23px;
   }
 
-  /* ★ 今回の修正：3列を1列に変更 ★ */
-  .partnership-grid {
-    display: grid;
-    grid-template-columns: minmax(0,1fr);
-    gap: 16px;
+  .metric-note {
+    font-size: 10px;
   }
 
-  .partnership-card {
-    width: 100%;
-    min-width: 0;
+  .feature-card {
+    padding: 17px;
+  }
+
+  .feature-card h3 {
+    font-size: 14px;
+  }
+
+  .feature-card p {
+    font-size: 12px;
+  }
+
+  .about-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-tag {
+    justify-self: start;
+  }
+
+  /* お仕事カードはスマホで1列 */
+  .work-grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 15px;
+  }
+
+  .work-card {
     min-height: 0;
     padding: 24px;
     gap: 12px;
   }
 
-  .partnership-number {
-    font-size: 11px;
-    letter-spacing: .12em;
-  }
-
-  .partnership-card h3 {
-    margin: 5px 0 0;
+  .work-card h3 {
     font-size: 20px;
-    line-height: 1.6;
     overflow-wrap: normal;
     word-break: normal;
   }
 
-  .partnership-card p {
+  .work-card p {
     font-size: 13px;
-    line-height: 1.9;
-    overflow-wrap: anywhere;
   }
 
-  .partnership-tag {
-    max-width: 100%;
-    margin-top: 10px;
-    font-size: 10px;
-    white-space: normal;
+  .work-tag {
+    margin-top: 8px;
   }
 
   .sns-grid,
   .chart-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0,1fr);
+    gap: 17px;
   }
 
   .sns-card {
     min-height: 0;
   }
 
+  .chart-card {
+    padding: 22px 18px;
+  }
+
   .chart-box {
-    height: 240px;
+    height: 300px;
   }
 
   .timeline::before {
-    left: 10px;
     top: 10px;
+    left: 10px;
   }
 
   .timeline-entry {
@@ -1085,6 +1070,10 @@ footer {
     padding: 28px 22px;
   }
 
+  .contact-panel h2 br {
+    display: none;
+  }
+
   .contact-actions {
     flex-direction: column;
   }
@@ -1094,7 +1083,8 @@ footer {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* ====== ACCESSIBILITY ====== */
+@media (prefers-reduced-motion:reduce) {
   html {
     scroll-behavior: auto;
   }
@@ -1106,24 +1096,12 @@ footer {
     transition-duration: .01ms !important;
   }
 }
-
-   
-/* スマホのグラフを見やすくする */
-@media (max-width: 640px) {
-  .chart-box {
-    height: 300px;
-  }
-
-  .chart-card {
-    padding: 22px 18px;
-  }
-}
-
 </style>
 </head>
 
 <body id="top">
 
+<!-- ====== HEADER ====== -->
 <header class="topbar">
   <div class="container topbar-inner">
     <button
@@ -1135,15 +1113,21 @@ footer {
       aria-controls="menuPanel"
     >☰</button>
 
-    <a class="site-logo" href="#top">ちゃみねむ</a>
+    <a class="site-logo" href="#top">
+      ちゃみねむ
+    </a>
 
-    <span class="topbar-note">
-      STREAMER PORTFOLIO
-    </span>
+    <a class="header-contact" href="#contact">
+      お仕事のご相談 ↗
+    </a>
   </div>
 </header>
 
-<div class="menu-overlay" id="menuOverlay"></div>
+<div
+  class="menu-overlay"
+  id="menuOverlay"
+  aria-hidden="true"
+></div>
 
 <aside
   class="menu-panel"
@@ -1162,32 +1146,31 @@ footer {
     >×</button>
   </div>
 
-  <nav class="menu-links" aria-label="ページ内メニュー">
+  <nav
+    class="menu-links"
+    aria-label="ページ内メニュー"
+  >
     <a href="#top">HOME｜トップ</a>
     <a href="#about">ABOUT｜自己紹介</a>
-    <a href="#why">WHY CHAMINEMU｜活動の魅力</a>
-    <a href="#audience">AUDIENCE｜活動データ</a>
-    <a href="#partnership">PARTNERSHIP｜提携について</a>
-    <a href="#sns">SNS｜公式アカウント</a>
+    <a href="#work">WORK｜お仕事のご依頼</a>
     <a href="#company-results">WORKS｜企業実績</a>
     <a href="#tournament-results">EVENTS｜大会実績</a>
+    <a href="#audience">DATA｜活動データ</a>
     <a href="#stream">ANALYTICS｜配信グラフ</a>
-    <a href="#twitch-results">TWITCH｜配信実績</a>
-    <a href="#youtube-results">YOUTUBE｜チャンネル実績</a>
+    <a href="#sns">SNS｜公式アカウント</a>
     <a href="#contact">CONTACT｜お問い合わせ</a>
-    <a href="#official-links">LINKS｜公式リンク</a>
   </nav>
 </aside>
 
 <main>
 
-<!-- HERO -->
+<!-- ====== HERO ====== -->
 <section class="hero">
   <div class="container hero-grid">
 
     <div class="hero-copy">
       <span class="eyebrow">
-        VALORANT STREAMER / BRAND PARTNERSHIP
+        VALORANT STREAMER / CREATOR
       </span>
 
       <h1>ちゃみねむ</h1>
@@ -1201,13 +1184,17 @@ footer {
         Twitchを中心にVALORANTの配信活動を展開。
         視聴者とのコミュニケーションを大切にしながら、
         ゲームの魅力を発信しています。
-        長期スポンサー・ブランドアンバサダーをはじめ、
-        継続的なパートナーシップのご相談を歓迎しています。
+        製品提供、スポンサー、案件配信、PR、
+        イベント・大会出演など、
+        幅広いお仕事のご相談を受け付けています。
       </p>
 
       <div class="hero-actions">
-        <a class="button button-primary" href="#contact">
-          パートナーシップのご相談 ↗
+        <a
+          class="button button-primary"
+          href="#contact"
+        >
+          お仕事のご依頼・ご相談 ↗
         </a>
 
         <a
@@ -1217,14 +1204,21 @@ footer {
           活動実績を見る ↓
         </a>
       </div>
+
+      <div class="hero-work-tags">
+        <span>製品提供</span>
+        <span>スポンサー</span>
+        <span>案件配信・PR</span>
+        <span>イベント・大会</span>
+      </div>
     </div>
 
     <div class="hero-art">
       <img
-        src="./chaminemu.png"
-        alt="ちゃみねむのキャラクターイラスト"
         class="hero-illustration"
         id="heroIllustration"
+        src="./chaminemu.png"
+        alt="ちゃみねむのキャラクターイラスト"
         fetchpriority="high"
       >
 
@@ -1237,118 +1231,34 @@ footer {
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- ====== QUICK STATS ====== -->
+<div class="quick-stats" aria-label="活動データの概要">
   <div class="container">
-    <div class="section-heading">
-      <span class="kicker">01 / ABOUT</span>
-      <h2>ABOUT ME｜自己紹介</h2>
-    </div>
+    <div class="quick-stats-grid">
 
-    <div class="card about-card">
-      <div>
-        <p>
-          はじめまして！Twitchを中心に、
-          VALORANTの配信活動をしている
-          「ちゃみねむ」です。
-        </p>
-
-        <p>
-          日々の配信を通して、視聴者の皆さんと
-          一緒に楽しめる時間を大切にしながら
-          活動しています。
-        </p>
-
-        <p>
-          企業案件・製品提供・PR配信・
-          コラボレーションに加え、
-          長期スポンサーやブランドアンバサダーとしての
-          継続的な取り組みについても
-          ご相談を受け付けています。
-        </p>
-      </div>
-
-      <div class="about-tag">
-        VALORANT × TWITCH
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHAMINEMU -->
-<section class="section" id="why">
-  <div class="container">
-    <div class="section-heading">
-      <span class="kicker">02 / WHY CHAMINEMU</span>
-      <h2>パートナーとしての魅力</h2>
-      <p>
-        配信活動の特徴と、ブランドとの継続的な
-        取り組みに向けた考え方をご紹介します。
-      </p>
-    </div>
-
-    <div class="feature-grid">
-      <article class="card feature-card">
-        <div class="feature-icon">♡</div>
-        <h3>コミュニティとの交流</h3>
-        <p>
-          視聴者とのコミュニケーションを
-          大切にした配信スタイル。
-        </p>
-      </article>
-
-      <article class="card feature-card">
-        <div class="feature-icon">◇</div>
-        <h3>ゲーミング領域</h3>
-        <p>
-          VALORANTを中心に、
-          ゲームの楽しさを継続的に発信。
-        </p>
-      </article>
-
-      <article class="card feature-card">
-        <div class="feature-icon">↗</div>
-        <h3>データの可視化</h3>
-        <p>
-          配信の視聴データや活動実績を
-          確認できるポートフォリオ。
-        </p>
-      </article>
-
-      <article class="card feature-card">
-        <div class="feature-icon">∞</div>
-        <h3>長期的な関係づくり</h3>
-        <p>
-          単発の紹介だけでなく、
-          継続的なブランド発信を目指します。
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- AUDIENCE -->
-<section class="section" id="audience">
-  <div class="container">
-    <div class="section-heading">
-      <span class="kicker">03 / AUDIENCE & REACH</span>
-      <h2>活動データ</h2>
-      <p>
-        企業担当者の方が活動規模を確認しやすいよう、
-        主要な指標をまとめています。
-      </p>
-    </div>
-
-    <div class="metrics-grid">
       <div class="metric-card">
         <div class="metric-label">
           Twitch フォロワー
         </div>
-        <div class="metric-value" id="twitchFollowers">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="twitchFollowers"
+        >—</div>
         <div class="metric-note">
-          APIから自動取得
+          自動取得
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">
+          週間平均視聴者数
+        </div>
+        <div
+          class="metric-value"
+          data-metric="weeklyAverage"
+        >—</div>
+        <div class="metric-note">
+          配信データから集計
         </div>
       </div>
 
@@ -1368,193 +1278,250 @@ footer {
         <div class="metric-label">
           YouTube 登録者
         </div>
-        <div class="metric-value" id="youtubeSubscribers">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="youtubeSubscribers"
+        >—</div>
         <div class="metric-note">
-          APIから自動取得
+          自動取得
         </div>
       </div>
 
-      <div class="metric-card">
-        <div class="metric-label">
-          週間平均視聴者数
-        </div>
-        <div class="metric-value" id="weeklyAverage">
-          —
-        </div>
-        <div class="metric-note" id="weeklyAverageNote">
-          データ取得中
-        </div>
-      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== ABOUT ====== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">01 / ABOUT</span>
+      <h2>ABOUT ME｜自己紹介</h2>
     </div>
 
-    <p class="data-note">
-      ※ Twitch・YouTubeの数値は連携APIから取得。
-      Xのフォロワー数は手動更新のため、
-      現在値と異なる場合があります。
-      <span id="lastUpdated"></span>
-    </p>
+    <div class="card about-card">
+      <div>
+        <p>
+          はじめまして！Twitchを中心に、
+          VALORANTの配信活動をしている
+          「ちゃみねむ」です。
+        </p>
+
+        <p>
+          日々の配信を通して、
+          視聴者の皆さんと一緒に楽しめる時間を
+          大切にしながら活動しています。
+        </p>
+
+        <p>
+          ゲーミングデバイスの製品提供やレビュー、
+          スポンサー、PR配信、SNSでの発信、
+          イベント参加など、
+          さまざまな形でのコラボレーションを
+          歓迎しています。
+        </p>
+      </div>
+
+      <div class="about-tag">
+        VALORANT × TWITCH
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PARTNERSHIP -->
-<section class="section" id="partnership">
+<!-- ====== WHY ====== -->
+<section class="section" id="why">
   <div class="container">
     <div class="section-heading">
-      <span class="kicker">04 / PARTNERSHIP</span>
-      <h2>ブランドとのパートナーシップ</h2>
+      <span class="kicker">
+        02 / WHY CHAMINEMU
+      </span>
+      <h2>活動の特徴</h2>
       <p>
-        長期的なスポンサーシップを中心に、
-        ブランドの目的に合わせた取り組みを
-        ご相談いただけます。
+        配信活動の特徴と、
+        お仕事を通じて大切にしたいことをご紹介します。
       </p>
     </div>
 
-    <div class="partnership-grid">
+    <div class="feature-grid">
 
-      <article class="card partnership-card">
-        <span class="partnership-number">
-          PARTNERSHIP / 01
-        </span>
-
-        <h3>ブランドアンバサダー</h3>
-
+      <article class="card feature-card">
+        <div class="feature-icon">♡</div>
+        <h3>視聴者との交流</h3>
         <p>
-          製品の継続使用、配信内での自然な紹介、
-          SNSでの発信などを組み合わせた
-          長期的なブランド連携。
+          コミュニティとの会話や
+          一緒に楽しむ時間を大切にしています。
         </p>
+      </article>
 
-        <span class="partnership-tag">
-          LONG-TERM COLLABORATION
+      <article class="card feature-card">
+        <div class="feature-icon">◇</div>
+        <h3>ゲームへの親和性</h3>
+        <p>
+          VALORANTを中心に、
+          ゲーミング領域の魅力を発信しています。
+        </p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">↗</div>
+        <h3>活動データの公開</h3>
+        <p>
+          フォロワー数や視聴データなどを
+          分かりやすく掲載しています。
+        </p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">∞</div>
+        <h3>柔軟な企画対応</h3>
+        <p>
+          単発案件から継続的なお取り組みまで、
+          内容に合わせてご相談いただけます。
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== WORK ====== -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">
+        03 / WORK WITH ME
+      </span>
+      <h2>お仕事・ご依頼について</h2>
+      <p>
+        ゲーム・配信・SNSを通じたさまざまなお仕事の
+        ご相談を受け付けています。
+        単発・継続を問わず、お気軽にご連絡ください。
+      </p>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 01
+        </span>
+        <h3>製品提供・レビュー</h3>
+        <p>
+          ゲーミングデバイスや関連製品のご提供、
+          実際に使用した感想の発信、
+          製品紹介などのご相談。
+        </p>
+        <span class="work-tag">
+          PRODUCT / REVIEW
         </span>
       </article>
 
-      <article class="card partnership-card">
-        <span class="partnership-number">
-          PARTNERSHIP / 02
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 02
         </span>
-
-        <h3>継続スポンサーシップ</h3>
-
+        <h3>案件配信・ゲームPR</h3>
         <p>
-          配信やSNSなど複数の接点を通じて、
-          ブランド認知の向上を目指す
-          継続的な取り組み。
+          TwitchでのPR配信、
+          ゲームタイトルの紹介、
+          サービス体験企画などのご相談。
         </p>
+        <span class="work-tag">
+          SPONSORED STREAM
+        </span>
+      </article>
 
-        <span class="partnership-tag">
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 03
+        </span>
+        <h3>スポンサー・アンバサダー</h3>
+        <p>
+          単発のスポンサー企画から、
+          長期的なブランドアンバサダーまで、
+          目的に合わせた取り組み。
+        </p>
+        <span class="work-tag">
           SPONSORSHIP
         </span>
       </article>
 
-      <article class="card partnership-card">
-        <span class="partnership-number">
-          PARTNERSHIP / 03
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 04
         </span>
-
-        <h3>イベント・キャンペーン連携</h3>
-
+        <h3>SNS投稿・キャンペーンPR</h3>
         <p>
-          製品発表、イベントへの参加、
-          キャンペーン告知などの
-          共同企画についてのご相談。
+          XやYouTubeなどでの情報発信、
+          新製品・キャンペーンの告知、
+          SNSを活用した企画のご相談。
         </p>
+        <span class="work-tag">
+          SOCIAL MEDIA / PR
+        </span>
+      </article>
 
-        <span class="partnership-tag">
-          EVENT & CAMPAIGN
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 05
+        </span>
+        <h3>イベント・大会出演</h3>
+        <p>
+          ゲームイベントへの出演、
+          展示会へのご招待、
+          カスタム大会への参加など。
+        </p>
+        <span class="work-tag">
+          EVENT / TOURNAMENT
+        </span>
+      </article>
+
+      <article class="card work-card">
+        <span class="work-number">
+          WORK / 06
+        </span>
+        <h3>その他のご依頼</h3>
+        <p>
+          コラボ配信、共同企画など、
+          上記以外のお仕事についても
+          柔軟にご相談を受け付けています。
+        </p>
+        <span class="work-tag">
+          OTHER COLLABORATIONS
         </span>
       </article>
 
     </div>
 
     <p class="data-note">
-      ※ 上記はご相談可能な提携例です。
-      対応範囲・実施期間・条件は
-      案件ごとにご相談ください。
+      ※ 上記はご相談可能なお仕事の例です。
+      実施内容・条件・スケジュールについては
+      個別にご相談ください。
     </p>
 
     <div style="margin-top:24px">
-      <a class="button button-primary" href="#contact">
-        提携について問い合わせる ↗
+      <a
+        class="button button-primary"
+        href="#contact"
+      >
+        お仕事について問い合わせる ↗
       </a>
     </div>
   </div>
 </section>
 
-<!-- SNS -->
-<section class="section" id="sns">
-  <div class="container">
-    <div class="section-heading">
-      <span class="kicker">05 / SOCIAL MEDIA</span>
-      <h2>SNS｜公式アカウント</h2>
-      <p>
-        配信・投稿など、各プラットフォームでの
-        活動をご覧いただけます。
-      </p>
-    </div>
-
-    <div class="sns-grid">
-      <a
-        class="card sns-card"
-        href="https://www.twitch.tv/chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="sns-name">Twitch</div>
-        <div class="sns-handle">
-          chaminemu / ライブ配信
-        </div>
-        <div class="sns-arrow">
-          チャンネルを見る ↗
-        </div>
-      </a>
-
-      <a
-        class="card sns-card"
-        href="https://x.com/chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="sns-name">X</div>
-        <div class="sns-handle">
-          @chaminemu / 活動情報
-        </div>
-        <div class="sns-arrow">
-          プロフィールを見る ↗
-        </div>
-      </a>
-
-      <a
-        class="card sns-card"
-        href="https://www.youtube.com/@chaminemu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="sns-name">YouTube</div>
-        <div class="sns-handle">
-          @chaminemu / 動画
-        </div>
-        <div class="sns-arrow">
-          チャンネルを見る ↗
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- COMPANY RESULTS -->
+<!-- ====== COMPANY RESULTS ====== -->
 <section class="section" id="company-results">
   <div class="container">
     <div class="section-heading">
       <span class="kicker">
-        06 / BRAND COLLABORATIONS
+        04 / BRAND COLLABORATIONS
       </span>
-      <h2>企業との実績・活動歴</h2>
+      <h2>企業とのお仕事・活動実績</h2>
       <p>
-        これまでの企業案件・製品提供・活動実績を
-        新しい順に掲載しています。
+        これまでの企業案件・製品提供・
+        活動実績を新しい順に掲載しています。
       </p>
     </div>
 
@@ -1568,7 +1535,9 @@ footer {
 
         <article class="card timeline-content">
           <h3>WALLHACK様</h3>
-          <p>製品提供・アフィリエイト</p>
+          <p>
+            製品提供・アフィリエイト
+          </p>
           <span class="timeline-type">
             PRODUCT / AFFILIATE
           </span>
@@ -1600,7 +1569,9 @@ footer {
 
         <article class="card timeline-content">
           <h3>Gamee様</h3>
-          <p>企業案件</p>
+          <p>
+            企業案件
+          </p>
           <span class="timeline-type">
             BRAND COLLABORATION
           </span>
@@ -1628,12 +1599,12 @@ footer {
   </div>
 </section>
 
-<!-- TOURNAMENT -->
+<!-- ====== TOURNAMENT ====== -->
 <section class="section" id="tournament-results">
   <div class="container">
     <div class="section-heading">
       <span class="kicker">
-        07 / EVENTS & TOURNAMENTS
+        05 / EVENTS & TOURNAMENTS
       </span>
       <h2>大会参加実績</h2>
     </div>
@@ -1648,7 +1619,8 @@ footer {
         <article class="card timeline-content">
           <h3>PcuteCustom5</h3>
           <p>
-            imi様主催の大会にリーダー枠で出場。
+            imi様主催の大会に
+            リーダー枠で出場。
           </p>
           <span class="timeline-type">
             TOURNAMENT / TEAM LEADER
@@ -1659,21 +1631,111 @@ footer {
   </div>
 </section>
 
-<!-- ANALYTICS -->
+<!-- ====== AUDIENCE ====== -->
+<section class="section" id="audience">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">
+        06 / AUDIENCE & REACH
+      </span>
+      <h2>活動データ</h2>
+      <p>
+        活動規模を確認しやすいよう、
+        Twitch・YouTube・Xなどの
+        主要な指標をまとめています。
+      </p>
+    </div>
+
+    <div class="metrics-grid">
+
+      <div class="metric-card">
+        <div class="metric-label">
+          Twitch フォロワー
+        </div>
+        <div
+          class="metric-value"
+          data-metric="twitchFollowers"
+        >—</div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">
+          X フォロワー
+        </div>
+        <div class="metric-value">
+          13,221
+        </div>
+        <div class="metric-note">
+          手動更新の参考値
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">
+          YouTube 登録者
+        </div>
+        <div
+          class="metric-value"
+          data-metric="youtubeSubscribers"
+        >—</div>
+        <div class="metric-note">
+          APIから自動取得
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">
+          週間平均視聴者数
+        </div>
+        <div
+          class="metric-value"
+          data-metric="weeklyAverage"
+        >—</div>
+        <div
+          class="metric-note"
+          id="weeklyAverageNote"
+        >
+          データ取得中
+        </div>
+      </div>
+
+    </div>
+
+    <p class="data-note">
+      ※ Xフォロワー数は手動更新の参考値です。
+      Twitch・YouTubeのデータはAPIから取得します。
+    </p>
+
+    <p
+      class="data-note"
+      id="apiStatus"
+      role="status"
+      aria-live="polite"
+    >
+      データを取得しています…
+    </p>
+  </div>
+</section>
+
+<!-- ====== CHARTS ====== -->
 <section class="section" id="stream">
   <div class="container">
     <div class="section-heading">
       <span class="kicker">
-        08 / STREAM ANALYTICS
+        07 / STREAM ANALYTICS
       </span>
       <h2>配信データ・視聴者推移</h2>
       <p>
-        配信中の視聴者数と、
+        Twitch配信中の視聴者数と、
         週間平均視聴者数の推移を掲載しています。
       </p>
     </div>
 
     <div class="chart-grid">
+
       <article class="card chart-card">
         <h3>Twitch 視聴者数の推移</h3>
         <p class="chart-description">
@@ -1683,6 +1745,7 @@ footer {
         <div class="chart-box">
           <canvas
             id="viewersChart"
+            role="img"
             aria-label="Twitch視聴者数の推移"
           ></canvas>
         </div>
@@ -1690,6 +1753,7 @@ footer {
         <p
           class="chart-fallback"
           id="viewersFallback"
+          hidden
         >
           表示できるデータがありません。
         </p>
@@ -1704,6 +1768,7 @@ footer {
         <div class="chart-box">
           <canvas
             id="weeklyChart"
+            role="img"
             aria-label="週間平均視聴者数の推移"
           ></canvas>
         </div>
@@ -1711,38 +1776,44 @@ footer {
         <p
           class="chart-fallback"
           id="weeklyFallback"
+          hidden
         >
           表示できるデータがありません。
         </p>
       </article>
+
     </div>
 
     <p class="data-note">
-      ※ グラフはCloudflare Workerの記録データを使用。
-      配信がない時間帯や集計途中の週は、
-      データが少ない場合があります。
+      ※ 記録されたデータを表示しています。
+      計測間隔が大きく空いた部分は、
+      視聴者数の変化を誤解しないよう
+      線を区切って表示します。
+      記録されている0人のデータは変更しません。
     </p>
   </div>
 </section>
 
-<!-- TWITCH -->
+<!-- ====== TWITCH RESULTS ====== -->
 <section class="section" id="twitch-results">
   <div class="container">
     <div class="section-heading">
       <span class="kicker">
-        09 / TWITCH PERFORMANCE
+        08 / TWITCH PERFORMANCE
       </span>
       <h2>Twitch｜配信実績</h2>
     </div>
 
     <div class="stats-grid">
+
       <div class="metric-card">
         <div class="metric-label">
           最大同時視聴者数
         </div>
-        <div class="metric-value" id="peakViewers">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="peakViewers"
+        >—</div>
         <div class="metric-note">
           記録データ内の最大値
         </div>
@@ -1752,9 +1823,10 @@ footer {
         <div class="metric-label">
           週間最大視聴者数
         </div>
-        <div class="metric-value" id="weeklyPeakViewers">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="weeklyPeakViewers"
+        >—</div>
         <div class="metric-note">
           API集計値
         </div>
@@ -1764,9 +1836,10 @@ footer {
         <div class="metric-label">
           配信回数
         </div>
-        <div class="metric-value" id="streamCount">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="streamCount"
+        >—</div>
         <div class="metric-note">
           API集計値
         </div>
@@ -1776,38 +1849,39 @@ footer {
         <div class="metric-label">
           計測時間
         </div>
-        <div class="metric-value" id="measuredHours">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="measuredHours"
+        >—</div>
         <div class="metric-note">
           時間 / API集計値
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- YOUTUBE -->
+<!-- ====== YOUTUBE RESULTS ====== -->
 <section class="section" id="youtube-results">
   <div class="container">
     <div class="section-heading">
       <span class="kicker">
-        10 / YOUTUBE PERFORMANCE
+        09 / YOUTUBE PERFORMANCE
       </span>
       <h2>YouTube｜チャンネル実績</h2>
     </div>
 
     <div class="stats-grid">
+
       <div class="metric-card">
         <div class="metric-label">
           チャンネル登録者数
         </div>
         <div
           class="metric-value"
-          id="youtubeSubscribersDetail"
-        >
-          —
-        </div>
+          data-metric="youtubeSubscribers"
+        >—</div>
         <div class="metric-note">
           APIから自動取得
         </div>
@@ -1817,9 +1891,10 @@ footer {
         <div class="metric-label">
           総再生回数
         </div>
-        <div class="metric-value" id="youtubeViews">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="youtubeViews"
+        >—</div>
         <div class="metric-note">
           APIから自動取得
         </div>
@@ -1829,9 +1904,10 @@ footer {
         <div class="metric-label">
           動画数
         </div>
-        <div class="metric-value" id="youtubeVideos">
-          —
-        </div>
+        <div
+          class="metric-value"
+          data-metric="youtubeVideos"
+        >—</div>
         <div class="metric-note">
           APIから自動取得
         </div>
@@ -1841,6 +1917,7 @@ footer {
         <div class="metric-label">
           公式チャンネル
         </div>
+
         <div
           class="metric-value"
           style="font-size:18px"
@@ -1853,36 +1930,110 @@ footer {
             YouTube ↗
           </a>
         </div>
+
         <div class="metric-note">
           動画・活動情報
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ====== SNS ====== -->
+<section class="section" id="sns">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">
+        10 / SOCIAL MEDIA
+      </span>
+      <h2>SNS｜公式アカウント</h2>
+    </div>
+
+    <div class="sns-grid">
+
+      <a
+        class="card sns-card"
+        href="https://www.twitch.tv/chaminemu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="sns-name">
+          Twitch
+        </div>
+        <div class="sns-handle">
+          chaminemu / ライブ配信
+        </div>
+        <div class="sns-arrow">
+          チャンネルを見る ↗
+        </div>
+      </a>
+
+      <a
+        class="card sns-card"
+        href="https://x.com/chaminemu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="sns-name">
+          X
+        </div>
+        <div class="sns-handle">
+          @chaminemu / 活動情報
+        </div>
+        <div class="sns-arrow">
+          プロフィールを見る ↗
+        </div>
+      </a>
+
+      <a
+        class="card sns-card"
+        href="https://www.youtube.com/@chaminemu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="sns-name">
+          YouTube
+        </div>
+        <div class="sns-handle">
+          @chaminemu / 動画
+        </div>
+        <div class="sns-arrow">
+          チャンネルを見る ↗
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
 <section class="section" id="contact">
   <div class="container">
     <div class="contact-panel">
+
       <span class="kicker">
         11 / LET'S WORK TOGETHER
       </span>
 
       <h2>
-        長期的なパートナーシップの<br>
-        ご相談をお待ちしています。
+        お仕事のご依頼・ご相談を<br>
+        お待ちしています。
       </h2>
 
       <p>
-        長期スポンサー契約、ブランドアンバサダー、
-        継続的なPR施策、製品提供、
-        イベント・大会へのご招待など、
-        お仕事のご相談はメールまたはXのDMより
-        お気軽にご連絡ください。
+        製品提供・レビュー、スポンサー、
+        Twitchでの案件配信、
+        ゲームやサービスのPR、
+        SNSでの発信、
+        イベント・大会出演など、
+        幅広いお仕事のご相談を歓迎しています。
+        上記以外のご提案も、
+        お気軽にお問い合わせください。
       </p>
 
       <div class="contact-actions">
+
         <a
           class="button button-primary"
           href="mailto:chami2m2@gmail.com?subject=%E3%80%90%E3%81%8A%E4%BB%95%E4%BA%8B%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87%E3%80%91"
@@ -1898,6 +2049,7 @@ footer {
         >
           XのDMで相談する ↗
         </a>
+
       </div>
 
       <a
@@ -1906,11 +2058,12 @@ footer {
       >
         chami2m2@gmail.com
       </a>
+
     </div>
   </div>
 </section>
 
-<!-- LINKS -->
+<!-- ====== OFFICIAL LINKS ====== -->
 <section class="section" id="official-links">
   <div class="container">
     <div class="section-heading">
@@ -1921,6 +2074,7 @@ footer {
     </div>
 
     <div class="official-links">
+
       <a
         class="official-link"
         href="https://www.twitch.tv/chaminemu"
@@ -1955,12 +2109,14 @@ footer {
         target="_blank"
         rel="noopener noreferrer"
       >LitLink ↗</a>
+
     </div>
   </div>
 </section>
 
 </main>
 
+<!-- ====== FOOTER ====== -->
 <footer>
   <div class="container">
     <p>
@@ -1968,7 +2124,7 @@ footer {
       CHAMINEMU. All rights reserved.
     </p>
     <p>
-      STREAMER & BRAND PARTNERSHIP PORTFOLIO
+      STREAMER PORTFOLIO / WORK INQUIRIES
     </p>
   </div>
 </footer>
@@ -1976,28 +2132,26 @@ footer {
 <script>
 "use strict";
 
-/* =========================
-   API SETTINGS
-========================= */
+/* ====== SETTINGS ====== */
 const API_BASE =
   "https://chaminemu-stats-worker.chami2m2.workers.dev";
 
 const REFRESH_INTERVAL = 60000;
 
+/* ====== UTILITIES ====== */
 const $ = (id) => document.getElementById(id);
 
-const numberFormat = new Intl.NumberFormat("ja-JP", {
-  maximumFractionDigits: 0
-});
+const integerFormatter = new Intl.NumberFormat(
+  "ja-JP",
+  { maximumFractionDigits: 0 }
+);
 
-const decimalFormat = new Intl.NumberFormat("ja-JP", {
-  maximumFractionDigits: 1
-});
+const decimalFormatter = new Intl.NumberFormat(
+  "ja-JP",
+  { maximumFractionDigits: 1 }
+);
 
-/* =========================
-   HELPERS
-========================= */
-function formatNumber(value, digits = 0) {
+function formatNumber(value, decimal = false) {
   if (
     value === null ||
     value === undefined ||
@@ -2012,9 +2166,9 @@ function formatNumber(value, digits = 0) {
     return "—";
   }
 
-  return digits === 0
-    ? numberFormat.format(number)
-    : decimalFormat.format(number);
+  return decimal
+    ? decimalFormatter.format(number)
+    : integerFormatter.format(number);
 }
 
 function setText(id, value) {
@@ -2023,6 +2177,14 @@ function setText(id, value) {
   if (element) {
     element.textContent = value;
   }
+}
+
+function setMetric(name, value) {
+  document
+    .querySelectorAll(`[data-metric="${name}"]`)
+    .forEach((element) => {
+      element.textContent = value;
+    });
 }
 
 function formatDate(value) {
@@ -2058,18 +2220,31 @@ function formatDateTime(value) {
   });
 }
 
-/* =========================
-   MENU
-========================= */
+function normalizeArray(data, keys) {
+  if (Array.isArray(data)) {
+    return data;
+  }
+
+  if (data && typeof data === "object") {
+    for (const key of keys) {
+      if (Array.isArray(data[key])) {
+        return data[key];
+      }
+    }
+  }
+
+  return [];
+}
+
+/* ====== MENU ====== */
 const menuButton = $("menuButton");
+const menuClose = $("menuClose");
 const menuPanel = $("menuPanel");
 const menuOverlay = $("menuOverlay");
-const menuClose = $("menuClose");
 
 function openMenu() {
   menuPanel.inert = false;
   menuPanel.setAttribute("aria-hidden", "false");
-
   menuPanel.classList.add("is-open");
   menuOverlay.classList.add("is-open");
 
@@ -2086,7 +2261,6 @@ function closeMenu() {
 
   menuPanel.classList.remove("is-open");
   menuOverlay.classList.remove("is-open");
-
   menuPanel.setAttribute("aria-hidden", "true");
   menuPanel.inert = true;
 
@@ -2122,7 +2296,9 @@ document.addEventListener("keydown", (event) => {
     )
   ];
 
-  if (!focusables.length) return;
+  if (!focusables.length) {
+    return;
+  }
 
   const first = focusables[0];
   const last = focusables[focusables.length - 1];
@@ -2142,48 +2318,35 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* =========================
-   IMAGE FALLBACK
-========================= */
-$("heroIllustration").addEventListener("error", () => {
-  $("heroIllustration").style.display = "none";
-  console.warn("chaminemu.png を読み込めませんでした。");
-});
+/* ====== IMAGE ====== */
+/* 画像はHTMLからそのまま読み込みます。
+   AIによる画像処理・送信は行いません。 */
+$("heroIllustration").addEventListener(
+  "error",
+  () => {
+    console.warn(
+      "chaminemu.png が見つかりません。"
+    );
+  }
+);
 
-/* =========================
-   FETCH
-========================= */
+/* ====== API ====== */
 async function fetchJSON(path) {
-  const response = await fetch(API_BASE + path, {
-    cache: "no-store"
-  });
+  const response = await fetch(
+    API_BASE + path,
+    { cache: "no-store" }
+  );
 
   if (!response.ok) {
-    throw new Error(path + ": HTTP " + response.status);
+    throw new Error(
+      `${path}: HTTP ${response.status}`
+    );
   }
 
   return response.json();
 }
 
-function normalizeArray(data, keys) {
-  if (Array.isArray(data)) {
-    return data;
-  }
-
-  if (data && typeof data === "object") {
-    for (const key of keys) {
-      if (Array.isArray(data[key])) {
-        return data[key];
-      }
-    }
-  }
-
-  return [];
-}
-
-/* =========================
-   CHARTS
-========================= */
+/* ====== CHARTS ====== */
 let viewersChart = null;
 let weeklyChart = null;
 
@@ -2208,7 +2371,16 @@ function chartOptions() {
         titleColor: "#F5F3FA",
         bodyColor: "#C6C3E5",
         borderColor: "rgba(166,160,213,.5)",
-        borderWidth: 1
+        borderWidth: 1,
+
+        callbacks: {
+          label(context) {
+            return (
+              "視聴者数: " +
+              formatNumber(context.parsed.y)
+            );
+          }
+        }
       }
     },
 
@@ -2256,12 +2428,15 @@ function createOrUpdateChart(
 
   const canvas = $(canvasId);
 
-  if (!canvas) return currentChart;
+  if (!canvas) {
+    return currentChart;
+  }
 
   if (currentChart) {
     currentChart.data.labels = labels;
     currentChart.data.datasets[0].data = values;
     currentChart.update("none");
+
     return currentChart;
   }
 
@@ -2274,10 +2449,10 @@ function createOrUpdateChart(
       datasets: [{
         data: values,
         borderColor: "#A6A0D5",
-        backgroundColor: "rgba(166,160,213,.18)",
+        backgroundColor: "rgba(166,160,213,.16)",
         borderWidth: 2,
         fill: true,
-        tension: .25,
+        tension: .22,
         pointRadius: values.length > 35 ? 0 : 2,
         pointHoverRadius: 5,
         pointBackgroundColor: "#C6C3E5",
@@ -2289,9 +2464,59 @@ function createOrUpdateChart(
   });
 }
 
-/* =========================
-   VIEWER HISTORY
-========================= */
+/* ====== VIEWER GAPS ====== */
+/*
+  前後の記録間隔が大きい場合、
+  中間にnullを入れてグラフの線を区切ります。
+
+  実際に記録された0人は0人のまま残します。
+  「0人 = 配信終了」とは決めつけません。
+*/
+function prepareViewerSeries(rows) {
+  const intervals = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const difference =
+      rows[i].timestamp - rows[i - 1].timestamp;
+
+    if (difference > 0) {
+      intervals.push(difference);
+    }
+  }
+
+  intervals.sort((a, b) => a - b);
+
+  const medianInterval = intervals.length
+    ? intervals[Math.floor(intervals.length / 2)]
+    : 10 * 60 * 1000;
+
+  const gapThreshold = Math.max(
+    30 * 60 * 1000,
+    Math.min(medianInterval * 3,90 * 60 * 1000)
+  );
+
+  const labels = [];
+  const values = [];
+
+  rows.forEach((row, index) => {
+    if (index > 0) {
+      const gap =
+        row.timestamp - rows[index - 1].timestamp;
+
+      if (gap > gapThreshold) {
+        labels.push("");
+        values.push(null);
+      }
+    }
+
+    labels.push(formatDateTime(row.sampled_at));
+    values.push(row.viewer_count);
+  });
+
+  return { labels, values };
+}
+
+/* ====== VIEWERS ====== */
 async function loadViewers() {
   const data = await fetchJSON("/api/viewers");
 
@@ -2301,53 +2526,78 @@ async function loadViewers() {
     "data",
     "history"
   ])
-    .filter((item) =>
-      item &&
-      item.sampled_at &&
-      item.viewer_count !== null &&
-      item.viewer_count !== undefined &&
-      item.viewer_count !== "" &&
-      Number.isFinite(Number(item.viewer_count))
-    )
+    .map((item) => {
+      const timestamp = new Date(
+        item?.sampled_at
+      ).getTime();
+
+      const count = Number(
+        item?.viewer_count
+      );
+
+      if (
+        !item ||
+        item.viewer_count === null ||
+        item.viewer_count === undefined ||
+        item.viewer_count === "" ||
+        !Number.isFinite(timestamp) ||
+        !Number.isFinite(count)
+      ) {
+        return null;
+      }
+
+      return {
+        sampled_at: item.sampled_at,
+        viewer_count: count,
+        timestamp
+      };
+    })
+    .filter(Boolean)
     .sort((a, b) =>
-      new Date(a.sampled_at) -
-      new Date(b.sampled_at)
+      a.timestamp - b.timestamp
     );
 
-  const labels = rows.map((item) =>
-    formatDateTime(item.sampled_at)
-  );
-
-  const values = rows.map((item) =>
-    Number(item.viewer_count)
-  );
+  const series = prepareViewerSeries(rows);
 
   viewersChart = createOrUpdateChart(
     "viewersChart",
     viewersChart,
-    labels,
-    values
+    series.labels,
+    series.values
   );
 
-  $("viewersFallback").style.display =
-    rows.length ? "none" : "block";
+  const fallback = $("viewersFallback");
+
+  fallback.hidden = rows.length > 0;
+
+  if (
+    rows.length > 0 &&
+    typeof Chart === "undefined"
+  ) {
+    fallback.textContent =
+      "グラフ表示ライブラリを読み込めませんでした。";
+    fallback.hidden = false;
+  } else {
+    fallback.textContent =
+      "表示できるデータがありません。";
+  }
 }
 
-/* =========================
-   WEEKLY AVERAGE
-========================= */
+/* ====== WEEKLY AVERAGE ====== */
 async function loadWeekly() {
   const data = await fetchJSON("/api/weekly");
 
-  setText(
+  setMetric(
     "weeklyAverage",
-    formatNumber(data.average_viewers, 1)
+    formatNumber(data.average_viewers,true)
   );
 
   const notes = [];
 
   if (data.week_start) {
-    notes.push(formatDate(data.week_start) + "〜");
+    notes.push(
+      formatDate(data.week_start) + "〜"
+    );
   }
 
   if (data.provisional) {
@@ -2359,7 +2609,8 @@ async function loadWeekly() {
     data.measured_minutes !== undefined
   ) {
     notes.push(
-      formatNumber(data.measured_minutes) + "分計測"
+      formatNumber(data.measured_minutes) +
+      "分計測"
     );
   }
 
@@ -2369,11 +2620,11 @@ async function loadWeekly() {
   );
 }
 
-/* =========================
-   WEEKLY HISTORY
-========================= */
+/* ====== WEEKLY HISTORY ====== */
 async function loadWeeklyHistory() {
-  const data = await fetchJSON("/api/weekly-history");
+  const data = await fetchJSON(
+    "/api/weekly-history"
+  );
 
   const rows = normalizeArray(data, [
     "weeks",
@@ -2386,7 +2637,9 @@ async function loadWeeklyHistory() {
       item.average_viewers !== null &&
       item.average_viewers !== undefined &&
       item.average_viewers !== "" &&
-      Number.isFinite(Number(item.average_viewers))
+      Number.isFinite(
+        Number(item.average_viewers)
+      )
     )
     .sort((a, b) =>
       new Date(a.week_start) -
@@ -2409,131 +2662,204 @@ async function loadWeeklyHistory() {
     values
   );
 
-  $("weeklyFallback").style.display =
-    rows.length ? "none" : "block";
+  const fallback = $("weeklyFallback");
+
+  fallback.hidden = rows.length > 0;
+
+  if (
+    rows.length > 0 &&
+    typeof Chart === "undefined"
+  ) {
+    fallback.textContent =
+      "グラフ表示ライブラリを読み込めませんでした。";
+    fallback.hidden = false;
+  } else {
+    fallback.textContent =
+      "表示できるデータがありません。";
+  }
 }
 
-/* =========================
-   TWITCH ACHIEVEMENTS
-========================= */
+/* ====== TWITCH ACHIEVEMENTS ====== */
 async function loadAchievements() {
-  const data = await fetchJSON("/api/achievements");
+  const data = await fetchJSON(
+    "/api/achievements"
+  );
 
-  setText(
+  setMetric(
     "peakViewers",
     formatNumber(data.peak_viewers)
   );
 
-  setText(
+  setMetric(
     "weeklyPeakViewers",
     formatNumber(data.weekly_peak_viewers)
   );
 
-  setText(
+  setMetric(
     "streamCount",
     formatNumber(data.stream_count)
   );
 
-  setText(
+  setMetric(
     "measuredHours",
-    formatNumber(data.measured_hours, 1)
+    formatNumber(data.measured_hours,true)
   );
 }
 
-/* =========================
-   YOUTUBE
-========================= */
+/* ====== YOUTUBE ====== */
 async function loadYouTube() {
-  const data = await fetchJSON("/api/youtube");
-
-  const subscribers = formatNumber(
-    data.subscriber_count
+  const data = await fetchJSON(
+    "/api/youtube"
   );
 
-  setText("youtubeSubscribers", subscribers);
-  setText("youtubeSubscribersDetail", subscribers);
+  setMetric(
+    "youtubeSubscribers",
+    formatNumber(data.subscriber_count)
+  );
 
-  setText(
+  setMetric(
     "youtubeViews",
     formatNumber(data.view_count)
   );
 
-  setText(
+  setMetric(
     "youtubeVideos",
     formatNumber(data.video_count)
   );
 }
 
-/* =========================
-   TWITCH FOLLOWERS
-========================= */
+/* ====== TWITCH FOLLOWERS ====== */
 async function loadTwitchFollowers() {
-  const data = await fetchJSON("/api/twitch-followers");
+  const data = await fetchJSON(
+    "/api/twitch-followers"
+  );
 
-  setText(
+  setMetric(
     "twitchFollowers",
     formatNumber(data.follower_count)
   );
 }
 
-/* =========================
-   AUTO REFRESH
-========================= */
+/* ====== REFRESH ====== */
 let refreshing = false;
 
 async function refreshAll() {
-  if (refreshing) return;
+  if (refreshing) {
+    return;
+  }
 
   refreshing = true;
 
-  try {
-    const results = await Promise.allSettled([
-      loadViewers(),
-      loadWeekly(),
-      loadWeeklyHistory(),
-      loadAchievements(),
-      loadYouTube(),
-      loadTwitchFollowers()
-    ]);
-
-    if (
-      results.some((result) =>
-        result.status === "fulfilled"
-      )
-    ) {
-      const updated = new Date().toLocaleString(
-        "ja-JP",
-        {
-          month: "numeric",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit"
-        }
-      );
-
-      setText(
-        "lastUpdated",
-        " / 最終取得: " + updated
-      );
+  const tasks = [
+    {
+      name: "視聴者推移",
+      run: loadViewers
+    },
+    {
+      name: "週間平均",
+      run: loadWeekly
+    },
+    {
+      name: "週間履歴",
+      run: loadWeeklyHistory
+    },
+    {
+      name: "Twitch実績",
+      run: loadAchievements
+    },
+    {
+      name: "YouTube",
+      run: loadYouTube
+    },
+    {
+      name: "Twitchフォロワー",
+      run: loadTwitchFollowers
     }
+  ];
+
+  try {
+    const results = await Promise.allSettled(
+      tasks.map((task) => task.run())
+    );
+
+    const successful = results.filter(
+      (result) => result.status === "fulfilled"
+    ).length;
+
+    const failed = [];
 
     results.forEach((result, index) => {
       if (result.status === "rejected") {
+        failed.push(tasks[index].name);
+
         console.warn(
-          "データ取得エラー",
-          index,
+          tasks[index].name + " の取得エラー:",
           result.reason
         );
       }
     });
+
+    const now = new Date().toLocaleString(
+      "ja-JP",
+      {
+        month: "numeric",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }
+    );
+
+    if (successful === tasks.length) {
+      setText(
+        "apiStatus",
+        "すべてのAPIを取得しました。最終確認: " +
+        now
+      );
+    } else if (successful > 0) {
+      setText(
+        "apiStatus",
+        "一部のデータを取得できませんでした（" +
+        failed.join("・") +
+        "）。確認日時: " +
+        now
+      );
+    } else {
+      setText(
+        "apiStatus",
+        "データを取得できませんでした。しばらくしてから再読み込みしてください。"
+      );
+    }
+
+    if (
+      results[0].status === "rejected" &&
+      !viewersChart
+    ) {
+      $("viewersFallback").textContent =
+        "視聴者データを取得できませんでした。";
+      $("viewersFallback").hidden = false;
+    }
+
+    if (
+      results[2].status === "rejected" &&
+      !weeklyChart
+    ) {
+      $("weeklyFallback").textContent =
+        "週間データを取得できませんでした。";
+      $("weeklyFallback").hidden = false;
+    }
+
+    if (results[1].status === "rejected") {
+      setText(
+        "weeklyAverageNote",
+        "データを取得できませんでした"
+      );
+    }
   } finally {
     refreshing = false;
   }
 }
 
-/* =========================
-   INITIALIZE
-========================= */
+/* ====== INITIALIZE ====== */
 setText(
   "copyrightYear",
   new Date().getFullYear()
